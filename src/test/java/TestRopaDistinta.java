@@ -3,29 +3,39 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class TestRopaDistinta {
-   private Prenda camisa;
-   private Prenda zapatillas;
+    private Prenda camisa;
+    private Prenda zapatillas;
+   // private Prenda camisa2;
 
     @Before
-    public void init(){
-    camisa = new Prenda("Negro","Parte superior");
-    zapatillas = new Prenda("Negro","Calzado");
+    public void init() throws Exception {
+
+        camisa = new Prenda(Prenda.color.Negro, Prenda.color.Rojo, "Camisa", Prenda.categoriaPrenda.ParteSuperior);
+        zapatillas = new Prenda(Prenda.color.Negro, Prenda.color.Rojo, "Zapatilla", Prenda.categoriaPrenda.Calzado);
+     //   camisa2 = new Prenda(Prenda.color.Negro, Prenda.color.Negro, "Camisa", Prenda.categoriaPrenda.ParteSuperior);
 
     }
-
     @Test
-    public void laCamisaEsDistintaAZapatilla(){
-
-        Assert.assertTrue(camisa.sonDistintoTipo(zapatillas));
-
-}
-    @Test
-    public void noSeAgregaColorSecundarioIgualQuePrimario(){
-        camisa.setColorSecundario("Negro");
-        Assert.assertNull(camisa.getColorSecundario());
-
+    public void testDistintaCategoria(){
+        Assert.assertNotEquals(camisa.getCategoria(),zapatillas.getCategoria());
     }
+    /*
+    @Test
+    public void testMismoColor(){
+        try{
+            Assert.assertEquals(Prenda.color.Negro,camisa2.getColorSecundario());
+        }
+        catch(Exception exception){
+            System.out.print(exception.getMessage());
+        }
+    }
+
+     */
 }
+
+
+
+
 
 
 
