@@ -1,1 +1,9 @@
-# 2019-mi-no-group-10
+Trabajo practico DDS - Grupo 10
+
+Integrantes: 
+  Juan Cruz Dominguez Lay
+  Ignacio Hansen
+  Juan Ignacio Martinez
+  Gabriel Mamani
+  Federico Gonzalez
+  Federico Velasco
