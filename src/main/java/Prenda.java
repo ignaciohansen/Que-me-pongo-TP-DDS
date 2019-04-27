@@ -4,6 +4,7 @@ public class Prenda {
     private Color colorSecundario;
     private String tipoDePrenda;
     private CategoriaPrenda categoria;
+    private String tela;
 
     @Override
     public int hashCode() {
@@ -66,6 +67,14 @@ public class Prenda {
 
     public void setCategoria(CategoriaPrenda categoria) {
         this.categoria = categoria;
+    }
+
+    public void setTela(String tela) {
+        this.tela = tela;
+    }
+
+    public String getTela() {
+        return tela;
     }
 
     public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste}
