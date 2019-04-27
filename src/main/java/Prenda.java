@@ -15,11 +15,13 @@ public class Prenda {
     public boolean equals(Object obj) {
         if (obj instanceof Prenda) {
             Prenda tmpPrenda = (Prenda) obj;
-            return this.tipoDePrenda == tmpPrenda.tipoDePrenda
+            return (this.tipoDePrenda == tmpPrenda.tipoDePrenda
                     && this.colorPrimario == tmpPrenda.colorPrimario
                     && this.colorSecundario == tmpPrenda.colorSecundario
-                    && this.categoria.ordinal() == tmpPrenda.categoria.ordinal();
+                    && this.categoria.ordinal() == tmpPrenda.categoria.ordinal());
         }
+
+        return false;
     }
 
     public Prenda(Color colorPrimario, Color colorSecundario, String tipoDePrenda,CategoriaPrenda categoria) throws Exception {
