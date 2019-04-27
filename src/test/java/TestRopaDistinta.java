@@ -10,8 +10,8 @@ public class TestRopaDistinta {
     @Before
     public void init() throws Exception {
 
-        camisa = new Prenda(Prenda.color.Negro, Prenda.color.Rojo, "Camisa", Prenda.categoriaPrenda.ParteSuperior);
-        zapatillas = new Prenda(Prenda.color.Negro, Prenda.color.Rojo, "Zapatilla", Prenda.categoriaPrenda.Calzado);
+        camisa = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, "Camisa", Prenda.CategoriaPrenda.ParteSuperior);
+        zapatillas = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, "Zapatilla", Prenda.CategoriaPrenda.Calzado);
      //   camisa2 = new Prenda(Prenda.color.Negro, Prenda.color.Negro, "Camisa", Prenda.categoriaPrenda.ParteSuperior);
 
     }

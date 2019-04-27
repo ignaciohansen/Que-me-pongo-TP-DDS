@@ -1,11 +1,27 @@
 
 public class Prenda {
-    private color colorPrimario;
-    private color colorSecundario;
+    private Color colorPrimario;
+    private Color colorSecundario;
     private String tipoDePrenda;
-    private categoriaPrenda categoria;
+    private CategoriaPrenda categoria;
 
-    public Prenda(color colorPrimario, color colorSecundario, String tipoDePrenda,categoriaPrenda categoria) throws Exception {
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Prenda) {
+            Prenda tmpPrenda = (Prenda) obj;
+            return this.tipoDePrenda == tmpPrenda.tipoDePrenda
+                    && this.colorPrimario == tmpPrenda.colorPrimario
+                    && this.colorSecundario == tmpPrenda.colorSecundario
+                    && this.categoria.ordinal() == tmpPrenda.categoria.ordinal();
+        }
+    }
+
+    public Prenda(Color colorPrimario, Color colorSecundario, String tipoDePrenda,CategoriaPrenda categoria) throws Exception {
         this.colorPrimario = colorPrimario;
         this.tipoDePrenda = tipoDePrenda;
         this.categoria = categoria;
@@ -16,20 +32,24 @@ public class Prenda {
         }
     }
 
-    public color getColorPrimario() {
+    public Color getColorPrimario() {
         return colorPrimario;
     }
 
-    public void setColorPrimario(color colorPrimario) {
+    public void setColorPrimario(Color colorPrimario) {
         this.colorPrimario = colorPrimario;
     }
 
-    public color getColorSecundario() {
+    public Color getColorSecundario() {
         return colorSecundario;
     }
 
-    public void setColorSecundario(color colorSecundario) {
-        this.colorSecundario = colorSecundario;
+    public void setColorSecundario(Color colorSecundario)throws Exception {
+        if (!colorSecundario.equals(this.colorPrimario)) {
+            this.colorSecundario = colorSecundario;
+        } else{
+            throw new Exception("Ya es color primario");
+        }
     }
 
     public String getTipoDePrenda() {
@@ -40,19 +60,19 @@ public class Prenda {
         this.tipoDePrenda = tipoDePrenda;
     }
 
-    public categoriaPrenda getCategoria() {
+    public CategoriaPrenda getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(categoriaPrenda categoria) {
+    public void setCategoria(CategoriaPrenda categoria) {
         this.categoria = categoria;
     }
 
-    enum color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste}
+    public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste}
 
     ;
 
-    enum categoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio}
+    public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio}
 
     ;
 }
