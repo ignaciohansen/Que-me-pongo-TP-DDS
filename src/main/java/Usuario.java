@@ -11,7 +11,7 @@ public class Usuario{
 
     public Set<Guardarropa> getGuardarropas() { return guardarropas; }
 
-    public void generarAtuendo(Guardarropa guardarropa) {
-        guardarropa.generarAtuendoGR();
+    public void generarAtuendo(Guardarropa guardarropa,Generador generador) {
+        generador.generarAtuendoGR(guardarropa);
     }
 }

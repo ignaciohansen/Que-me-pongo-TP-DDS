@@ -18,7 +18,9 @@ public class Guardarropa {
         return prendas;
     }
 
-    public void generarAtuendoGR(){
+/*  Codigo viejo de guardarropa
+
+   public void generarAtuendoGR(){
         Prenda superior = prendas.stream()
                 .filter(prenda -> prenda.getCategoria().ordinal() == 0)
                 .collect(Collectors.toList()).get(0);
@@ -41,4 +43,8 @@ public class Guardarropa {
 
         Atuendo atuendo = new Atuendo(listaPrenda);
     }
+    }
+ */
+
 }
+
