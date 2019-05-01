@@ -7,8 +7,11 @@ public class Atuendo {
         this.prendas = prendas;
     }
 
-    public void setPrendas(List<Prenda> prendas) { this.prendas = prendas; }
+    public void setPrendas(List<Prenda> prendas) {
+        this.prendas = prendas;
+    }
 
-    public List<Prenda> getPrendas() { return prendas; }
+    public List<Prenda> getPrendas() {
+        return prendas;
+    }
 }
-

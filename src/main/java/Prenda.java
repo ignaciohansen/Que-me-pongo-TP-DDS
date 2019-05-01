@@ -6,23 +6,6 @@ public class Prenda {
     private CategoriaPrenda categoria;
     private String tela;
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Prenda) {
-            Prenda tmpPrenda = (Prenda) obj;
-            return (this.tipoDePrenda == tmpPrenda.tipoDePrenda
-                    && this.colorPrimario == tmpPrenda.colorPrimario
-                    && this.colorSecundario == tmpPrenda.colorSecundario
-                    && this.categoria.ordinal() == tmpPrenda.categoria.ordinal());
-        }
-
-        return false;
-    }
 
     public Prenda(Color colorPrimario, Color colorSecundario, String tipoDePrenda,CategoriaPrenda categoria) throws Exception {
         this.colorPrimario = colorPrimario;
@@ -79,15 +62,25 @@ public class Prenda {
         return tela;
     }
 
-    public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste}
+    public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};
 
-    ;
+    public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio};
 
-    public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio}
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
-    ;
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Prenda) {
+            Prenda tmpPrenda = (Prenda) obj;
+            return (this.tipoDePrenda == tmpPrenda.tipoDePrenda
+                    && this.colorPrimario == tmpPrenda.colorPrimario
+                    && this.colorSecundario == tmpPrenda.colorSecundario
+                    && this.categoria.ordinal() == tmpPrenda.categoria.ordinal());
+        }
+
+        return false;
+    }
 }
-
-
-
-
