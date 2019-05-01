@@ -1,21 +1,33 @@
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario{
-    private Set<Guardarropa> guardarropas;
+    private List<Guardarropa> guardarropas;
 
-    public Usuario(Set<Guardarropa> guardarropas) {
+    public Usuario(){
+        this.guardarropas = new ArrayList<Guardarropa>();
+    }
+
+    public Usuario(List<Guardarropa> guardarropas) {
+        this.guardarropas = new ArrayList<Guardarropa>();
         this.guardarropas = guardarropas;
     }
 
-    public void setGuardarropas(Set<Guardarropa> guardarropas) {
+    public void setGuardarropas(List<Guardarropa> guardarropas) {
         this.guardarropas = guardarropas;
     }
 
-    public Set<Guardarropa> getGuardarropas() {
+    public List<Guardarropa> getGuardarropas() {
         return guardarropas;
     }
 
-    public void generarAtuendo(Guardarropa guardarropa,Generador generador) {
-        generador.generarAtuendoGR(guardarropa);
+    public Atuendo generarAtuendo(Guardarropa guardarropa) {
+        Generador generador = new Generador();
+        return generador.generarAtuendoGR(guardarropa);
+    }
+
+    public List<Atuendo> generarAtuendos(){
+        Generador generador = new Generador();
+        return generador.generarAtuendos(this.guardarropas);
     }
 }

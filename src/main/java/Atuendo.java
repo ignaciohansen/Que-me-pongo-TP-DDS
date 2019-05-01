@@ -1,9 +1,15 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Atuendo {
     private List<Prenda> prendas;
 
+    public Atuendo(){
+        this.prendas = new ArrayList<Prenda>();
+    }
+
     public Atuendo(List<Prenda> prendas) {
+        this.prendas = new ArrayList<Prenda>();
         this.prendas = prendas;
     }
 

@@ -18,7 +18,7 @@ public class Generador {
             .filter(prenda -> prenda.getCategoria().ordinal() == 3)
             .collect(Collectors.toList()); }
 
-    public void generarAtuendoGR(Guardarropa guardarropa){
+    public Atuendo generarAtuendoGR(Guardarropa guardarropa){
         int randomPSuperior = (int)(Math.random()*(this.ListaDePrendasParteSuperior(guardarropa).size()));
         int randomPInferior = (int)(Math.random()*(this.ListaDePrendasParteInferior(guardarropa).size()));
         int randomCalzado = (int)(Math.random()*(this.ListaDePrendasCalzado(guardarropa).size()));
@@ -36,6 +36,16 @@ public class Generador {
         listaPrenda.add(calzado);
         listaPrenda.add(accesorio);
 
-        Atuendo atuendo = new Atuendo(listaPrenda);
+        return new Atuendo(listaPrenda);
+    }
+
+    public List<Atuendo> generarAtuendos(List<Guardarropa> guardarropas){
+        List<Atuendo> atuendos = new ArrayList<Atuendo>();
+
+        for (int i = 0; i < guardarropas.size(); i++) {
+            atuendos.add(this.generarAtuendoGR(guardarropas.get(i)));
+        }
+
+        return atuendos;
     }
 }
