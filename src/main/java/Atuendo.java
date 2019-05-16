@@ -13,6 +13,10 @@ public class Atuendo {
         this.prendas = prendas;
     }
 
+    public int cantidadDePrendas(){
+        return prendas.size();
+    }
+
     public void setPrendas(List<Prenda> prendas) {
         this.prendas = prendas;
     }

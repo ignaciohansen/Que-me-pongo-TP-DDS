@@ -13,9 +13,18 @@ public class Usuario{
         this.guardarropas = guardarropas;
     }
 
-    public void setGuardarropas(List<Guardarropa> guardarropas) {
+    public void agregarMuchosGuardarropas(List<Guardarropa> guardarropas) {
         this.guardarropas = guardarropas;
     }
+
+    public void agregarUnGuardarropas(Guardarropa guardarropa) {
+        guardarropas.add(guardarropa);
+    }
+
+    public int cantidadDeGuardarropas(){
+       return guardarropas.size();
+    }
+
 
     public List<Guardarropa> getGuardarropas() {
         return guardarropas;

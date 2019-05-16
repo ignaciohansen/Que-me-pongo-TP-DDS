@@ -23,4 +23,8 @@ public class Guardarropa {
     public void agregarPrenda(Prenda prenda){
         prendas.add(prenda);
     }
+
+    public int cantidadDePrendas(){
+        return prendas.size();
+    }
 }
