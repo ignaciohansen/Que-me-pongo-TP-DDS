@@ -4,18 +4,15 @@ public class Prenda {
     private Color colorSecundario;
     private String tipoDePrenda;
     private CategoriaPrenda categoria;
-    private String tela;
+    private Tela tela;
+    public Boolean estaEnGuardarropa = false;
 
-
-    public Prenda(Color colorPrimario, Color colorSecundario, String tipoDePrenda,CategoriaPrenda categoria) throws Exception {
+    public Prenda(Color colorPrimario, Color colorSecundario, String tipoDePrenda,CategoriaPrenda categoria/*,Tela tela*/) throws Exception {
         this.colorPrimario = colorPrimario;
         this.tipoDePrenda = tipoDePrenda;
         this.categoria = categoria;
-        if (colorPrimario.equals(colorSecundario)) {
-            throw new Exception("El color secundario es el mismo que el primario");
-        } else {
-            this.colorSecundario = colorSecundario;
-        }
+        setColorSecundario(colorSecundario);
+        //setTela(tela);
     }
 
     public Color getColorPrimario() {
@@ -34,7 +31,7 @@ public class Prenda {
         if (!colorSecundario.equals(this.colorPrimario)) {
             this.colorSecundario = colorSecundario;
         } else{
-            throw new Exception("Ya es color primario");
+            throw new Exception("El color secundario es el mismo que el primario");
         }
     }
 
@@ -54,13 +51,13 @@ public class Prenda {
         this.categoria = categoria;
     }
 
-    public void setTela(String tela) {
-        this.tela = tela;
+    public void setTela(Tela tela) throws Exception{
+        if(tela.incompatible(this.tipoDePrenda)){
+            throw new Exception("La tela es incompatible con el tipo de prenda");
+        } else this.tela = tela;
     }
 
-    public String getTela() {
-        return tela;
-    }
+    public Tela getTela() { return tela; }
 
     public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};
 

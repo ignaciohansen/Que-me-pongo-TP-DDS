@@ -18,6 +18,21 @@ public class Usuario{
     }
 
     public void agregarUnGuardarropas(Guardarropa guardarropa) {
+
+        /*
+
+        VER ESTA IMPLEMENTACION PARA NO REPETIR GUARDARROPAS EN USUARIOS, ES LA MISMA QUE ROPA Y GUARDARROPA
+
+        if(guardarropa.estaEnGuardarropa){
+        throw new Exception("El guardarropa ya esta asignado a un usuario");
+        }else{
+        guardarropas.add(guardarropa);
+        guardarropa.perteneceAUsuario = true;
+        }
+
+         */
+
+
         guardarropas.add(guardarropa);
     }
 

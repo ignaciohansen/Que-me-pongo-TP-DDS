@@ -40,7 +40,12 @@ public class TestRopaDistinta {
 // Tests para verificar funcionamiento de Set y cantidades
 
     @Test
-    public void cantidadDePrendasEnGuardarropaDeJuan(){
+    public void verColorSecundario() {
+        Assert.assertEquals(Prenda.Color.Rojo,camisa.getColorSecundario());
+    }
+
+    @Test
+    public void cantidadDePrendasEnGuardarropaDeJuan() throws Exception {
         guardarropaPruebaJuan.agregarPrenda(pantalon);
         guardarropaPruebaJuan.agregarPrenda(camisa);
         guardarropaPruebaJuan.agregarPrenda(zapatillas);
@@ -55,7 +60,7 @@ public class TestRopaDistinta {
     }
 
     @Test
-    public void cantidadDePrendasDeAtuendo(){
+    public void cantidadDePrendasDeAtuendo() throws Exception {
         // Cargo el guardarropa
         guardarropaPruebaJuan.agregarPrenda(pantalon);
         guardarropaPruebaJuan.agregarPrenda(camisa);
@@ -74,7 +79,7 @@ public class TestRopaDistinta {
 
     // Test que da mal, solo para pruebas
     @Test
-    public void PrendasDistintasDeAtuendo(){
+    public void PrendasDistintasDeAtuendo() throws Exception {
         // Cargo el guardarropa
         guardarropaPruebaJuan.agregarPrenda(pantalon);
         guardarropaPruebaJuan.agregarPrenda(camisa);
