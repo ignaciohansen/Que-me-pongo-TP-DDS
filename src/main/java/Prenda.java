@@ -1,3 +1,4 @@
+import Telas.Tela;
 
 public class Prenda {
     private Color colorPrimario;
@@ -7,12 +8,13 @@ public class Prenda {
     private Tela tela;
     public Boolean estaEnGuardarropa = false;
 
-    public Prenda(Color colorPrimario, Color colorSecundario, String tipoDePrenda,CategoriaPrenda categoria/*,Tela tela*/) throws Exception {
+    public Prenda(Color colorPrimario, Color colorSecundario, String tipoDePrenda,CategoriaPrenda categoria,Tela unaTela) throws Exception {
         this.colorPrimario = colorPrimario;
         this.tipoDePrenda = tipoDePrenda;
         this.categoria = categoria;
         setColorSecundario(colorSecundario);
-        //setTela(tela);
+        setTela(unaTela);
+        //this.tela = unaTela;
     }
 
     public Color getColorPrimario() {

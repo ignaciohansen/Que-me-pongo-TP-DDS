@@ -17,23 +17,19 @@ public class Usuario{
         this.guardarropas = guardarropas;
     }
 
-    public void agregarUnGuardarropas(Guardarropa guardarropa) {
+    public void agregarUnGuardarropas(Guardarropa guardarropa) throws Exception {
 
-        /*
 
-        VER ESTA IMPLEMENTACION PARA NO REPETIR GUARDARROPAS EN USUARIOS, ES LA MISMA QUE ROPA Y GUARDARROPA
 
-        if(guardarropa.estaEnGuardarropa){
+        //VER ESTA IMPLEMENTACION PARA NO REPETIR GUARDARROPAS EN USUARIOS, ES LA MISMA QUE ROPA Y GUARDARROPA
+
+        if(guardarropa.perteneceAUsuario){
         throw new Exception("El guardarropa ya esta asignado a un usuario");
         }else{
         guardarropas.add(guardarropa);
         guardarropa.perteneceAUsuario = true;
         }
 
-         */
-
-
-        guardarropas.add(guardarropa);
     }
 
     public int cantidadDeGuardarropas(){

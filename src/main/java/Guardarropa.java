@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class Guardarropa {
     private Set<Prenda> prendas;
-    private Boolean perteneceAUsuario = false;
+    public Boolean perteneceAUsuario = false;
 
     public Guardarropa(){
         this.prendas = new HashSet<Prenda>();
@@ -23,9 +23,8 @@ public class Guardarropa {
 
     public void agregarPrenda(Prenda prenda) throws Exception{
 
-        /*
 
-        VER ESTA IMPLEMENTACION PARA NO REPETIR ROPA EN GUARDARROPAS
+       // VER ESTA IMPLEMENTACION PARA NO REPETIR ROPA EN GUARDARROPAS
 
         if(prenda.estaEnGuardarropa){
         throw new Exception("La prenda ya esta asignada en un guardarropa");
@@ -34,9 +33,8 @@ public class Guardarropa {
         prenda.estaEnGuardarropa = true;
         }
 
-         */
 
-        prendas.add(prenda);
+       // prendas.add(prenda);
     }
 
     public int cantidadDePrendas(){
