@@ -21,13 +21,13 @@ public class Guardarropa {
         return prendas;
     }
 
-    public void agregarPrenda(Prenda prenda) throws Exception{
+    public void agregarPrenda(Prenda prenda) throws exceptions.En2Guardarropas {
 
 
        // VER ESTA IMPLEMENTACION PARA NO REPETIR ROPA EN GUARDARROPAS
 
         if(prenda.estaEnGuardarropa){
-        throw new Exception("La prenda ya esta asignada en un guardarropa");
+        throw new exceptions.En2Guardarropas("La prenda ya esta asignada en un guardarropa");
         }else{
         prendas.add(prenda);
         prenda.estaEnGuardarropa = true;

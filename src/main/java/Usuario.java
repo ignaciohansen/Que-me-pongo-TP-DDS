@@ -1,3 +1,5 @@
+import Exceptions.MismoGuardarropas;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +19,14 @@ public class Usuario{
         this.guardarropas = guardarropas;
     }
 
-    public void agregarUnGuardarropas(Guardarropa guardarropa) throws Exception {
+    public void agregarUnGuardarropas(Guardarropa guardarropa) throws Exceptions.MismoGuardarropas {
 
 
 
         //VER ESTA IMPLEMENTACION PARA NO REPETIR GUARDARROPAS EN USUARIOS, ES LA MISMA QUE ROPA Y GUARDARROPA
 
         if(guardarropa.perteneceAUsuario){
-        throw new Exception("El guardarropa ya esta asignado a un usuario");
+        throw new Exceptions.MismoGuardarropas("El guardarropa ya esta asignado a un usuario");
         }else{
         guardarropas.add(guardarropa);
         guardarropa.perteneceAUsuario = true;

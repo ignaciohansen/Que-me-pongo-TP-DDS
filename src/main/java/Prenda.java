@@ -53,9 +53,9 @@ public class Prenda {
         this.categoria = categoria;
     }
 
-    public void setTela(Tela tela) throws Exception{
+    public void setTela(Tela tela) throws Exceptions.TelaIncompatible{
         if(tela.incompatible(this.tipoDePrenda)){
-            throw new Exception("La tela es incompatible con el tipo de prenda");
+            throw new Exceptions.TelaIncompatible("La tela es incompatible con el tipo de prenda");
         } else this.tela = tela;
     }
 

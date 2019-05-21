@@ -89,26 +89,27 @@ public class TestRopaDistinta {
 
     // Test que dan mal, solo para pruebas
 
-    @Test
+    @Test(expected = Exceptions.MismoGuardarropas.class)
     public void mismoGuardarropaADosUsuarios() throws Exception{
         tomas.agregarUnGuardarropas(guardarropaPruebaJuan);
-        Assert.assertEquals(2,juan.cantidadDeGuardarropas());
+        //Assert.assertEquals(2,juan.cantidadDeGuardarropas());
     }
 
-    @Test
+    @Test(expected = exceptions.En2Guardarropas.class)
     public void MismaPrendaEnDosGuardarropas() throws Exception {
-        guardarropaPruebaJuan.agregarPrenda(reloj);
-        guardarropaConRelojError.agregarPrenda(reloj);
-        Assert.assertEquals(1,guardarropaConRelojError.cantidadDePrendas());
-    }
+            guardarropaPruebaJuan.agregarPrenda(reloj);
+            guardarropaConRelojError.agregarPrenda(reloj);
+            // Assert.assertEquals(1, guardarropaConRelojError.cantidadDePrendas());
+        }
 
-    @Test
+
+    @Test(expected = Exceptions.TelaIncompatible.class)
     public void remeraCueroError() throws Exception {
         Prenda remeraDeCuero;
 
         remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, "remera", Prenda.CategoriaPrenda.ParteSuperior,cuero);
 
-        Assert.fail();
+        //Assert.fail();
     }
 
     @Test
