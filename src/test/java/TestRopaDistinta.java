@@ -122,11 +122,15 @@ public class TestRopaDistinta {
         guardarropaPruebaJuan.agregarPrenda(zapatillas);
         guardarropaPruebaJuan.agregarPrenda(reloj);
 
-        //Armo el atuendo
-        Atuendo atuendoCreado = juan.generarAtuendo(guardarropaPruebaJuan);
+        //Armo el atuendo 1
+        Atuendo atuendoCreadoUno = juan.generarAtuendo(guardarropaPruebaJuan);
 
-        // Verifico con el hash, si da distinto significa que la parte superior va variando, hay 2 opciones
-        Assert.assertEquals(4,atuendoCreado.getPrendas());
+        //Armo el atuendo 2
+        Atuendo atuendoCreadoDos = juan.generarAtuendo(guardarropaPruebaJuan);
+
+
+        // Verifico con el hash, si da distinto significa que los atuendos generados son aleatorios
+        Assert.assertNotEquals(atuendoCreadoUno,atuendoCreadoDos);
 
         /*
         Resultados de ejecucion:
