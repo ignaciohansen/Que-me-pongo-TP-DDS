@@ -24,4 +24,11 @@ public class Atuendo {
     public List<Prenda> getPrendas() {
         return prendas;
     }
+
+    @Override
+    public String toString() {
+        return "Atuendo{" +
+                "prendas=" + prendas +
+                '}';
+    }
 }

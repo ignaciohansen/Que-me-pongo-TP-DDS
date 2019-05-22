@@ -128,7 +128,8 @@ public class TestRopaDistinta {
         //Armo el atuendo 2
         Atuendo atuendoCreadoDos = juan.generarAtuendo(guardarropaPruebaJuan);
 
-
+        System.out.println(atuendoCreadoUno);
+        System.out.println(atuendoCreadoDos);
         // Verifico con el hash, si da distinto significa que los atuendos generados son aleatorios
         Assert.assertNotEquals(atuendoCreadoUno,atuendoCreadoDos);
 

@@ -8,5 +8,10 @@ public class Cuero extends Tela {
     public Boolean incompatible(String tipoDePrenda){
         return ( tipoDePrenda.equals("remera"));
     }
+
+    @Override
+    public String toString() {
+        return "Cuero";
+    }
 }
 

@@ -82,4 +82,16 @@ public class Prenda {
 
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Prenda{" +
+                "colorPrimario=" + colorPrimario +
+                ", colorSecundario=" + colorSecundario +
+                ", tipoDePrenda='" + tipoDePrenda + '\'' +
+                ", categoria=" + categoria +
+                ", tela=" + tela +
+                ", estaEnGuardarropa=" + estaEnGuardarropa +
+                '}';
+    }
 }

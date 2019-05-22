@@ -6,4 +6,9 @@ public class Seda extends Tela {
     public Boolean incompatible(String tipoDePrenda){
         return ( tipoDePrenda.equals("campera"));
     }
+
+    @Override
+    public String toString() {
+        return "Seda";
+    }
 }
