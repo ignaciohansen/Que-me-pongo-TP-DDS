@@ -2,7 +2,7 @@
 
 ### Integrantes: 
 
-Juan Cruz Dominguez Lay
+- Juan Cruz Dominguez Lay
 
 - Ignacio Hansen
 
