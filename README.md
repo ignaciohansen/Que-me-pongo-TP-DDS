@@ -1,15 +1,22 @@
-Trabajo practico DDS - Grupo 10
+#  Trabajo practico DDS - Grupo 10
 
-Integrantes: 
+### Integrantes: 
 
 Juan Cruz Dominguez Lay
 
-Ignacio Hansen
+- Ignacio Hansen
 
-Juan Ignacio Martinez
+- Juan Ignacio Martinez
 
-Gabriel Mamani
+- Gabriel Mamani
 
-Federico Gonzalez
+- Federico Gonzalez
 
-Federico Velasco
+- Federico Velasco
+
+### Tecnologias utilizadas:
+
+- Junit 4.12
+
+- Java (JDK 1.8)
+
