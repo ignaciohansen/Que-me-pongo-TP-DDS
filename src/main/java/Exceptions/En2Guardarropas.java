@@ -1,4 +1,4 @@
-package exceptions;
+package Exceptions;
 
 public class En2Guardarropas extends Exception {
     public En2Guardarropas(String mensaje){

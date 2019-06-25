@@ -1,3 +1,5 @@
+package Ropas;
+
 import Telas.Tela;
 
 public class Prenda {
@@ -85,7 +87,7 @@ public class Prenda {
 
     @Override
     public String toString() {
-        return "Prenda{" +
+        return "Ropas.Prenda{" +
                 "colorPrimario=" + colorPrimario +
                 ", colorSecundario=" + colorSecundario +
                 ", tipoDePrenda='" + tipoDePrenda + '\'' +

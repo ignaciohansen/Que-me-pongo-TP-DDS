@@ -1,3 +1,5 @@
+import Ropas.*;
+import Usuario.*;
 import Telas.Cuero;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,13 +13,16 @@ public class TestRopaDistinta {
     private Prenda campera;
     private Prenda pantufla;
     private Cuero cuero;
+    private UsuarioPremium premium;
+    private UsuarioGratuito gratuito;
 
 
     private Guardarropa guardarropaPruebaJuan;
     private Guardarropa guardarropaConRelojError;
+    private Guardarropa guardarropaPruebaTomas;
     private Usuario juan;
     private Usuario tomas;
-    //private Set<Guardarropa> guardarropasDeJuan;
+    //private Set<Ropas.Guardarropa> guardarropasDeJuan;
 
     @Before
     public void init() throws Exception {
@@ -28,16 +33,18 @@ public class TestRopaDistinta {
         campera = new Prenda(Prenda.Color.Blanco, Prenda.Color.Rojo, "Campera", Prenda.CategoriaPrenda.ParteSuperior,cuero);
         zapatillas = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, "Zapatilla", Prenda.CategoriaPrenda.Calzado,cuero);
         reloj = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, "Reloj", Prenda.CategoriaPrenda.Accesorio,cuero);
-
+        premium = new UsuarioPremium();
+        gratuito = new UsuarioGratuito();
 
 
         guardarropaConRelojError = new Guardarropa();
         guardarropaPruebaJuan = new Guardarropa();
-        juan = new Usuario();
-        tomas = new Usuario();
+        guardarropaPruebaTomas = new Guardarropa();
+        juan = new Usuario(premium);
+        tomas = new Usuario(gratuito);
         juan.agregarUnGuardarropas(guardarropaPruebaJuan);
 
-        //camisa2 = new Prenda(Prenda.color.Negro, Prenda.color.Negro, "Camisa", Prenda.categoriaPrenda.ParteSuperior);ç
+        //camisa2 = new Ropas.Prenda(Ropas.Prenda.color.Negro, Ropas.Prenda.color.Negro, "Camisa", Ropas.Prenda.categoriaPrenda.ParteSuperior);ç
         //guardarropasDeJuan.add(guardarropaPruebaJuan);
 
     }
@@ -87,6 +94,13 @@ public class TestRopaDistinta {
         Assert.assertEquals(2,juan.cantidadDeGuardarropas());
     }
 
+    @Test(expected = Exceptions.SuperoLimiteDeGuardarropas.class)
+    public void cantidadDeGuardarropasDeTomas() throws Exception{
+        tomas.agregarUnGuardarropas(guardarropaPruebaTomas);
+        tomas.agregarUnGuardarropas(guardarropaPruebaTomas);
+        tomas.agregarUnGuardarropas(guardarropaPruebaTomas);
+    }
+
     // Test que dan mal, solo para pruebas
 
     @Test(expected = Exceptions.MismoGuardarropas.class)
@@ -95,7 +109,7 @@ public class TestRopaDistinta {
         //Assert.assertEquals(2,juan.cantidadDeGuardarropas());
     }
 
-    @Test(expected = exceptions.En2Guardarropas.class)
+    @Test(expected = Exceptions.En2Guardarropas.class)
     public void MismaPrendaEnDosGuardarropas() throws Exception {
             guardarropaPruebaJuan.agregarPrenda(reloj);
             guardarropaConRelojError.agregarPrenda(reloj);
@@ -136,18 +150,18 @@ public class TestRopaDistinta {
         /*
         Resultados de ejecucion:
 
-        1º [Prenda@9e89d68, Prenda@77556fd, Prenda@3b192d32, Prenda@16f65612]
-        2º [Prenda@368239c8, Prenda@77556fd, Prenda@3b192d32, Prenda@16f65612]  Cambio el primero, random funcionando
-        3º [Prenda@9e89d68, Prenda@77556fd, Prenda@3b192d32, Prenda@16f65612]
-        4º [Prenda@9e89d68, Prenda@77556fd, Prenda@3b192d32, Prenda@16f65612]
+        1º [Ropas.Prenda@9e89d68, Ropas.Prenda@77556fd, Ropas.Prenda@3b192d32, Ropas.Prenda@16f65612]
+        2º [Ropas.Prenda@368239c8, Ropas.Prenda@77556fd, Ropas.Prenda@3b192d32, Ropas.Prenda@16f65612]  Cambio el primero, random funcionando
+        3º [Ropas.Prenda@9e89d68, Ropas.Prenda@77556fd, Ropas.Prenda@3b192d32, Ropas.Prenda@16f65612]
+        4º [Ropas.Prenda@9e89d68, Ropas.Prenda@77556fd, Ropas.Prenda@3b192d32, Ropas.Prenda@16f65612]
                                                     Funciona
-           [Prenda@39a054a5, Prenda@4cc77c2e, Prenda@7a7b0070, Prenda@2437c6dc]
-           [Prenda@71bc1ae4, Prenda@4cc77c2e, Prenda@7a7b0070, Prenda@2437c6dc]
-           [Prenda@71bc1ae4, Prenda@4cc77c2e, Prenda@7a7b0070, Prenda@2437c6dc]
-           [Prenda@71bc1ae4, Prenda@4cc77c2e, Prenda@7a7b0070, Prenda@2437c6dc]
-           [Prenda@71bc1ae4, Prenda@4cc77c2e, Prenda@6ed3ef1, Prenda@2437c6dc]
-           [Prenda@71bc1ae4, Prenda@4cc77c2e, Prenda@7a7b0070, Prenda@2437c6dc]
-           [Prenda@39a054a5, Prenda@4cc77c2e, Prenda@7a7b0070, Prenda@2437c6dc]
+           [Ropas.Prenda@39a054a5, Ropas.Prenda@4cc77c2e, Ropas.Prenda@7a7b0070, Ropas.Prenda@2437c6dc]
+           [Ropas.Prenda@71bc1ae4, Ropas.Prenda@4cc77c2e, Ropas.Prenda@7a7b0070, Ropas.Prenda@2437c6dc]
+           [Ropas.Prenda@71bc1ae4, Ropas.Prenda@4cc77c2e, Ropas.Prenda@7a7b0070, Ropas.Prenda@2437c6dc]
+           [Ropas.Prenda@71bc1ae4, Ropas.Prenda@4cc77c2e, Ropas.Prenda@7a7b0070, Ropas.Prenda@2437c6dc]
+           [Ropas.Prenda@71bc1ae4, Ropas.Prenda@4cc77c2e, Ropas.Prenda@6ed3ef1, Ropas.Prenda@2437c6dc]
+           [Ropas.Prenda@71bc1ae4, Ropas.Prenda@4cc77c2e, Ropas.Prenda@7a7b0070, Ropas.Prenda@2437c6dc]
+           [Ropas.Prenda@39a054a5, Ropas.Prenda@4cc77c2e, Ropas.Prenda@7a7b0070, Ropas.Prenda@2437c6dc]
 
 
         */

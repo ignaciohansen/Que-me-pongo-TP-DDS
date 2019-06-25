@@ -1,3 +1,9 @@
+package Generador;
+
+import Ropas.Atuendo;
+import Ropas.Guardarropa;
+import Ropas.Prenda;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

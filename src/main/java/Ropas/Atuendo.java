@@ -1,3 +1,5 @@
+package Ropas;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ public class Atuendo {
 
     @Override
     public String toString() {
-        return "Atuendo{" +
+        return "Ropas.Atuendo{" +
                 "prendas=" + prendas +
                 '}';
     }
