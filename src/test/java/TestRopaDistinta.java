@@ -1,6 +1,7 @@
 import Ropas.*;
+import TipoPrenda.*;
 import Usuario.*;
-import Telas.Cuero;
+import Telas.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,14 @@ public class TestRopaDistinta {
     private Prenda reloj;
     private Prenda campera;
     private Prenda pantufla;
+    private Camisa TipoCamisa = new Camisa();
+    private Reloj TipoReloj = new Reloj();
+    private Remera TipoRemera = new Remera();
+    private Zapatilla TipoZapatilla = new Zapatilla();
+    private Pantufla TipoPantufla = new Pantufla();
+    private Pantalon TipoPantalon = new Pantalon();
+    private Campera TipoCampera = new Campera();
+
     private Cuero cuero;
     private UsuarioPremium premium;
     private UsuarioGratuito gratuito;
@@ -27,12 +36,12 @@ public class TestRopaDistinta {
     @Before
     public void init() throws Exception {
         cuero = new Cuero();
-        pantufla = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, "Pantufla", Prenda.CategoriaPrenda.Calzado,cuero);
-        pantalon = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, "Pantalon", Prenda.CategoriaPrenda.ParteInferior,cuero);
-        camisa = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, "Camisa", Prenda.CategoriaPrenda.ParteSuperior,cuero);
-        campera = new Prenda(Prenda.Color.Blanco, Prenda.Color.Rojo, "Campera", Prenda.CategoriaPrenda.ParteSuperior,cuero);
-        zapatillas = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, "Zapatilla", Prenda.CategoriaPrenda.Calzado,cuero);
-        reloj = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, "Reloj", Prenda.CategoriaPrenda.Accesorio,cuero);
+        pantufla = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoPantufla, Prenda.CategoriaPrenda.Calzado,cuero);
+        pantalon = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoPantalon, Prenda.CategoriaPrenda.ParteInferior,cuero);
+        camisa = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoCamisa, Prenda.CategoriaPrenda.ParteSuperior,cuero);
+        campera = new Prenda(Prenda.Color.Blanco, Prenda.Color.Rojo, TipoCampera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
+        zapatillas = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoZapatilla, Prenda.CategoriaPrenda.Calzado,cuero);
+        reloj = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero);
         premium = new UsuarioPremium();
         gratuito = new UsuarioGratuito();
 
@@ -121,11 +130,20 @@ public class TestRopaDistinta {
     public void remeraCueroError() throws Exception {
         Prenda remeraDeCuero;
 
-        remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, "remera", Prenda.CategoriaPrenda.ParteSuperior,cuero);
-
-        //Assert.fail();
+        remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoRemera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
     }
 
+    @Test
+    public void cueroIncompatibleConRemera() {
+        //Prenda remeraDeCuero;
+        //remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoRemera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
+        Assert.assertTrue(cuero.incompatible(TipoRemera));
+    }
+
+    @Test
+    public void prendasIncompatiblesCuero() {
+        Assert.assertEquals(2, cuero.cantidadPrendasIncompatibles());
+    }
     @Test
     public void PrendasDistintasDeAtuendo() throws Exception {
         // Cargo el guardarropa

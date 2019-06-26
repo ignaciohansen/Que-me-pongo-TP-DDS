@@ -1,22 +1,22 @@
 package Ropas;
 
 import Telas.Tela;
+import TipoPrenda.TipoPrenda;
 
 public class Prenda {
     private Color colorPrimario;
     private Color colorSecundario;
-    private String tipoDePrenda;
+    private TipoPrenda tipoDePrenda;
     private CategoriaPrenda categoria;
     private Tela tela;
     public Boolean estaEnGuardarropa = false;
 
-    public Prenda(Color colorPrimario, Color colorSecundario, String tipoDePrenda,CategoriaPrenda categoria,Tela unaTela) throws Exception {
+    public Prenda(Color colorPrimario, Color colorSecundario, TipoPrenda tipoDePrenda,CategoriaPrenda categoria,Tela unaTela) throws Exception {
         this.colorPrimario = colorPrimario;
         this.tipoDePrenda = tipoDePrenda;
         this.categoria = categoria;
         setColorSecundario(colorSecundario);
         setTela(unaTela);
-        //this.tela = unaTela;
     }
 
     public Color getColorPrimario() {
@@ -39,11 +39,11 @@ public class Prenda {
         }
     }
 
-    public String getTipoDePrenda() {
+    public TipoPrenda getTipoDePrenda() {
         return tipoDePrenda;
     }
 
-    public void setTipoDePrenda(String tipoDePrenda) {
+    public void setTipoDePrenda(TipoPrenda tipoDePrenda) {
         this.tipoDePrenda = tipoDePrenda;
     }
 

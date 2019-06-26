@@ -19,15 +19,6 @@ public class Usuario{
         this.tipoUsuario = tipoUsuario;
     }
 
-    public Usuario(List<Guardarropa> guardarropas) {
-        this.guardarropas = new ArrayList<Guardarropa>();
-        this.guardarropas = guardarropas;
-    }
-
-    public void agregarMuchosGuardarropas(List<Guardarropa> guardarropas) {
-        this.guardarropas = guardarropas;
-    }
-
     public void agregarUnGuardarropas(Guardarropa guardarropa) throws MismoGuardarropas, SuperoLimiteDeGuardarropas {
 
         //VER ESTA IMPLEMENTACION PARA NO REPETIR GUARDARROPAS EN USUARIOS, ES LA MISMA QUE ROPA Y GUARDARROPA

@@ -1,12 +1,14 @@
 package Telas;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cuero extends Tela {
 
     public Cuero() {
-    }
-   @Override
-    public Boolean incompatible(String tipoDePrenda){
-        return ( tipoDePrenda.equals("remera"));
+        prendasIncompatibles.add("remera");
+        prendasIncompatibles.add("camisa");
     }
 
     @Override
