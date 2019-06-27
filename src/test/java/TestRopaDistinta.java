@@ -15,7 +15,7 @@ public class TestRopaDistinta {
     private Prenda pantufla;
     private Camisa TipoCamisa = new Camisa();
     private Reloj TipoReloj = new Reloj();
-    private Remera TipoRemera = new Remera();
+    private Remera tipoRemera = new Remera();
     private Zapatilla TipoZapatilla = new Zapatilla();
     private Pantufla TipoPantufla = new Pantufla();
     private Pantalon TipoPantalon = new Pantalon();
@@ -130,14 +130,17 @@ public class TestRopaDistinta {
     public void remeraCueroError() throws Exception {
         Prenda remeraDeCuero;
 
-        remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoRemera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
+        remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, tipoRemera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
     }
 
     @Test
     public void cueroIncompatibleConRemera() {
         //Prenda remeraDeCuero;
         //remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoRemera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
-        Assert.assertTrue(cuero.incompatible(TipoRemera));
+        //Assert.assertTrue(cuero.incompatible(tipoRemera));
+        Assert.assertEquals("remera", tipoRemera.getSuTipo());
+        //Assert.assertTrue(1 > 0);
+
     }
 
     @Test

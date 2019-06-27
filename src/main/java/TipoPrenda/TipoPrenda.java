@@ -18,4 +18,7 @@ public abstract class TipoPrenda {
         return nivelDeAbrigo;
     }
 
+    public void setSuTipo(String suTipo) {
+        this.suTipo = suTipo;
+    }
 }
