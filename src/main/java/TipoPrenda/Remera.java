@@ -1,10 +1,9 @@
 package TipoPrenda;
 
 public class Remera extends TipoPrenda {
-    int nivelDeAbrigo = 4;
-    public String suTipo;
 
     public Remera() {
+        this.setNivelDeAbrigo(4);
         this.setSuTipo("remera");
     }
 }

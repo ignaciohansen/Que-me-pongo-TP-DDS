@@ -21,7 +21,8 @@ public class TestRopaDistinta {
     private Pantalon TipoPantalon = new Pantalon();
     private Campera TipoCampera = new Campera();
 
-    private Cuero cuero;
+    private Cuero cuero = new Cuero();
+    private Algodon algodon = new Algodon();
     private UsuarioPremium premium;
     private UsuarioGratuito gratuito;
 
@@ -38,7 +39,7 @@ public class TestRopaDistinta {
         cuero = new Cuero();
         pantufla = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoPantufla, Prenda.CategoriaPrenda.Calzado,cuero);
         pantalon = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoPantalon, Prenda.CategoriaPrenda.ParteInferior,cuero);
-        camisa = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoCamisa, Prenda.CategoriaPrenda.ParteSuperior,cuero);
+        camisa = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoCamisa, Prenda.CategoriaPrenda.ParteSuperior,algodon);
         campera = new Prenda(Prenda.Color.Blanco, Prenda.Color.Rojo, TipoCampera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
         zapatillas = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoZapatilla, Prenda.CategoriaPrenda.Calzado,cuero);
         reloj = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero);

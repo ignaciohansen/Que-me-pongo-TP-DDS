@@ -21,4 +21,12 @@ public abstract class TipoPrenda {
     public void setSuTipo(String suTipo) {
         this.suTipo = suTipo;
     }
+
+    public void setCapaDePrenda(int capaDePrenda) {
+        CapaDePrenda = capaDePrenda;
+    }
+
+    public void setNivelDeAbrigo(int nivelDeAbrigo) {
+        this.nivelDeAbrigo = nivelDeAbrigo;
+    }
 }

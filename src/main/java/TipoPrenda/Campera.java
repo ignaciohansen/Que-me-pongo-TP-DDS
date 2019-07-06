@@ -1,7 +1,10 @@
 package TipoPrenda;
 
 public class Campera extends TipoPrenda {
-    int CapaDePrenda = 2;
-    int nivelDeAbrigo = 7;
-    private String suTipo = "campera";
+
+    public Campera() {
+        this.setNivelDeAbrigo(7);
+        this.setSuTipo("campera");
+        this.setCapaDePrenda(2);
+    }
 }

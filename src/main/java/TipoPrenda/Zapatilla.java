@@ -1,6 +1,8 @@
 package TipoPrenda;
 
 public class Zapatilla extends TipoPrenda {
-    int nivelDeAbrigo = 2;
-    private String suTipo = "zapatilla";
+    public Zapatilla() {
+        this.setNivelDeAbrigo(2);
+        this.setSuTipo("zapatilla");
+    }
 }

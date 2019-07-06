@@ -1,5 +1,10 @@
 package TipoPrenda;
 
 public class Reloj extends TipoPrenda {
-    private String suTipo = "reloj";
+
+
+    public Reloj() {
+        this.setSuTipo("reloj");
+
+    }
 }
