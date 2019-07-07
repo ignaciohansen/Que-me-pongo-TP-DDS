@@ -130,7 +130,6 @@ public class TestRopaDistinta {
     @Test(expected = Exceptions.TelaIncompatible.class)
     public void remeraCueroError() throws Exception {
         Prenda remeraDeCuero;
-
         remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, tipoRemera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
     }
 
@@ -149,6 +148,7 @@ public class TestRopaDistinta {
         Assert.assertEquals(2, cuero.cantidadPrendasIncompatibles());
     }
     @Test
+
     public void PrendasDistintasDeAtuendo() throws Exception {
         // Cargo el guardarropa
         guardarropaPruebaJuan.agregarPrenda(pantalon);
@@ -189,29 +189,21 @@ public class TestRopaDistinta {
         */
        }
 
-
-
-    /*
-
     @Test
-    public void testMismoColor(){
-        try{
-            juan.agregarUnGuardarropas(guardarropaPruebaJuan);
-        }
-        catch(Exception exception){
-            System.out.print(exception.getMessage());
-        }
-    }
 
-     @Test
-    public void cantidadDeGuardarropasDeJuan() throws Exception{
-        juan.agregarUnGuardarropas(guardarropaPruebaJuan);
-        Assert.assertEquals(2,juan.cantidadDeGuardarropas());
-    }
+    public void nivelAbrigoAtuendo() throws Exception {
+        // Cargo el guardarropa
+        guardarropaPruebaJuan.agregarPrenda(pantalon);
+        guardarropaPruebaJuan.agregarPrenda(pantufla);
+        guardarropaPruebaJuan.agregarPrenda(camisa);
+        guardarropaPruebaJuan.agregarPrenda(campera);
+        guardarropaPruebaJuan.agregarPrenda(zapatillas);
+        guardarropaPruebaJuan.agregarPrenda(reloj);
 
-     */
+        Atuendo atuendoCreadoUno = juan.generarAtuendo(guardarropaPruebaJuan);
+        Assert.assertEquals(5,atuendoCreadoUno.nivelAbrigo());
 
-
+}
 }
 
 

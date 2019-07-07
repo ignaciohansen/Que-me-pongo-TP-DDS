@@ -27,6 +27,8 @@ public class Atuendo {
         return prendas;
     }
 
+    public int nivelAbrigo(){ return  prendas.stream().mapToInt(Prenda::suCapa).sum();}
+
     @Override
     public String toString() {
         return "Ropas.Atuendo{" +

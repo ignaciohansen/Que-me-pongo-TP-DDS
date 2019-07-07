@@ -61,6 +61,7 @@ public class Prenda {
         } else this.tela = tela;
     }
 
+    public int suCapa(){ return tipoDePrenda.getNivelDeAbrigo(); }
     public Tela getTela() { return tela; }
 
     public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};

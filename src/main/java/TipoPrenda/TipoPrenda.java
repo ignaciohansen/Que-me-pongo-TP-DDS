@@ -29,4 +29,8 @@ public abstract class TipoPrenda {
     public void setNivelDeAbrigo(int nivelDeAbrigo) {
         this.nivelDeAbrigo = nivelDeAbrigo;
     }
+
+    public boolean suNivelDeCapaEs(int nivelObjetivo){
+        return nivelObjetivo == this.getCapaDePrenda();
+    }
 }
