@@ -36,7 +36,6 @@ public class TestRopaDistinta {
 
     @Before
     public void init() throws Exception {
-        cuero = new Cuero();
         pantufla = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoPantufla, Prenda.CategoriaPrenda.Calzado,cuero);
         pantalon = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoPantalon, Prenda.CategoriaPrenda.ParteInferior,cuero);
         camisa = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoCamisa, Prenda.CategoriaPrenda.ParteSuperior,algodon);
@@ -92,11 +91,9 @@ public class TestRopaDistinta {
         Atuendo atuendoCreado = juan.generarAtuendo(guardarropaPruebaJuan);
 
         // Test funciona, tengo 5 prendas y retorna 4, el filtrado anda bien
-        Assert.assertEquals(4,atuendoCreado.cantidadDePrendas());
+        Assert.assertEquals(5,atuendoCreado.cantidadDePrendas());
 
     }
-
-
 
     @Test
     public void cantidadDeGuardarropasDeJuan() throws Exception{

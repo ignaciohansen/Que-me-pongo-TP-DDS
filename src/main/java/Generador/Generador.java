@@ -10,24 +10,50 @@ import java.util.stream.Collectors;
 
 public class Generador {
 
-// Se toma una prenda random de una lista que esta filtrada segun categoria y de la capa1
+    private int gradosQueHacenSinApi = 10;
+    private int numeroReferenciaParaCalculo = 30; // Podria ir en un archiv config
 
-    private List<Prenda> ListaDePrendasParteSuperiorCapa1(Guardarropa guardarropa) {return guardarropa.getPrendas().stream()
-            .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(1))
-            .filter(prenda -> prenda.getCategoria().ordinal() == 0)
-            .collect(Collectors.toList()); }
-    private List<Prenda> ListaDePrendasParteInferiorCapa1(Guardarropa guardarropa) {return guardarropa.getPrendas().stream()
+    public void setGrados(int grados){
+        this.gradosQueHacenSinApi = grados;
+    }
+// Se toma una prenda random de una lista que esta filtrada segun categoria y de la capa1
+    private List<Prenda> listaDePrendasDeCapaYcategoria(Guardarropa guardarropa,int capa,int categoria){
+        return  guardarropa.getPrendas().stream().
+                filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(capa))
+                .filter(prenda -> prenda.getCategoria().ordinal() == categoria)
+                .collect(Collectors.toList());}
+
+    private List<Prenda> ListaDePrendasParteSuperiorCapa1(Guardarropa guardarropa) {return
+            this.listaDePrendasDeCapaYcategoria(guardarropa,1,0);}
+    private List<Prenda> ListaDePrendasParteInferiorCapa1(Guardarropa guardarropa){return
+            this.listaDePrendasDeCapaYcategoria(guardarropa,1,1);}
+
+            /*
+            {return guardarropa.getPrendas().stream()
             .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(1))
             .filter(prenda -> prenda.getCategoria().ordinal() == 1)
             .collect(Collectors.toList()); }
-    private List<Prenda> ListaDePrendasCalzadoCapa1(Guardarropa guardarropa) {return guardarropa.getPrendas().stream()
+
+             */
+    private List<Prenda> ListaDePrendasCalzadoCapa1(Guardarropa guardarropa){return
+            this.listaDePrendasDeCapaYcategoria(guardarropa,1,2);}
+
+     /*
+            {return guardarropa.getPrendas().stream()
             .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(1))
             .filter(prenda -> prenda.getCategoria().ordinal() == 2)
             .collect(Collectors.toList()); }
-    private List<Prenda> ListaDePrendasAccesorioCapa1(Guardarropa guardarropa) {return guardarropa.getPrendas().stream()
+
+      */
+    private List<Prenda> ListaDePrendasAccesorioCapa1(Guardarropa guardarropa)
+    {return this.listaDePrendasDeCapaYcategoria(guardarropa,1,3);}
+
+     /*   {return guardarropa.getPrendas().stream()
             .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(1))
             .filter(prenda -> prenda.getCategoria().ordinal() == 3)
             .collect(Collectors.toList()); }
+
+      */
 
     public Atuendo generarAtuendoGR(Guardarropa guardarropa){
         int randomPSuperior = (int)(Math.random()*(this.ListaDePrendasParteSuperiorCapa1(guardarropa).size()));
@@ -47,11 +73,19 @@ public class Generador {
         listaPrenda.add(calzado);
         listaPrenda.add(accesorio);
 
-        // VER ACA, SI EL NIVEL DE ABRIGO ES MENOR A UNO QUE TENGA Q VER CON LA TEMPERATURA (EJ: 30-GRADOS DEL LUGAR), HAY QUE AGREGAR ROPA DE CAPA2 , SINO SE DEVUELVE ESE ATUENDO
         int nivelAbrigoPrimeraCapa = listaPrenda.stream().mapToInt(Prenda::suCapa).sum();
 
+        if((this.numeroReferenciaParaCalculo-this.gradosQueHacenSinApi)>nivelAbrigoPrimeraCapa)
+        // Ej hacen 5 grados => 30-5 = 25 nivel de abrigo objetivo, lleno ropa hasta que llegue a eso
+        {
+            List<Prenda> prendasCapaDosPSuperior = this.listaDePrendasDeCapaYcategoria(guardarropa,2,0);
+            int random2PSuperior = (int)(Math.random()*(prendasCapaDosPSuperior.size()));
+            Prenda superior2Capa = prendasCapaDosPSuperior.get(random2PSuperior);
+            listaPrenda.add(superior2Capa);
+
+        }
         return new Atuendo(listaPrenda);
-    }
+}
 
     public List<Atuendo> generarAtuendos(List<Guardarropa> guardarropas){
         List<Atuendo> atuendos = new ArrayList<Atuendo>();
@@ -63,3 +97,6 @@ public class Generador {
         return atuendos;
     }
 }
+
+
+// POR COMO ESTA AHORA EL CLIMA, SE GENERAN ATUENDOS CON PRENDAS DE DOS CAPAS
