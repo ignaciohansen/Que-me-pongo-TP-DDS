@@ -28,23 +28,9 @@ public class Generador {
     private List<Prenda> ListaDePrendasParteInferiorCapa1(Guardarropa guardarropa){return
             this.listaDePrendasDeCapaYcategoria(guardarropa,1,1);}
 
-            /*
-            {return guardarropa.getPrendas().stream()
-            .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(1))
-            .filter(prenda -> prenda.getCategoria().ordinal() == 1)
-            .collect(Collectors.toList()); }
-
-             */
     private List<Prenda> ListaDePrendasCalzadoCapa1(Guardarropa guardarropa){return
             this.listaDePrendasDeCapaYcategoria(guardarropa,1,2);}
 
-     /*
-            {return guardarropa.getPrendas().stream()
-            .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(1))
-            .filter(prenda -> prenda.getCategoria().ordinal() == 2)
-            .collect(Collectors.toList()); }
-
-      */
     private List<Prenda> ListaDePrendasAccesorioCapa1(Guardarropa guardarropa)
     {return this.listaDePrendasDeCapaYcategoria(guardarropa,1,3);}
 
@@ -78,10 +64,20 @@ public class Generador {
         if((this.numeroReferenciaParaCalculo-this.gradosQueHacenSinApi)>nivelAbrigoPrimeraCapa)
         // Ej hacen 5 grados => 30-5 = 25 nivel de abrigo objetivo, lleno ropa hasta que llegue a eso
         {
+            //Lleno con ropa segunda capa
             List<Prenda> prendasCapaDosPSuperior = this.listaDePrendasDeCapaYcategoria(guardarropa,2,0);
             int random2PSuperior = (int)(Math.random()*(prendasCapaDosPSuperior.size()));
             Prenda superior2Capa = prendasCapaDosPSuperior.get(random2PSuperior);
             listaPrenda.add(superior2Capa);
+            int nivelAbrigoPrimeraSuperposicion = listaPrenda.stream().mapToInt(Prenda::suCapa).sum();
+
+            // Si al tener ya la primera superposicion sigue sin alcanzar, le agrego otra mas ej ( remera-sweater-campera)
+            if((this.numeroReferenciaParaCalculo-this.gradosQueHacenSinApi)>nivelAbrigoPrimeraSuperposicion){
+                List<Prenda> prendasCapaTresPSuperior = this.listaDePrendasDeCapaYcategoria(guardarropa,3,0);
+                int random3PSuperior = (int)(Math.random()*(prendasCapaTresPSuperior.size()));
+                Prenda superior3Capa = prendasCapaTresPSuperior.get(random3PSuperior);
+                listaPrenda.add(superior3Capa);
+            }
 
         }
         return new Atuendo(listaPrenda);

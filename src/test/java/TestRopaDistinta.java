@@ -13,6 +13,9 @@ public class TestRopaDistinta {
     private Prenda reloj;
     private Prenda campera;
     private Prenda pantufla;
+    private Prenda sweater;
+    private Prenda remera;
+    private Sweater TipoSweater = new Sweater();
     private Camisa TipoCamisa = new Camisa();
     private Reloj TipoReloj = new Reloj();
     private Remera tipoRemera = new Remera();
@@ -37,8 +40,10 @@ public class TestRopaDistinta {
     @Before
     public void init() throws Exception {
         pantufla = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoPantufla, Prenda.CategoriaPrenda.Calzado,cuero);
+        sweater = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoSweater, Prenda.CategoriaPrenda.Calzado,algodon);
         pantalon = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoPantalon, Prenda.CategoriaPrenda.ParteInferior,cuero);
         camisa = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoCamisa, Prenda.CategoriaPrenda.ParteSuperior,algodon);
+        remera = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, tipoRemera, Prenda.CategoriaPrenda.ParteSuperior,algodon);
         campera = new Prenda(Prenda.Color.Blanco, Prenda.Color.Rojo, TipoCampera, Prenda.CategoriaPrenda.ParteSuperior,cuero);
         zapatillas = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoZapatilla, Prenda.CategoriaPrenda.Calzado,cuero);
         reloj = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero);
@@ -83,6 +88,8 @@ public class TestRopaDistinta {
         // Cargo el guardarropa
         guardarropaPruebaJuan.agregarPrenda(pantalon);
         guardarropaPruebaJuan.agregarPrenda(camisa);
+        guardarropaPruebaJuan.agregarPrenda(sweater);
+        guardarropaPruebaJuan.agregarPrenda(remera);
         guardarropaPruebaJuan.agregarPrenda(campera);
         guardarropaPruebaJuan.agregarPrenda(zapatillas);
         guardarropaPruebaJuan.agregarPrenda(reloj);
@@ -90,8 +97,9 @@ public class TestRopaDistinta {
         //Armo el atuendo
         Atuendo atuendoCreado = juan.generarAtuendo(guardarropaPruebaJuan);
 
-        // Test funciona, tengo 5 prendas y retorna 4, el filtrado anda bien
-        Assert.assertEquals(5,atuendoCreado.cantidadDePrendas());
+        // Test funciona, tengo 7 prendas y retorna 6, el filtrado anda bien
+        // Retorna 6 porque tiene 3 capas de parte superior
+        Assert.assertEquals(6,atuendoCreado.cantidadDePrendas());
 
     }
 
@@ -154,6 +162,7 @@ public class TestRopaDistinta {
         guardarropaPruebaJuan.agregarPrenda(campera);
         guardarropaPruebaJuan.agregarPrenda(zapatillas);
         guardarropaPruebaJuan.agregarPrenda(reloj);
+        guardarropaPruebaJuan.agregarPrenda(remera);
 
         //Armo el atuendo 1
         Atuendo atuendoCreadoUno = juan.generarAtuendo(guardarropaPruebaJuan);
@@ -196,6 +205,7 @@ public class TestRopaDistinta {
         guardarropaPruebaJuan.agregarPrenda(campera);
         guardarropaPruebaJuan.agregarPrenda(zapatillas);
         guardarropaPruebaJuan.agregarPrenda(reloj);
+        guardarropaPruebaJuan.agregarPrenda(remera);
 
         Atuendo atuendoCreadoUno = juan.generarAtuendo(guardarropaPruebaJuan);
         Assert.assertEquals(5,atuendoCreadoUno.nivelAbrigo());
