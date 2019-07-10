@@ -10,6 +10,13 @@ import java.util.stream.Collectors;
 
 public class Generador {
 
+    /*
+    //Lo que deberia poder hacer:
+    ApiClima api = new ApiClima();
+    api.obtenerHttp(); //finalmente cambiar a void, devuelve string por motivos de testeo.
+    int temperatura = Header.getTemperatura().getMetric().getValue();
+    //Utilizar temperatura en el generador.
+     */
     private int gradosQueHacenSinApi = 10;
     private int numeroReferenciaParaCalculo = 30; // Podria ir en un archiv config
 

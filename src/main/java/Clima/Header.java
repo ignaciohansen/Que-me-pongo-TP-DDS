@@ -12,4 +12,7 @@ public class Header {
     public String MobileLink;
     public String Link;
 
+    public ClassTemperatura getTemperatura(){
+        return this.Temperatura;
+    };
 }
