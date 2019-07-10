@@ -1,3 +1,4 @@
+import Clima.ApiClima;
 import Imagenes.pruebaImagen;
 import Ropas.*;
 import TipoPrenda.*;
@@ -228,6 +229,16 @@ public class TestRopaDistinta {
     }
 
  */
+
+    @Test
+    public void consultarClima() throws Exception {
+        ApiClima clima = new ApiClima();
+
+        clima.obtenerHttp();
+
+        Assert.assertEquals("remera", clima.obtenerHttp());
+    }
+
 }
 
 
