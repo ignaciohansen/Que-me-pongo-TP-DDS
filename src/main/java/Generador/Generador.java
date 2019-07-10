@@ -1,5 +1,6 @@
 package Generador;
 
+import Clima.ApiClima;
 import Ropas.Atuendo;
 import Ropas.Guardarropa;
 import Ropas.Prenda;
@@ -17,7 +18,11 @@ public class Generador {
     int temperatura = Header.getTemperatura().getMetric().getValue();
     //Utilizar temperatura en el generador.
      */
-    private int gradosQueHacenSinApi = 10;
+
+    ApiClima api = new ApiClima();
+    int grados = api.obtenerHttp();
+
+    private int gradosQueHacenSinApi = grados;
     private int numeroReferenciaParaCalculo = 30; // Podria ir en un archiv config
 
     public void setGrados(int grados){
