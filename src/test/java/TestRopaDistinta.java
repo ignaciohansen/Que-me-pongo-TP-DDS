@@ -89,7 +89,7 @@ public class TestRopaDistinta {
     }
 
     @Test
-    public void cantidadDePrendasDeAtuendo() throws Exception {
+    public void cantidadDePrendasDeAtuendoMinimo4() throws Exception {
         // Cargo el guardarropa
         guardarropaPruebaJuan.agregarPrenda(pantalon);
         guardarropaPruebaJuan.agregarPrenda(camisa);
@@ -103,8 +103,9 @@ public class TestRopaDistinta {
         Atuendo atuendoCreado = juan.generarAtuendo(guardarropaPruebaJuan);
 
         // Test funciona, tengo 7 prendas y retorna 6, el filtrado anda bien
-        // Retorna 6 porque tiene 3 capas de parte superior
-        Assert.assertEquals(6,atuendoCreado.cantidadDePrendas());
+        // Retorna 6 porque tiene 3 capas de parte superior , si son 5 son dos capas
+        System.out.println("La cantidad de prendas del atuendo resultante es:" +atuendoCreado.cantidadDePrendas());
+        Assert.assertTrue(atuendoCreado.cantidadDePrendas()>= 4);
 
     }
 
@@ -234,9 +235,10 @@ public class TestRopaDistinta {
     public void consultarClima() throws Exception {
         ApiClima clima = new ApiClima();
 
-        clima.obtenerHttp();
+        int temperatura = clima.obtenerHttp();
+        System.out.println("Temperatura que devuelve la api:" + temperatura);
 
-        Assert.assertEquals("remera", clima.obtenerHttp());
+        Assert.assertTrue(temperatura>-10);
     }
 
 }
