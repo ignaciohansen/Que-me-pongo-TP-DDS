@@ -1,3 +1,4 @@
+import Imagenes.pruebaImagen;
 import Ropas.*;
 import TipoPrenda.*;
 import Usuario.*;
@@ -5,6 +6,8 @@ import Telas.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.swing.*;
 
 public class TestRopaDistinta {
     private Prenda camisa;
@@ -23,6 +26,7 @@ public class TestRopaDistinta {
     private Pantufla TipoPantufla = new Pantufla();
     private Pantalon TipoPantalon = new Pantalon();
     private Campera TipoCampera = new Campera();
+    private pruebaImagen Mostrador;
 
     private Cuero cuero = new Cuero();
     private Algodon algodon = new Algodon();
@@ -207,12 +211,24 @@ public class TestRopaDistinta {
         guardarropaPruebaJuan.agregarPrenda(reloj);
         guardarropaPruebaJuan.agregarPrenda(remera);
 
+        int nivelDeAbrigoParaTemperaturaDe5Grados = 20; //( Numero para calculo - grados, 25-5)
         Atuendo atuendoCreadoUno = juan.generarAtuendo(guardarropaPruebaJuan);
-        Assert.assertEquals(5,atuendoCreadoUno.nivelAbrigo());
+        System.out.println("Nivel de abrigo del atuendo generado:" + atuendoCreadoUno.nivelAbrigo());
+        Assert.assertTrue(atuendoCreadoUno.nivelAbrigo()>nivelDeAbrigoParaTemperaturaDe5Grados);
 
 }
-}
 
+/*
+    @Test
+    public void mostrarImagenCamisa() {
+        ImageIcon ImagenCamisa = TipoCamisa.getFoto();
+        //Mostrador = new pruebaImagen(ImagenCamisa);
+        Mostrador.mostrarImagen(ImagenCamisa);
+
+    }
+
+ */
+}
 
 
 

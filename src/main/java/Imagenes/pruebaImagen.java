@@ -6,7 +6,7 @@ import java.awt.event.*;
 
 public class pruebaImagen  extends JFrame {
 
-    ImageIcon remera = new ImageIcon("C:\\Users\\Nacho\\Documents\\2019-mi-no-group-10\\Imagenes\\remera.jpg");
+    ImageIcon remera = new ImageIcon("..\\2019-mi-no-group-10\\Imagenes\\remera.jpg");
     ImageIcon camisa = new ImageIcon("C:\\Users\\Nacho\\Documents\\2019-mi-no-group-10\\Imagenes\\camisa.jpg");
     ImageIcon pantalon = new ImageIcon("C:\\Users\\Nacho\\Documents\\2019-mi-no-group-10\\Imagenes\\pantalon.jpg");
     ImageIcon sweater = new ImageIcon("C:\\Users\\Nacho\\Documents\\2019-mi-no-group-10\\Imagenes\\sweater.jpg");
@@ -27,13 +27,14 @@ public class pruebaImagen  extends JFrame {
         //ESTABLECEMOS EL TAMAÑO DEL FRAME
         this.setSize(600, 900);
 
+
     }
 
     public static void main(String[] args)
     {
-        ImageIcon campera = new ImageIcon("C:\\Users\\Nacho\\Documents\\2019-mi-no-group-10\\Imagenes\\campera.jpg");
+        ImageIcon remera = new ImageIcon("..\\2019-mi-no-group-10\\Imagenes\\remera.jpg");
 
-        pruebaImagen p = new pruebaImagen(campera);
+        pruebaImagen p = new pruebaImagen(remera);
         p.show();
 
         //COLOCAMOS EL CODIGO QUE PERMITE CERRAR LA VENTANA
