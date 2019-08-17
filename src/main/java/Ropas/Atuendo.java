@@ -1,7 +1,10 @@
 package Ropas;
 
+import TipoPrenda.TipoPrenda;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Atuendo {
@@ -28,12 +31,16 @@ public class Atuendo {
         return prendas;
     }
 
+    public List<TipoPrenda> getTipoPrenda()  {
+        return prendas.stream().map(prenda -> prenda.getTipoDePrenda()).collect(Collectors.toList());
+    }
+
     public int nivelAbrigo(){ return  prendas.stream().mapToInt(Prenda::suCapa).sum();}
 
     @Override
     public String toString() {
-        return "Ropas.Atuendo{" +
-                "prendas=" + prendas +
-                '}';
+       // return "Ropas.Atuendo{"+"prendas=" + this.getTipoPrenda() + '}';
+       // return this.getClass().getSimpleName();
+       return "Prendas=" + prendas.stream().map(prenda -> prenda.getDescripcion() + " de color " + prenda.getColorPrimario()).collect(Collectors.toList());
     }
 }

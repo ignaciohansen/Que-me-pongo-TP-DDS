@@ -11,7 +11,7 @@ public class  UsuarioGratuito extends TipoUsuario {
 
     @Override
     public void agregarGuardarropa(List<Guardarropa> guardarropas, Guardarropa guardarropa) throws SuperoLimiteDeGuardarropas{
-        if(cantidadMaximaGuardarropas < guardarropas.size()){
+        if(cantidadMaximaGuardarropas > guardarropas.size()){
             guardarropas.add(guardarropa);
         }else{throw new SuperoLimiteDeGuardarropas();
 

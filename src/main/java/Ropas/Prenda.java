@@ -2,19 +2,30 @@ package Ropas;
 
 import Telas.Tela;
 import TipoPrenda.TipoPrenda;
+import java.lang.reflect.Field;
 
 public class Prenda {
+
     private Color colorPrimario;
     private Color colorSecundario;
     private TipoPrenda tipoDePrenda;
     private CategoriaPrenda categoria;
     private Tela tela;
-    public Boolean estaEnGuardarropa = false;
 
-    public Prenda(Color colorPrimario, Color colorSecundario, TipoPrenda tipoDePrenda,CategoriaPrenda categoria,Tela unaTela) throws Exception {
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    private String descripcion;
+    public Boolean estaEnGuardarropa = false;
+    public Boolean seUtilizaEnUnAtuendo = false;
+
+
+    public Prenda(Color colorPrimario, Color colorSecundario, TipoPrenda tipoDePrenda,CategoriaPrenda categoria,Tela unaTela,String descripcion) throws Exception {
         this.colorPrimario = colorPrimario;
         this.tipoDePrenda = tipoDePrenda;
         this.categoria = categoria;
+        this.descripcion = descripcion;
         setColorSecundario(colorSecundario);
         setTela(unaTela);
     }
@@ -66,7 +77,7 @@ public class Prenda {
 
     public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};
 
-    public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio};
+    public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio}; //Ver si agregar manos, cabeza como categoria
 
     @Override
     public int hashCode() {

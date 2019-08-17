@@ -28,12 +28,18 @@ public class Generador {
     public void setGrados(int grados){
         this.gradosQueHacenSinApi = grados;
     }
-// Se toma una prenda random de una lista que esta filtrada segun categoria y de la capa1
+
+
+
+    // Se toma una prenda random de una lista que esta filtrada segun categoria y de la capa1
     private List<Prenda> listaDePrendasDeCapaYcategoria(Guardarropa guardarropa,int capa,int categoria){
-        return  guardarropa.getPrendas().stream().
-                filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(capa))
+        return  guardarropa.getPrendas().stream()
+                .filter(prenda -> prenda.seUtilizaEnUnAtuendo == false)
+                .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(capa))
                 .filter(prenda -> prenda.getCategoria().ordinal() == categoria)
                 .collect(Collectors.toList());}
+
+//Armo lista de ropa segun categoria y la capa 1 para armar el atuendo
 
     private List<Prenda> ListaDePrendasParteSuperiorCapa1(Guardarropa guardarropa) {return
             this.listaDePrendasDeCapaYcategoria(guardarropa,1,0);}
@@ -46,19 +52,15 @@ public class Generador {
     private List<Prenda> ListaDePrendasAccesorioCapa1(Guardarropa guardarropa)
     {return this.listaDePrendasDeCapaYcategoria(guardarropa,1,3);}
 
-     /*   {return guardarropa.getPrendas().stream()
-            .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(1))
-            .filter(prenda -> prenda.getCategoria().ordinal() == 3)
-            .collect(Collectors.toList()); }
-
-      */
-
     public Atuendo generarAtuendoGR(Guardarropa guardarropa){
+        //Calculo de randoms segun elementos totales
+
         int randomPSuperior = (int)(Math.random()*(this.ListaDePrendasParteSuperiorCapa1(guardarropa).size()));
         int randomPInferior = (int)(Math.random()*(this.ListaDePrendasParteInferiorCapa1(guardarropa).size()));
         int randomCalzado = (int)(Math.random()*(this.ListaDePrendasCalzadoCapa1(guardarropa).size()));
         int randomAccesorio = (int)(Math.random()*(this.ListaDePrendasAccesorioCapa1(guardarropa).size()));
 
+        //Agarro un elemento de cada lista
         Prenda superior = this.ListaDePrendasParteSuperiorCapa1(guardarropa).get(randomPSuperior);
         Prenda inferior = this.ListaDePrendasParteInferiorCapa1(guardarropa).get(randomPInferior);
         Prenda calzado = this.ListaDePrendasCalzadoCapa1(guardarropa).get(randomCalzado);
@@ -84,6 +86,7 @@ public class Generador {
             int nivelAbrigoPrimeraSuperposicion = listaPrenda.stream().mapToInt(Prenda::suCapa).sum();
 
             // Si al tener ya la primera superposicion sigue sin alcanzar, le agrego otra mas ej ( remera-sweater-campera)
+
             if((this.numeroReferenciaParaCalculo-this.gradosQueHacenSinApi)>nivelAbrigoPrimeraSuperposicion){
                 List<Prenda> prendasCapaTresPSuperior = this.listaDePrendasDeCapaYcategoria(guardarropa,3,0);
                 int random3PSuperior = (int)(Math.random()*(prendasCapaTresPSuperior.size()));
@@ -92,6 +95,7 @@ public class Generador {
             }
 
         }
+        listaPrenda.stream().forEach(prenda -> prenda.seUtilizaEnUnAtuendo = true); // Con esto, otro usuario que quiera un atuendo no va a tener estas ropas
         return new Atuendo(listaPrenda);
 }
 

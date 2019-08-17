@@ -5,15 +5,13 @@ import java.util.Set;
 
 public class Guardarropa {
     private Set<Prenda> prendas;
-    public Boolean perteneceAUsuario = false;
 
     public Guardarropa(){
         this.prendas = new HashSet<Prenda>();
     }
     public Guardarropa(Set<Prenda> prendas) {
         this.prendas = new HashSet<Prenda>();
-        this.prendas = prendas;
-    }
+        this.prendas = prendas; }
 
     public void setPrendas(Set<Prenda> prendas) {
         this.prendas = prendas;
@@ -35,8 +33,6 @@ public class Guardarropa {
         prenda.estaEnGuardarropa = true;
         }
 
-
-       // prendas.add(prenda);
     }
 
     public int cantidadDePrendas(){
