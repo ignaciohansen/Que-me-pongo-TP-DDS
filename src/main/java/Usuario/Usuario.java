@@ -17,6 +17,11 @@ public class Usuario{
     private List<Guardarropa> guardarropas;
     private TipoUsuario tipoUsuario;
     private List<Evento> eventos;
+
+    public void setSensibilidad(tipoSensibilidad sensibilidad) {
+        this.sensibilidad = sensibilidad;
+    }
+
     private tipoSensibilidad sensibilidad;
 
     public Usuario(TipoUsuario tipoUsuario, tipoSensibilidad suSensibilidad){

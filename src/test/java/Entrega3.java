@@ -53,13 +53,14 @@ public class Entrega3 {
     private UsuarioPremium premium  = new UsuarioPremium();
     private UsuarioGratuito gratuito = new UsuarioGratuito();
     private Caluroso caluroso = new Caluroso(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
-    private Friolento friolento = new Friolento(TipoPrenda.parteDelCuerpoQueAbriga.Cabeza);
+    private Friolento friolento = new Friolento(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
+    private Friolento friolentoYfriolentoCabeza = new Friolento(TipoPrenda.parteDelCuerpoQueAbriga.Cabeza);
     private Indiferente indiferente = new Indiferente(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
 
 
     private Guardarropa guardarropaCompartido = new Guardarropa();
     private Usuario juan = new Usuario(premium,caluroso);
-    private Usuario tomas = new Usuario(gratuito,friolento);
+    private Usuario tomas = new Usuario(gratuito,friolentoYfriolentoCabeza);
 
 
     @Before
@@ -122,15 +123,22 @@ public void parteDelCuerpoCubiertaPorAccesorio() {
     System.out.println(TipoReloj.getParteDelCuerpo());
 }
 
-    @Test
-    public void tomasConGorroAlSerSensible() {
+@Test
+public void tomasConGorroAlSerSensible() {
 
-      Atuendo atuendoCreado = tomas.generarAtuendo(guardarropaCompartido);
+Atuendo atuendoCreado = tomas.generarAtuendo(guardarropaCompartido);
 
-      System.out.println(atuendoCreado);
+System.out.println(atuendoCreado);
 
     }
+@Test
+public void juanCalurosoYtomasFriolento() {
+    tomas.setSensibilidad(friolento);
+    Atuendo atuendoCreadoJuan = juan.generarAtuendo(guardarropaCompartido);
+    Atuendo atuendoCreadoTomas = tomas.generarAtuendo(guardarropaCompartido);
+    Assert.assertTrue(atuendoCreadoTomas.cantidadDePrendas()>atuendoCreadoJuan.cantidadDePrendas());
 
+}
 
 }
 

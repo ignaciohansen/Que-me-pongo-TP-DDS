@@ -5,7 +5,7 @@ import TipoPrenda.TipoPrenda;
 public class Caluroso extends tipoSensibilidad {
 
     public Caluroso(TipoPrenda.parteDelCuerpoQueAbriga parteCuerpo) {
-        this.setValor(-4);
+        this.setValor(-5);
         this.setParteCuerpo(parteCuerpo);
     }
 }

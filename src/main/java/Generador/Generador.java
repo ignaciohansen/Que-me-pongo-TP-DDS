@@ -56,8 +56,6 @@ public class Generador {
    private List<Prenda> AccesoriosParteCuerpo(Guardarropa guardarropa,Usuario usuario) {
   // private void AccesoriosParteCuerpo(Guardarropa guardarropa,Usuario usuario) {
        List<Prenda> listaAccesorios = this.ListaDePrendasAccesorioCapa1(guardarropa);
-       System.out.println("Prueba metodo:  Parte a cubrir: " + usuario.parteSensible());
-       System.out.println("Prueba metodo:  Mis accesorios cubren: " + listaAccesorios.stream().map(prenda -> prenda.getTipoDePrenda().getParteDelCuerpo()).collect(Collectors.toList()));
 
         if(!usuario.parteSensible().equals(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna)){
         List<Prenda> listaAccesoriosParteCuerpo = listaAccesorios.stream().filter(prenda -> prenda.getTipoDePrenda().getParteDelCuerpo().equals(usuario.parteSensible())).collect(Collectors.toList());
@@ -69,8 +67,10 @@ public class Generador {
 
 
     public Atuendo generarAtuendoGR(Guardarropa guardarropa,Usuario usuario){
-        //Calculo de randoms segun elementos totales
-        // Antes de calcular los randoms, tengo que elegir mi accesorio para mi parte del cuerpo sensible
+
+        System.out.println("Temperatura actual: " + gradosQueHacenApi );
+        System.out.println("Prueba metodo:  Parte a cubrir: " + usuario.parteSensible());
+        System.out.println("Prueba metodo:  Mis accesorios cubren: " + this.ListaDePrendasAccesorioCapa1(guardarropa).stream().map(prenda -> prenda.getTipoDePrenda().getParteDelCuerpo()).collect(Collectors.toList()));
 
         int randomPSuperior = (int)(Math.random()*(this.ListaDePrendasParteSuperiorCapa1(guardarropa).size()));
         int randomPInferior = (int)(Math.random()*(this.ListaDePrendasParteInferiorCapa1(guardarropa).size()));
@@ -116,7 +116,10 @@ public class Generador {
 
         }
         listaPrenda.stream().forEach(prenda -> prenda.seUtilizaEnUnAtuendo = true); // Con esto, otro usuario que quiera un atuendo no va a tener estas ropas
-        return new Atuendo(listaPrenda);
+
+        Atuendo atuendoCreado = new Atuendo(listaPrenda);
+        System.out.println(atuendoCreado);
+        return atuendoCreado;
 }
 // Ver si dejar este metodo
     public List<Atuendo> generarAtuendos(List<Guardarropa> guardarropas,Usuario usuario){
