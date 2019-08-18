@@ -3,6 +3,8 @@ import Imagenes.pruebaImagen;
 import Ropas.Atuendo;
 import Ropas.Guardarropa;
 import Ropas.Prenda;
+import Sensibilidad.Indiferente;
+import Sensibilidad.tipoSensibilidad;
 import Telas.Algodon;
 import Telas.Cuero;
 import TipoPrenda.*;
@@ -41,13 +43,14 @@ public class Entrega2 {
     private Algodon algodon = new Algodon();
     private UsuarioPremium premium  = new UsuarioPremium();
     private UsuarioGratuito gratuito = new UsuarioGratuito();
+    private Indiferente indiferente = new Indiferente(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
 
 
     private Guardarropa guardarropaPruebaJuan = new Guardarropa();
     private Guardarropa guardarropaConRelojError = new Guardarropa();
     private Guardarropa guardarropaPruebaTomas = new Guardarropa();
-    private Usuario juan = new Usuario(premium);
-    private Usuario tomas = new Usuario(gratuito);
+    private Usuario juan = new Usuario(premium,indiferente);
+    private Usuario tomas = new Usuario(gratuito,indiferente);
 
 
     @Before

@@ -9,6 +9,8 @@ public class Cuero extends Tela {
     public Cuero() {
         prendasIncompatibles.add("remera");
         prendasIncompatibles.add("camisa");
+        prendasIncompatibles.add("gorro");
+        prendasIncompatibles.add("guantes");
     }
 
     @Override

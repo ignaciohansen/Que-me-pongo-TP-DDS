@@ -5,6 +5,10 @@ import Imagenes.pruebaImagen;
 import Ropas.Atuendo;
 import Ropas.Guardarropa;
 import Ropas.Prenda;
+import Sensibilidad.Caluroso;
+import Sensibilidad.Friolento;
+import Sensibilidad.Indiferente;
+import Sensibilidad.tipoSensibilidad;
 import Telas.Algodon;
 import Telas.Cuero;
 import TipoPrenda.*;
@@ -24,6 +28,7 @@ public class Entrega3 {
     private Prenda pantalon;
     private Prenda joggin;
     private Prenda reloj;
+    private Prenda gorro;
     private Prenda pulsera;
     private Prenda campera;
     private Prenda camperon;
@@ -36,6 +41,7 @@ public class Entrega3 {
     private Sweater TipoSweater = new Sweater();
     private Camisa TipoCamisa = new Camisa();
     private Reloj TipoReloj = new Reloj();
+    private Gorro TipoGorro = new Gorro();
     private Remera tipoRemera = new Remera();
     private Zapatilla TipoZapatilla = new Zapatilla();
     private Pantufla TipoPantufla = new Pantufla();
@@ -46,11 +52,14 @@ public class Entrega3 {
     private Algodon algodon = new Algodon();
     private UsuarioPremium premium  = new UsuarioPremium();
     private UsuarioGratuito gratuito = new UsuarioGratuito();
+    private Caluroso caluroso = new Caluroso(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
+    private Friolento friolento = new Friolento(TipoPrenda.parteDelCuerpoQueAbriga.Cabeza);
+    private Indiferente indiferente = new Indiferente(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
 
 
     private Guardarropa guardarropaCompartido = new Guardarropa();
-    private Usuario juan = new Usuario(premium);
-    private Usuario tomas = new Usuario(gratuito);
+    private Usuario juan = new Usuario(premium,caluroso);
+    private Usuario tomas = new Usuario(gratuito,friolento);
 
 
     @Before
@@ -68,10 +77,27 @@ public class Entrega3 {
         campera = new Prenda(Prenda.Color.Blanco, Prenda.Color.Rojo, TipoCampera, Prenda.CategoriaPrenda.ParteSuperior,cuero,"campera");
         camperon = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, TipoCampera, Prenda.CategoriaPrenda.ParteSuperior,cuero,"camperon");
         reloj = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero,"reloj");
+        gorro = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoGorro, Prenda.CategoriaPrenda.Accesorio,algodon,"gorro");
         pulsera = new Prenda(Prenda.Color.Rojo, Prenda.Color.Blanco, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero,"pulsera");
 
         juan.agregarUnGuardarropas(guardarropaCompartido);
         tomas.agregarUnGuardarropas(guardarropaCompartido);
+
+        guardarropaCompartido.agregarPrenda(pantalon);
+        guardarropaCompartido.agregarPrenda(pantufla);
+        guardarropaCompartido.agregarPrenda(camisa);
+        guardarropaCompartido.agregarPrenda(musculosa);
+        guardarropaCompartido.agregarPrenda(campera);
+        guardarropaCompartido.agregarPrenda(zapatillas);
+        guardarropaCompartido.agregarPrenda(reloj);
+        guardarropaCompartido.agregarPrenda(remera);
+        guardarropaCompartido.agregarPrenda(joggin);
+        guardarropaCompartido.agregarPrenda(pulsera);
+        guardarropaCompartido.agregarPrenda(camperon);
+        guardarropaCompartido.agregarPrenda(sweater);
+        guardarropaCompartido.agregarPrenda(buzo);
+        guardarropaCompartido.agregarPrenda(gorro);
+
     }
 
 //Test para probar que usuario no arme un atuendo con ropa ya utilizada por otro
@@ -80,19 +106,6 @@ public class Entrega3 {
 public void AtuendosSinRepetirRopaDeMismoGuardarropa() throws En2Guardarropas, SuperoLimiteDeGuardarropas {
     // Cargo el guardarropa
 
-    guardarropaCompartido.agregarPrenda(pantalon);
-    guardarropaCompartido.agregarPrenda(pantufla);
-    guardarropaCompartido.agregarPrenda(camisa);
-    guardarropaCompartido.agregarPrenda(musculosa);
-    guardarropaCompartido.agregarPrenda(campera);
-    guardarropaCompartido.agregarPrenda(zapatillas);
-    guardarropaCompartido.agregarPrenda(reloj);
-    guardarropaCompartido.agregarPrenda(remera);
-    guardarropaCompartido.agregarPrenda(joggin);
-    guardarropaCompartido.agregarPrenda(pulsera);
-    guardarropaCompartido.agregarPrenda(camperon);
-    guardarropaCompartido.agregarPrenda(sweater);
-    guardarropaCompartido.agregarPrenda(buzo);
 
     System.out.println("Cantidad de prendas en guardarropa sin utilizar " + guardarropaCompartido.getPrendas().stream().filter(prenda -> prenda.seUtilizaEnUnAtuendo == false).collect(Collectors.toList()).size());
     Atuendo primerAtuendo = juan.generarAtuendo(guardarropaCompartido);
@@ -103,6 +116,21 @@ public void AtuendosSinRepetirRopaDeMismoGuardarropa() throws En2Guardarropas, S
     System.out.println(segundoAtuendo);
 
 }
+
+@Test
+public void parteDelCuerpoCubiertaPorAccesorio() {
+    System.out.println(TipoReloj.getParteDelCuerpo());
+}
+
+    @Test
+    public void tomasConGorroAlSerSensible() {
+
+      Atuendo atuendoCreado = tomas.generarAtuendo(guardarropaCompartido);
+
+      System.out.println(atuendoCreado);
+
+    }
+
 
 }
 
