@@ -1,14 +1,14 @@
 package Usuario;
 
 import Eventos.Evento;
-import Exceptions.MismoGuardarropas;
 import Exceptions.SuperoLimiteDeGuardarropas;
+import TipoPrenda.TipoPrenda;
 import Ropas.Atuendo;
 import Ropas.Guardarropa;
 import Generador.Generador;
+import Sensibilidad.tipoSensibilidad;
 
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,10 +18,17 @@ public class Usuario{
     private TipoUsuario tipoUsuario;
     private List<Evento> eventos;
 
-    public Usuario(TipoUsuario tipoUsuario){
+    public void setSensibilidad(tipoSensibilidad sensibilidad) {
+        this.sensibilidad = sensibilidad;
+    }
+
+    private tipoSensibilidad sensibilidad;
+
+    public Usuario(TipoUsuario tipoUsuario, tipoSensibilidad suSensibilidad){
         this.guardarropas = new ArrayList<Guardarropa>();
         this.eventos = new ArrayList<Evento>();
         this.tipoUsuario = tipoUsuario;
+        this.sensibilidad = suSensibilidad;
     }
 
     public void agregarUnGuardarropas(Guardarropa guardarropa) throws SuperoLimiteDeGuardarropas {
@@ -49,7 +56,7 @@ public class Usuario{
 
     public Atuendo generarAtuendo(Guardarropa guardarropa) {
         Generador generador = new Generador();
-        return generador.generarAtuendoGR(guardarropa);
+        return generador.generarAtuendoGR(guardarropa,this);
     }
 
     public Evento generarEvento(Date fecha,String lugar,Evento descripcionEvento){
@@ -63,7 +70,15 @@ public class Usuario{
 
     public List<Atuendo> generarAtuendos(){
         Generador generador = new Generador();
-        return generador.generarAtuendos(this.guardarropas);
+        return generador.generarAtuendos(this.guardarropas,this);
+    }
+
+    public int nivelSensibilidad(){
+        return sensibilidad.getValor();
+    }
+
+    public TipoPrenda.parteDelCuerpoQueAbriga parteSensible(){
+        return sensibilidad.getParteCuerpo();
     }
 }
 

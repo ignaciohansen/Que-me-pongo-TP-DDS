@@ -8,6 +8,7 @@ public abstract class TipoPrenda {
     private int CapaDePrenda = 1;
     private int nivelDeAbrigo = 0;
     private ImageIcon foto;
+    private parteDelCuerpoQueAbriga parteDelCuerpo;
 
     public String getSuTipo() {
         return suTipo;
@@ -45,6 +46,14 @@ public abstract class TipoPrenda {
         return nivelObjetivo == this.getCapaDePrenda();
     }
 
+    public enum parteDelCuerpoQueAbriga {Cabeza,Manos,Ninguna};
 
+    public parteDelCuerpoQueAbriga getParteDelCuerpo() {
+        return parteDelCuerpo;
+    }
+
+    public void setParteDelCuerpo(parteDelCuerpoQueAbriga parteDelCuerpo) {
+        this.parteDelCuerpo = parteDelCuerpo;
+    }
 
 }

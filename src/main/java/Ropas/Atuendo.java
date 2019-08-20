@@ -41,6 +41,8 @@ public class Atuendo {
     public String toString() {
        // return "Ropas.Atuendo{"+"prendas=" + this.getTipoPrenda() + '}';
        // return this.getClass().getSimpleName();
-       return "Prendas=" + prendas.stream().map(prenda -> prenda.getDescripcion() + " de color " + prenda.getColorPrimario()).collect(Collectors.toList());
+        //return "Prendas=" + prendas.stream().map(prenda -> prenda.getDescripcion() + " de color " + prenda.getColorPrimario()).collect(Collectors.toList());
+
+        return "Creamos un atuendo compuesto por: " + prendas.stream().map(prenda -> prenda.getDescripcion()).collect(Collectors.toList());
     }
 }
