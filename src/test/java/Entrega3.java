@@ -161,7 +161,6 @@ public void juanCalurosoYtomasFriolento() throws ListaRopaVacia {
     public void JuanAsisteAEvento() throws ListaRopaVacia {
         juan.cargarEvento(eventoDiaDeHoy);
         System.out.println("Eventos: " + juan.getEventos());
-        System.out.println("Evento creo el siguiente atuendo: ");
         juan.asistirAEvento(guardarropaCompartido);
 
 

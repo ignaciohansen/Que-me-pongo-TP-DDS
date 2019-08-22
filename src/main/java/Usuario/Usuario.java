@@ -89,23 +89,30 @@ public class Usuario{
         return  descripcionEvento;
     }
 
-    public void cargarEvento(Evento unEvento) {
-        eventos.add(unEvento);
+    public void cargarEvento(Evento unEvento) {eventos.add(unEvento); }
+    public void sacarEvento(Evento unEvento) {eventos.remove(unEvento);}
+    public void sacarEventoAsistidoYCargarSiguiente(Evento eventoViejo,Evento eventoNuevo){
+        this.sacarEvento(eventoViejo);
+        this.cargarEvento(eventoNuevo);
     }
 
     public Evento tomarUnEventoDeHoy(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         String fechaHoy = sdf.format(new Date());
+
         List<Evento> eventosDeHoy = eventos.stream().filter(evento -> sdf.format(evento.getFecha()).equals(fechaHoy)).collect(Collectors.toList());
         System.out.println("Eventos de hoy : " + eventosDeHoy);
         int random = (int)(Math.random()*eventosDeHoy.size());
-         Evento eventoAlAzar = eventosDeHoy.get(random);
-        return eventoAlAzar;
+
+        return eventosDeHoy.get(random);
     }
+
     public void asistirAEvento(Guardarropa guardarropa) throws ListaRopaVacia {
         Evento eventoAlAzar = this.tomarUnEventoDeHoy();
         eventoAlAzar.generarAtuendo(guardarropa,this);
-        eventoAlAzar.crearSiguienteEvento();
+        Evento eventoSiguiente = eventoAlAzar.crearSiguienteEvento();
+        this.sacarEventoAsistidoYCargarSiguiente(eventoAlAzar,eventoSiguiente);
+        System.out.println("Eventos actualizados : " + this.getEventos());
     }
 
 }
