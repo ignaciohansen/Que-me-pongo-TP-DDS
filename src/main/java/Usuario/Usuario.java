@@ -10,6 +10,7 @@ import Generador.Generador;
 import Sensibilidad.tipoSensibilidad;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -93,9 +94,9 @@ public class Usuario{
     }
 
     public Evento tomarUnEventoDeHoy(){
-        Date fechaHoy = new Date();
-        // REVISAR COMPARACION , dice que no son iguales cuando lo son
-        List<Evento> eventosDeHoy = eventos.stream().filter(evento -> evento.getFecha().compareTo(fechaHoy) == 0).collect(Collectors.toList());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        String fechaHoy = sdf.format(new Date());
+        List<Evento> eventosDeHoy = eventos.stream().filter(evento -> sdf.format(evento.getFecha()).equals(fechaHoy)).collect(Collectors.toList());
         System.out.println("Eventos de hoy : " + eventosDeHoy);
         int random = (int)(Math.random()*eventosDeHoy.size());
          Evento eventoAlAzar = eventosDeHoy.get(random);
