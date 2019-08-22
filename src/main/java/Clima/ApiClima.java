@@ -13,12 +13,16 @@ import org.apache.http.util.EntityUtils;
 import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 
+// La que se usa actualmente, de el json que devuelve, se toma solo la temperatura, no se mapea a objetos.
+
 public class ApiClima {
 
     public int obtenerHttp(){
-        String key = "xJpW9TCJKSPSyf95QV5TWKvHT8Tq3Ggs";
+        //String key = "xJpW9TCJKSPSyf95QV5TWKvHT8Tq3Ggs";
+        String key = "fQCOo61H6Xu5CYLqCG0y7I1diIswXpaY";
         //String url = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/7894?apikey=fQCOo61H6Xu5CYLqCG0y7I1diIswXpaY";
-        String url = "http://dataservice.accuweather.com/currentconditions/v1/7894.json?apikey="+key;
+        //String url = "http://dataservice.accuweather.com/currentconditions/v1/7894.json?apikey="+key;
+        String url = "http://dataservice.accuweather.com/currentconditions/v1/6462.json?apikey="+key; //Ushuaia
 
         CloseableHttpClient cliente = HttpClients.createDefault(); //Crea cliente
         HttpGet get = new HttpGet(url); //convierte URL en un GET
@@ -47,6 +51,11 @@ public class ApiClima {
 
             String valorTemperatura = responseString.substring(indiceTemperatura, indiceTemperatura+2);
 
+            System.out.println("Temperatura en String: " + valorTemperatura);
+            if (valorTemperatura.substring(1).equals(".")){
+                valorTemperatura = valorTemperatura.substring(0,1   );
+            }
+            System.out.println("Temperatura en String despues: " + valorTemperatura);
             int temperatura = Integer.parseInt(valorTemperatura);
 
             return temperatura;
