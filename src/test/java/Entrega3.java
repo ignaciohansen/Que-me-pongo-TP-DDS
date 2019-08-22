@@ -1,5 +1,7 @@
 import Clima.ApiClima;
+import Eventos.Evento;
 import Exceptions.En2Guardarropas;
+import Exceptions.ListaRopaVacia;
 import Exceptions.SuperoLimiteDeGuardarropas;
 import Imagenes.pruebaImagen;
 import Mensajeria.Whatsapp;
@@ -20,6 +22,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.stream.Collectors;
 
 public class Entrega3 {
@@ -63,6 +66,7 @@ public class Entrega3 {
     private Usuario juan = new Usuario(premium,caluroso);
     private Usuario tomas = new Usuario(gratuito,friolentoYfriolentoCabeza);
 
+    private Evento eventoDiaDeHoy = new Evento(new Date(),"CABA",1);
 
     @Before
     public void init() throws Exception {
@@ -105,18 +109,14 @@ public class Entrega3 {
 //Test para probar que usuario no arme un atuendo con ropa ya utilizada por otro
 
     @Test
-public void AtuendosSinRepetirRopaDeMismoGuardarropa() throws En2Guardarropas, SuperoLimiteDeGuardarropas {
-    // Cargo el guardarropa
-
+public void AtuendosSinRepetirRopaDeMismoGuardarropa() throws En2Guardarropas, SuperoLimiteDeGuardarropas, ListaRopaVacia {
 
     System.out.println("Cantidad de prendas en guardarropa sin utilizar " + guardarropaCompartido.getPrendas().stream().filter(prenda -> prenda.seUtilizaEnUnAtuendo == false).collect(Collectors.toList()).size());
-        Atuendo segundoAtuendo = tomas.generarAtuendo(guardarropaCompartido);
+    Atuendo segundoAtuendo = tomas.generarAtuendo(guardarropaCompartido);
+    System.out.println("Cantidad de prendas en guardarropa sin utilizar " + guardarropaCompartido.getPrendas().stream().filter(prenda -> prenda.seUtilizaEnUnAtuendo == false).collect(Collectors.toList()).size());
     Atuendo primerAtuendo = juan.generarAtuendo(guardarropaCompartido);
-   System.out.println(primerAtuendo);
-    System.out.println("Cantidad de prendas en guardarropa sin utilizar " + guardarropaCompartido.getPrendas().stream().filter(prenda -> prenda.seUtilizaEnUnAtuendo == false).collect(Collectors.toList()).size());
 
 
-    System.out.println(segundoAtuendo);
 
 }
 
@@ -126,7 +126,7 @@ public void parteDelCuerpoCubiertaPorAccesorio() {
 }
 
 @Test
-public void tomasConGorroAlSerSensible() {
+public void tomasConGorroAlSerSensible() throws ListaRopaVacia {
 
 Atuendo atuendoCreado = tomas.generarAtuendo(guardarropaCompartido);
 
@@ -134,7 +134,7 @@ System.out.println(atuendoCreado);
 
     }
 @Test
-public void juanCalurosoYtomasFriolento() {
+public void juanCalurosoYtomasFriolento() throws ListaRopaVacia {
     tomas.setSensibilidad(friolento);
     Atuendo atuendoCreadoJuan = juan.generarAtuendo(guardarropaCompartido);
     Atuendo atuendoCreadoTomas = tomas.generarAtuendo(guardarropaCompartido);
@@ -148,5 +148,24 @@ public void juanCalurosoYtomasFriolento() {
     Whatsapp mensaje = new Whatsapp();
     mensaje.sendMessage();
 }
+    @Test
+    public void generarEventoParaMañana(){
+
+        Evento siguienteEvento = eventoDiaDeHoy.crearSiguienteEvento();
+        System.out.println("Mi evento del dia de hoy es: " + eventoDiaDeHoy);
+        System.out.println("Cree el evento para mañana: " + siguienteEvento);
+
+    }
+
+    @Test
+    public void JuanAsisteAEvento() throws ListaRopaVacia {
+        juan.cargarEvento(eventoDiaDeHoy);
+        System.out.println("Eventos: " + juan.getEventos());
+        System.out.println("Evento creo el siguiente atuendo: ");
+        juan.asistirAEvento(guardarropaCompartido);
+
+
+    }
+
 }
 

@@ -51,11 +51,11 @@ public class ApiClima {
 
             String valorTemperatura = responseString.substring(indiceTemperatura, indiceTemperatura+2);
 
-            System.out.println("Temperatura en String: " + valorTemperatura);
+
             if (valorTemperatura.substring(1).equals(".")){
                 valorTemperatura = valorTemperatura.substring(0,1   );
             }
-            System.out.println("Temperatura en String despues: " + valorTemperatura);
+
             int temperatura = Integer.parseInt(valorTemperatura);
 
             return temperatura;

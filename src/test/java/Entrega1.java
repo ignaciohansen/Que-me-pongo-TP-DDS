@@ -45,7 +45,7 @@ public class Entrega1 {
 
     private Guardarropa guardarropaPruebaJuan = new Guardarropa();
     private Guardarropa guardarropaConRelojError = new Guardarropa();
-    private Guardarropa guardarropaPruebaTomas = new Guardarropa();
+    private Guardarropa guardarropa = new Guardarropa();
     private Usuario juan = new Usuario(premium,indiferente);
     private Usuario tomas = new Usuario(gratuito,indiferente);
 
@@ -66,6 +66,20 @@ public class Entrega1 {
         reloj = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero,"reloj");
         pulsera = new Prenda(Prenda.Color.Rojo, Prenda.Color.Blanco, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero,"pulsera");
 
+
+        guardarropaPruebaJuan.agregarPrenda(pantalon);
+        guardarropaPruebaJuan.agregarPrenda(camisa);
+        guardarropaPruebaJuan.agregarPrenda(sweater);
+        guardarropaPruebaJuan.agregarPrenda(remera);
+        guardarropaPruebaJuan.agregarPrenda(musculosa);
+        guardarropaPruebaJuan.agregarPrenda(campera);
+        guardarropaPruebaJuan.agregarPrenda(zapatillas);
+        guardarropaPruebaJuan.agregarPrenda(reloj);
+        guardarropaPruebaJuan.agregarPrenda(pantufla);
+        guardarropaPruebaJuan.agregarPrenda(pulsera);
+        guardarropaPruebaJuan.agregarPrenda(joggin);
+        guardarropaPruebaJuan.agregarPrenda(camperon);
+
         juan.agregarUnGuardarropas(guardarropaPruebaJuan);
 
 
@@ -73,7 +87,6 @@ public class Entrega1 {
 
 
 
-    // entrega 1 = linea 63,72,77,86,147
     @Test
     public void testDistintaCategoria(){
         Assert.assertNotEquals(camisa.getCategoria(),zapatillas.getCategoria());
@@ -87,24 +100,7 @@ public class Entrega1 {
     }
 
     @Test
-    public void cantidadDePrendasEnGuardarropaDeJuan() throws Exception {
-        guardarropaPruebaJuan.agregarPrenda(pantalon);
-        guardarropaPruebaJuan.agregarPrenda(camisa);
-        guardarropaPruebaJuan.agregarPrenda(zapatillas);
-        guardarropaPruebaJuan.agregarPrenda(reloj);
-        Assert.assertEquals(4,guardarropaPruebaJuan.cantidadDePrendas());
-    }
-
-    @Test
     public void cantidadDePrendasDeAtuendoMinimo4() throws Exception {
-        // Cargo el guardarropa
-        guardarropaPruebaJuan.agregarPrenda(pantalon);
-        guardarropaPruebaJuan.agregarPrenda(camisa);
-        guardarropaPruebaJuan.agregarPrenda(sweater);
-        guardarropaPruebaJuan.agregarPrenda(remera);
-        guardarropaPruebaJuan.agregarPrenda(campera);
-        guardarropaPruebaJuan.agregarPrenda(zapatillas);
-        guardarropaPruebaJuan.agregarPrenda(reloj);
 
         //Armo el atuendo
         Atuendo atuendoCreado = juan.generarAtuendo(guardarropaPruebaJuan);
@@ -119,14 +115,7 @@ public class Entrega1 {
 
     @Test
     public void PrendasDistintasDeAtuendo() throws Exception {
-        // Cargo el guardarropa
-        guardarropaPruebaJuan.agregarPrenda(pantalon);
-        guardarropaPruebaJuan.agregarPrenda(pantufla);
-        guardarropaPruebaJuan.agregarPrenda(camisa);
-        guardarropaPruebaJuan.agregarPrenda(campera);
-        guardarropaPruebaJuan.agregarPrenda(zapatillas);
-        guardarropaPruebaJuan.agregarPrenda(reloj);
-        guardarropaPruebaJuan.agregarPrenda(remera);
+
 
         //Armo el atuendo 1
         Atuendo atuendoCreadoUno = juan.generarAtuendo(guardarropaPruebaJuan);

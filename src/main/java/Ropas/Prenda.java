@@ -42,7 +42,7 @@ public class Prenda {
         return colorSecundario;
     }
 
-    public void setColorSecundario(Color colorSecundario)throws Exception {
+    public void setColorSecundario(Color colorSecundario) throws Exception {
         if (!colorSecundario.equals(this.colorPrimario)) {
             this.colorSecundario = colorSecundario;
         } else{

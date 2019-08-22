@@ -1,6 +1,7 @@
 package Generador;
 
 import Clima.ApiClima;
+import Exceptions.ListaRopaVacia;
 import Ropas.Atuendo;
 import Ropas.Guardarropa;
 import Ropas.Prenda;
@@ -65,8 +66,18 @@ public class Generador {
         return listaAccesorios;
     }
 
+    private void verificarSiQuedanRopas(List<Prenda> lista) throws Exceptions.ListaRopaVacia {
+        if(lista.size() == 0)
+           throw new Exceptions.ListaRopaVacia();
+    }
 
-    public Atuendo generarAtuendoGR(Guardarropa guardarropa,Usuario usuario){
+    private Prenda tomarUnaPrenda(List<Prenda> lista, int random) throws ListaRopaVacia {
+        verificarSiQuedanRopas(lista);
+        return lista.get(random);
+    }
+
+
+    public Atuendo generarAtuendoGR(Guardarropa guardarropa,Usuario usuario) throws ListaRopaVacia {
 
         System.out.println("Temperatura actual: " + gradosQueHacenApi );
         System.out.println("Prueba metodo:  Parte a cubrir: " + usuario.parteSensible());
@@ -83,7 +94,8 @@ public class Generador {
         Prenda superior = this.ListaDePrendasParteSuperiorCapa1(guardarropa).get(randomPSuperior);
         Prenda inferior = this.ListaDePrendasParteInferiorCapa1(guardarropa).get(randomPInferior);
         Prenda calzado = this.ListaDePrendasCalzadoCapa1(guardarropa).get(randomCalzado);
-        Prenda accesorio = this.AccesoriosParteCuerpo(guardarropa,usuario).get(randomAccesorio);
+        //Prenda accesorio = this.AccesoriosParteCuerpo(guardarropa,usuario).get(randomAccesorio);
+        Prenda accesorio = tomarUnaPrenda(this.AccesoriosParteCuerpo(guardarropa,usuario),randomAccesorio);
 
         List<Prenda> listaPrenda = new ArrayList<>();
 
@@ -122,7 +134,7 @@ public class Generador {
         return atuendoCreado;
 }
 // Ver si dejar este metodo
-    public List<Atuendo> generarAtuendos(List<Guardarropa> guardarropas,Usuario usuario){
+    public List<Atuendo> generarAtuendos(List<Guardarropa> guardarropas,Usuario usuario) throws ListaRopaVacia {
         List<Atuendo> atuendos = new ArrayList<Atuendo>();
 
         for (int i = 0; i < guardarropas.size(); i++) {
@@ -132,6 +144,5 @@ public class Generador {
         return atuendos;
     }
 }
-
 
 // POR COMO ESTA AHORA EL CLIMA, SE GENERAN ATUENDOS CON PRENDAS DE DOS CAPAS

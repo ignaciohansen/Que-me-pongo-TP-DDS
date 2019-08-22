@@ -1,6 +1,7 @@
 package Usuario;
 
 import Eventos.Evento;
+import Exceptions.ListaRopaVacia;
 import Exceptions.SuperoLimiteDeGuardarropas;
 import TipoPrenda.TipoPrenda;
 import Ropas.Atuendo;
@@ -12,10 +13,14 @@ import Sensibilidad.tipoSensibilidad;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Usuario{
     private List<Guardarropa> guardarropas;
     private TipoUsuario tipoUsuario;
+
+
+
     private List<Evento> eventos;
 
     public void setSensibilidad(tipoSensibilidad sensibilidad) {
@@ -42,36 +47,27 @@ public class Usuario{
         // }
 
         tipoUsuario.agregarGuardarropa(guardarropas,guardarropa);
-
     }
 
     public int cantidadDeGuardarropas(){
        return guardarropas.size();
     }
 
-
     public List<Guardarropa> getGuardarropas() {
         return guardarropas;
     }
 
-    public Atuendo generarAtuendo(Guardarropa guardarropa) {
+    public Atuendo generarAtuendo(Guardarropa guardarropa) throws ListaRopaVacia {
         Generador generador = new Generador();
         return generador.generarAtuendoGR(guardarropa,this);
     }
 
-    public Evento generarEvento(Date fecha,String lugar,Evento descripcionEvento){
-        descripcionEvento = new Evento(fecha,lugar);
-        return  descripcionEvento;
-    }
-
-        public void cargarEvento(Evento unEvento) {
-        eventos.add(unEvento);
-    }
-
-    public List<Atuendo> generarAtuendos(){
+    public List<Atuendo> generarAtuendos() throws ListaRopaVacia {
         Generador generador = new Generador();
         return generador.generarAtuendos(this.guardarropas,this);
     }
+
+// SENSIBILIDAD
 
     public int nivelSensibilidad(){
         return sensibilidad.getValor();
@@ -80,12 +76,43 @@ public class Usuario{
     public TipoPrenda.parteDelCuerpoQueAbriga parteSensible(){
         return sensibilidad.getParteCuerpo();
     }
+
+// EVENTOS
+
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+    public Evento generarEvento(Date fecha,String lugar,Evento descripcionEvento,int diaRepeticion){
+        descripcionEvento = new Evento(fecha,lugar,diaRepeticion);
+        return  descripcionEvento;
+    }
+
+    public void cargarEvento(Evento unEvento) {
+        eventos.add(unEvento);
+    }
+
+    public Evento tomarUnEventoDeHoy(){
+        Date fechaHoy = new Date();
+        // REVISAR COMPARACION , dice que no son iguales cuando lo son
+        List<Evento> eventosDeHoy = eventos.stream().filter(evento -> evento.getFecha().compareTo(fechaHoy) == 0).collect(Collectors.toList());
+        System.out.println("Eventos de hoy : " + eventosDeHoy);
+        int random = (int)(Math.random()*eventosDeHoy.size());
+         Evento eventoAlAzar = eventosDeHoy.get(random);
+        return eventoAlAzar;
+    }
+    public void asistirAEvento(Guardarropa guardarropa) throws ListaRopaVacia {
+        Evento eventoAlAzar = this.tomarUnEventoDeHoy();
+        eventoAlAzar.generarAtuendo(guardarropa,this);
+        eventoAlAzar.crearSiguienteEvento();
+    }
+
 }
 
 /* Asistir a evento ( de mi lista )
 PASOS)
-1)Ver si de mi lista de eventos tengo uno hoy                                                   (Metodo de usuario) IF( Evento.date() = date() )
-2)Si tengo uno, el evento me genera un atuendo                                                  (Metodo de evento)  evento.generarAtuendo
-3)Me lo notifica por wpp o mail                                                                 (Metodo de evento)
-4)Genera el siguiente evento (segun su variable cada cuantos dias se repite)                    (Metodo de evento)
+1)Ver si de mi lista de eventos tengo uno hoy                                          PARA HACER        (Metodo de usuario) IF( Evento.date() = date() )
+2)Si tengo uno, el evento me genera un atuendo                                         EVENTO GENERA         (Metodo de evento)  evento.generarAtuendo
+3)Me lo notifica por wpp o mail                                                        PARA HACER         (Metodo de evento)
+4)Genera el siguiente evento (segun su variable cada cuantos dias se repite)           OK         (Metodo de evento)
  */

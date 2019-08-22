@@ -109,7 +109,7 @@ public class Entrega2 {
 
     @Test
     public void prendasIncompatiblesCuero() {
-        Assert.assertEquals(2, cuero.cantidadPrendasIncompatibles());
+        Assert.assertEquals(4, cuero.cantidadPrendasIncompatibles());
     }
 
     @Test
