@@ -2,7 +2,7 @@ package TipoPrenda;
 
 public class Zapatilla extends TipoPrenda {
     public Zapatilla() {
-        this.setNivelDeAbrigo(2);
+        this.setNivelDeAbrigo(3);
         this.setSuTipo("zapatilla");
     }
 }

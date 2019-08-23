@@ -60,7 +60,7 @@ public class Generador {
 
         if(!usuario.parteSensible().equals(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna)){
         List<Prenda> listaAccesoriosParteCuerpo = listaAccesorios.stream().filter(prenda -> prenda.getTipoDePrenda().getParteDelCuerpo().equals(usuario.parteSensible())).collect(Collectors.toList());
-        System.out.println("Prueba metodo:  Parte a cubrir: " + usuario.parteSensible() + ", Accesorio cubre " + listaAccesoriosParteCuerpo.stream().map(prenda -> "Es un " + prenda.getDescripcion()+ " que cubre " + prenda.getTipoDePrenda().getParteDelCuerpo()).collect(Collectors.toList()));
+        System.out.println("Parte a cubrir: " + usuario.parteSensible() + ", Accesorio cubre " + listaAccesoriosParteCuerpo.stream().map(prenda -> "Es un " + prenda.getDescripcion()+ " que cubre " + prenda.getTipoDePrenda().getParteDelCuerpo()).collect(Collectors.toList()));
         return listaAccesoriosParteCuerpo;
         }
         return listaAccesorios;
@@ -80,8 +80,8 @@ public class Generador {
     public Atuendo generarAtuendoGR(Guardarropa guardarropa,Usuario usuario) throws ListaRopaVacia {
 
         System.out.println("Temperatura actual: " + gradosQueHacenApi );
-        System.out.println("Prueba metodo:  Parte a cubrir: " + usuario.parteSensible());
-        System.out.println("Prueba metodo:  Mis accesorios cubren: " + this.ListaDePrendasAccesorioCapa1(guardarropa).stream().map(prenda -> prenda.getTipoDePrenda().getParteDelCuerpo()).collect(Collectors.toList()));
+        System.out.println("Parte del cuerpo a cubrir: " + usuario.parteSensible());
+        System.out.println("Mis accesorios cubren: " + this.ListaDePrendasAccesorioCapa1(guardarropa).stream().map(prenda -> prenda.getTipoDePrenda().getParteDelCuerpo()).collect(Collectors.toList()));
 
         int randomPSuperior = (int)(Math.random()*(this.ListaDePrendasParteSuperiorCapa1(guardarropa).size()));
         int randomPInferior = (int)(Math.random()*(this.ListaDePrendasParteInferiorCapa1(guardarropa).size()));
@@ -106,7 +106,6 @@ public class Generador {
 
         int nivelAbrigoPrimeraCapa = listaPrenda.stream().mapToInt(Prenda::suCapa).sum();
         int valorReferencia = this.numeroReferenciaParaCalculo-this.gradosQueHacenApi+usuario.nivelSensibilidad();
-
         if(valorReferencia>nivelAbrigoPrimeraCapa)
         // Ej hacen 5 grados => 30-5 = 25 nivel de abrigo objetivo, lleno ropa hasta que llegue a eso
         {
@@ -118,7 +117,6 @@ public class Generador {
             int nivelAbrigoPrimeraSuperposicion = listaPrenda.stream().mapToInt(Prenda::suCapa).sum();
 
             // Si al tener ya la primera superposicion sigue sin alcanzar, le agrego otra mas ej ( remera-sweater-campera)
-
             if(valorReferencia>nivelAbrigoPrimeraSuperposicion){
                 List<Prenda> prendasCapaTresPSuperior = this.listaDePrendasDeCapaYcategoria(guardarropa,3,0);
                 int random3PSuperior = (int)(Math.random()*(prendasCapaTresPSuperior.size()));
