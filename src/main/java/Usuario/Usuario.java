@@ -3,6 +3,7 @@ package Usuario;
 import Eventos.Evento;
 import Exceptions.ListaRopaVacia;
 import Exceptions.SuperoLimiteDeGuardarropas;
+import Exceptions.atuendoEnListaNegra;
 import TipoPrenda.TipoPrenda;
 import Ropas.Atuendo;
 import Ropas.Guardarropa;
@@ -20,8 +21,11 @@ public class Usuario{
     private List<Guardarropa> guardarropas;
     private TipoUsuario tipoUsuario;
 
+    public List<Atuendo> getListaNegraAtuendos() {
+        return listaNegraAtuendos;
+    }
 
-
+    private List<Atuendo> listaNegraAtuendos;
     private List<Evento> eventos;
 
     public void setSensibilidad(tipoSensibilidad sensibilidad) {
@@ -30,11 +34,12 @@ public class Usuario{
 
     private tipoSensibilidad sensibilidad;
 
-    public Usuario(TipoUsuario tipoUsuario, tipoSensibilidad suSensibilidad){
-        this.guardarropas = new ArrayList<Guardarropa>();
-        this.eventos = new ArrayList<Evento>();
-        this.tipoUsuario = tipoUsuario;
-        this.sensibilidad = suSensibilidad;
+    public Usuario(TipoUsuario suTipoUsuario, tipoSensibilidad suSensibilidad){
+        guardarropas = new ArrayList<Guardarropa>();
+        eventos = new ArrayList<Evento>();
+        listaNegraAtuendos = new ArrayList<Atuendo>();
+        tipoUsuario = suTipoUsuario;
+        sensibilidad = suSensibilidad;
     }
 
     public void agregarUnGuardarropas(Guardarropa guardarropa) throws SuperoLimiteDeGuardarropas {
@@ -58,15 +63,14 @@ public class Usuario{
         return guardarropas;
     }
 
-    public Atuendo generarAtuendo(Guardarropa guardarropa) throws ListaRopaVacia {
+    public Atuendo generarAtuendo(Guardarropa guardarropa) throws ListaRopaVacia, atuendoEnListaNegra {
         Generador generador = new Generador();
         return generador.generarAtuendoGR(guardarropa,this);
     }
-
-    public List<Atuendo> generarAtuendos() throws ListaRopaVacia {
-        Generador generador = new Generador();
-        return generador.generarAtuendos(this.guardarropas,this);
+    public void agregarAListaNegra(Atuendo atuendo){
+        listaNegraAtuendos.add(atuendo);
     }
+
 
 // SENSIBILIDAD
 
@@ -107,7 +111,7 @@ public class Usuario{
         return eventosDeHoy.get(random);
     }
 
-    public void asistirAEvento(Guardarropa guardarropa) throws ListaRopaVacia {
+    public void asistirAEvento(Guardarropa guardarropa) throws ListaRopaVacia, atuendoEnListaNegra {
         Evento eventoAlAzar = this.tomarUnEventoDeHoy();
         eventoAlAzar.generarAtuendo(guardarropa,this);
         Evento eventoSiguiente = eventoAlAzar.crearSiguienteEvento();

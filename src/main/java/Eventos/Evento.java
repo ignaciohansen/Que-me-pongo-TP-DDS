@@ -1,5 +1,6 @@
 package Eventos;
 import Exceptions.ListaRopaVacia;
+import Exceptions.atuendoEnListaNegra;
 import Generador.Generador;
 import Ropas.Atuendo;
 import Ropas.Guardarropa;
@@ -29,7 +30,7 @@ public class Evento {
         return new Evento(fechaNueva,lugar,diasEnQueSeRepite);
     }
 
-    public Atuendo generarAtuendo(Guardarropa guardarropa, Usuario usuario) throws ListaRopaVacia{
+    public Atuendo generarAtuendo(Guardarropa guardarropa, Usuario usuario) throws ListaRopaVacia, atuendoEnListaNegra {
         Generador generador = new Generador();
         return generador.generarAtuendoGR(guardarropa,usuario);
     }

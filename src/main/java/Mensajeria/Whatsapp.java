@@ -14,7 +14,9 @@ public class Whatsapp {
     // public static final String ACCOUNT_SID = "ACebc8e477938be35708e64e1fabc4d43b";
     // public static final String AUTH_TOKEN = "1169a535d8a9bfa0b19a90b3d623128a";
 
-    //num registrados: +5491161906402,+5491136274242
+    //num registrados:
+    // +5491161906402 Nacho
+    // +5491136274242 Juan cruz
 
     public void recibirMensaje() {
 
@@ -23,7 +25,7 @@ public class Whatsapp {
         Message message = Message.creator(
                 new com.twilio.type.PhoneNumber("whatsapp:+5491161906402"),
                 new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),
-                "Prueba wpp")
+                "Es José")
                 .create();
     }
 

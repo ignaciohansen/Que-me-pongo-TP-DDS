@@ -1,7 +1,8 @@
 package Exceptions;
 
 public class TelaIncompatible extends Exception {
-    public TelaIncompatible(String string){
-        super(string);
+    public TelaIncompatible(){
+        super("La tela es incompatible con el tipo de prenda");
+        System.out.println("La tela es incompatible con el tipo de prenda");
     }
 }

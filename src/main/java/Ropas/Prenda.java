@@ -68,7 +68,7 @@ public class Prenda {
 
     public void setTela(Tela tela) throws Exceptions.TelaIncompatible{
         if(tela.incompatible(this.tipoDePrenda)){
-            throw new Exceptions.TelaIncompatible("La tela es incompatible con el tipo de prenda");
+            throw new Exceptions.TelaIncompatible();
         } else this.tela = tela;
     }
 

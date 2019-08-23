@@ -6,5 +6,6 @@ public class En2Guardarropas extends Exception {
     }
     public En2Guardarropas(){
         super("La prenda ya esta en un guardarropas");
+        System.out.println("La prenda ya esta en un guardarropas");
     }
 }
