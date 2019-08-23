@@ -54,17 +54,20 @@ public class Entrega3 {
 
     private Cuero cuero = new Cuero();
     private Algodon algodon = new Algodon();
-    private UsuarioPremium premium  = new UsuarioPremium();
-    private UsuarioGratuito gratuito = new UsuarioGratuito();
+
     private Caluroso caluroso = new Caluroso(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
     private Friolento friolento = new Friolento(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
     private Friolento friolentoYfriolentoCabeza = new Friolento(TipoPrenda.parteDelCuerpoQueAbriga.Cabeza);
     private Indiferente indiferente = new Indiferente(TipoPrenda.parteDelCuerpoQueAbriga.Ninguna);
 
-
-    private Guardarropa guardarropaCompartido = new Guardarropa();
+    private UsuarioPremium premium  = new UsuarioPremium();
+    private UsuarioGratuito gratuito = new UsuarioGratuito();
     private Usuario juan = new Usuario(premium,caluroso);
     private Usuario tomas = new Usuario(gratuito,friolentoYfriolentoCabeza);
+
+    Whatsapp mensaje = new Whatsapp();
+
+    private Guardarropa guardarropaCompartido = new Guardarropa();
 
     private Evento eventoDiaDeHoy = new Evento(new Date(),"CABA",1);
 
@@ -128,26 +131,31 @@ public void parteDelCuerpoCubiertaPorAccesorio() {
 @Test
 public void tomasConGorroAlSerSensible() throws ListaRopaVacia {
 
-Atuendo atuendoCreado = tomas.generarAtuendo(guardarropaCompartido);
+tomas.generarAtuendo(guardarropaCompartido);
 
-System.out.println(atuendoCreado);
 
     }
 @Test
 public void juanCalurosoYtomasFriolento() throws ListaRopaVacia {
     tomas.setSensibilidad(friolento);
     Atuendo atuendoCreadoJuan = juan.generarAtuendo(guardarropaCompartido);
+    System.out.println(atuendoCreadoJuan.cantidadDePrendas());
     Atuendo atuendoCreadoTomas = tomas.generarAtuendo(guardarropaCompartido);
-   // Assert.assertTrue(atuendoCreadoTomas.cantidadDePrendas()>atuendoCreadoJuan.cantidadDePrendas());
+    System.out.println(atuendoCreadoTomas.cantidadDePrendas());
+  Assert.assertTrue(atuendoCreadoTomas.cantidadDePrendas() > atuendoCreadoJuan.cantidadDePrendas());
 
 }
 
-//1415523886
 @Test
-    public void whatsapp(){
-    Whatsapp mensaje = new Whatsapp();
-    mensaje.sendMessage();
+    public void whatsappPrueba(){
+    mensaje.recibirMensaje();
 }
+
+    @Test
+    public void whatsappPruebaAtuendo() throws ListaRopaVacia {
+        Atuendo atuendoCreadoJuan = juan.generarAtuendo(guardarropaCompartido);
+        mensaje.recibirMensajeAtuendo(atuendoCreadoJuan);
+    }
     @Test
     public void generarEventoParaMañana(){
 

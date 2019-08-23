@@ -21,7 +21,7 @@ public class Whatsapp {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         Message message = Message.creator(
-                new com.twilio.type.PhoneNumber("whatsapp:+5491164083480"),
+                new com.twilio.type.PhoneNumber("whatsapp:+5491161906402"),
                 new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),
                 "Prueba wpp")
                 .create();
@@ -37,7 +37,7 @@ public class Whatsapp {
                 "" + unAtuendo)
                 .create();
     }
-    
+
 }
 
 
