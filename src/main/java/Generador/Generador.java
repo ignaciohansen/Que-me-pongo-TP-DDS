@@ -1,6 +1,7 @@
 package Generador;
 
 import Clima.ApiClima;
+import Clima.ApiClimaAccuweather;
 import Exceptions.ListaRopaVacia;
 import Exceptions.atuendoEnListaNegra;
 import Ropas.Atuendo;
@@ -12,16 +13,10 @@ import Usuario.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import static java.lang.System.out;
 
 public class Generador {
 
-    /*
-    //Lo que deberia poder hacer:
-    ApiClima api = new ApiClima();
-    api.obtenerHttp(); //finalmente cambiar a void, devuelve string por motivos de testeo.
-    int temperatura = Header.getTemperatura().getMetric().getValue();
-    //Utilizar temperatura en el generador.
-     */
     Boolean usuarioConforme = true;
     ApiClima api = new ApiClima();
     int grados = api.obtenerHttp();
@@ -29,9 +24,9 @@ public class Generador {
     private int gradosQueHacenApi = grados;
     private int numeroReferenciaParaCalculo = 30; // Podria ir en un archiv config
 
-    public void setGrados(int grados){
+    /*public void setGrados(int grados){
         this.gradosQueHacenApi = grados;
-    }
+    }*/
 
     // Se toma una prenda random de una lista que esta filtrada segun categoria y de la capa1
     private List<Prenda> listaDePrendasDeCapaYcategoria(Guardarropa guardarropa,int capa,int categoria){

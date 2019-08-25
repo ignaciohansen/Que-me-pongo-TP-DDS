@@ -43,6 +43,7 @@ public class ApiClima {
             //String retorno = entity.getContentEncoding().toString();
             //String json = EntityUtils.toString(entity).toString();
             String responseString = new BasicResponseHandler().handleResponse(respuesta);
+            System.out.println(" ↓↓ Respuesta JSON de la Api ↓↓ ");
             System.out.println(responseString);
 
             int indiceValue = responseString.indexOf("Value");
