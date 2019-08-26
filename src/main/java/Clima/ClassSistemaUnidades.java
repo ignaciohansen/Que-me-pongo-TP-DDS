@@ -1,16 +1,16 @@
 package Clima;
 
 public class ClassSistemaUnidades {
-    private Float Value;
+    private double Value;
     private String Unit;
     private int UnitType;
 
 
-    public Float getValue() {
+    public double getValue() {
         return Value;
     }
 
-    public void setValue(Float value) {
+    public void setValue(double value) {
         Value = value;
     }
 
@@ -29,4 +29,5 @@ public class ClassSistemaUnidades {
     public void setUnitType(int unitType) {
         UnitType = unitType;
     }
+
 }

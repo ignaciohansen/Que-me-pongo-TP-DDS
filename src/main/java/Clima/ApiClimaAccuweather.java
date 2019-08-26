@@ -52,7 +52,7 @@ public class ApiClimaAccuweather {
 
     }
 
-    public Float getTemperatura(){
+    public double getTemperatura(){
         return currentConditions.getTemperatura().getMetric().getValue();
     }
 }
