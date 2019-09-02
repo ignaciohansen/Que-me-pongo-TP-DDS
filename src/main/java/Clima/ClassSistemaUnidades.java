@@ -14,8 +14,7 @@ public class ClassSistemaUnidades {
         Value = value;
     }
 
-    public String getUnit() {
-        return Unit;
+    public String getUnit() { return Unit;
     }
 
     public void setUnit(String unit) {

@@ -18,8 +18,14 @@ import static java.lang.System.out;
 public class Generador {
 
     Boolean usuarioConforme = true;
+
+    /*
     ApiClima api = new ApiClima();
     int grados = api.obtenerHttp();
+    */
+    ApiClimaAccuweather api = new ApiClimaAccuweather();
+    double gradosDouble = api.getTemperatura();
+    int grados = (int) Math.round(gradosDouble);
 
     private int gradosQueHacenApi = grados;
     private int numeroReferenciaParaCalculo = 30; // Podria ir en un archiv config

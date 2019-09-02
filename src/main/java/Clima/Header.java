@@ -8,7 +8,7 @@ public class Header {
     private Boolean HasPrecipitation;
     private int PrecipitationType;
     private Boolean IsDayTime;
-    private ClassTemperatura Temperatura;
+    private ClassTemperatura Temperature;
     private String MobileLink;
     private String Link;
 
@@ -71,12 +71,12 @@ public class Header {
         IsDayTime = dayTime;
     }
 
-    public ClassTemperatura getTemperatura() {
-        return Temperatura;
+    public ClassTemperatura getTemperature() {
+        return Temperature;
     }
 
-    public void setTemperatura(ClassTemperatura temperatura) {
-        Temperatura = temperatura;
+    public void setTemperature(ClassTemperatura temperature) {
+        Temperature = temperature;
     }
 
     public String getMobileLink() {

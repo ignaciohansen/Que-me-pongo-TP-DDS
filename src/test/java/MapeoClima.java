@@ -10,9 +10,10 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MapeoClima {
-
+/*
     @Test
     public void Mapeo(){
+
 
         ApiClimaAccuweather api = new ApiClimaAccuweather();
         System.out.println("Se crea la api");
@@ -30,9 +31,16 @@ public class MapeoClima {
         System.out.println("El MobileLink es: " + api.currentConditions.getMobileLink());
         System.out.println("El Link es: " + api.currentConditions.getLink());
 
-
-        double gradosCelcius = api.currentConditions.getTemperatura().getMetric().getValue();
-        System.out.println("La temperatura actual en grados celcius es: " + gradosCelcius);
+        System.out.println("Paso 1");
+        ClassTemperatura temperatura = api.currentConditions.getTemperature();
+        System.out.println("Paso 2");
+        ClassSistemaUnidades unidad = temperatura.getMetric();
+        System.out.println("Paso 3");
+        double valor = unidad.getValue();
+        System.out.println("Paso 4");
+        System.out.println(valor);
+        //double gradosCelcius = api.currentConditions.getTemperatura().getMetric().getValue();
+        //System.out.println("La temperatura actual en grados celcius es: " + gradosCelcius);
 
     }
 
@@ -44,7 +52,7 @@ public class MapeoClima {
         ClassSistemaUnidades unidades = new ClassSistemaUnidades();
         header.setWeatherText("Clear");
         header.setWeatherIcon(33);
-        header.setTemperatura(temperatura);
+        header.setTemperature(temperatura);
         temperatura.setMetric(unidades);
         unidades.setValue(10.2);
         unidades.setUnit("C");
@@ -65,8 +73,8 @@ public class MapeoClima {
         System.out.println("El WeatherText es: " + header2.getWeatherText());
         System.out.println("El WeatherIcon es: " + header2.getWeatherIcon());
         System.out.println("El Link es: " + header2.getLink());
-        System.out.println("El value es :" + header.getTemperatura().getMetric().getValue());
+        System.out.println("El value es :" + header.getTemperature().getMetric().getValue());
 
     }
-
+*/
 }

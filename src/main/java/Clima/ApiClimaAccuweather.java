@@ -21,7 +21,7 @@ public class ApiClimaAccuweather {
 
     public Header currentConditions = new Header();
 
-    public void obtenerHttpAccu(){
+    public double getTemperatura(){
         String key = "tymgDsqWKkeA0C0u9lVQupuhTSCjCoim";
         //String url = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/7894?apikey=fQCOo61H6Xu5CYLqCG0y7I1diIswXpaY";
         String url = "http://dataservice.accuweather.com/currentconditions/v1/7894.json?apikey="+key;
@@ -46,13 +46,16 @@ public class ApiClimaAccuweather {
 
             currentConditions = listaClima.remove(0);
 
+            return currentConditions.getTemperature().getMetric().getValue();
+
         }
         catch (IOException ioe) { System.err.println("Hubo un error al consultar el clima: "); ioe.printStackTrace();}
         catch (Exception e ){ System.err.println("Error desconocido: "); e.printStackTrace();}
 
+        return 0;
     }
 
-    public double getTemperatura(){
-        return currentConditions.getTemperatura().getMetric().getValue();
-    }
+    /*public double getTemperatura(){
+        return currentConditions.getTemperature().getMetric().getValue();
+    }*/
 }
