@@ -1,4 +1,4 @@
-import Clima.ApiClima;
+
 import Eventos.Evento;
 import Exceptions.En2Guardarropas;
 import Exceptions.ListaRopaVacia;

@@ -1,7 +1,4 @@
-import Clima.ApiClimaAccuweather;
-import Clima.ClassSistemaUnidades;
-import Clima.ClassTemperatura;
-import Clima.Header;
+import Clima.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.junit.Test;
@@ -77,4 +74,13 @@ public class MapeoClima {
 
     }
 */
+
+@Test
+public void llamadoWeatherbit(){
+    ApiClimaWeatherbit api = new ApiClimaWeatherbit();
+
+    int grados = api.getTemperatura();
+
+    System.out.println(grados);
+}
 }

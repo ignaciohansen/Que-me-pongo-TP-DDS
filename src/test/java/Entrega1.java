@@ -1,4 +1,4 @@
-import Clima.ApiClima;
+
 import Imagenes.pruebaImagen;
 import Ropas.*;
 import Sensibilidad.Indiferente;

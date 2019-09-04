@@ -1,6 +1,6 @@
 package Clima;
 
-public class Header {
+public class HeaderAccuweather {
     private String LocalObservationDateTime;
     private int EpochTime;
     private String WeatherText;

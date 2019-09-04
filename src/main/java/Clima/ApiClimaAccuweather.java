@@ -17,11 +17,11 @@ import java.util.ArrayList;
 import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 
-public class ApiClimaAccuweather {
+public class ApiClimaAccuweather implements ApiClima{
 
-    public Header currentConditions = new Header();
+    public HeaderAccuweather currentConditions = new HeaderAccuweather();
 
-    public double getTemperatura(){
+    public int getTemperatura(){
         String key = "tymgDsqWKkeA0C0u9lVQupuhTSCjCoim";
         //String url = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/7894?apikey=fQCOo61H6Xu5CYLqCG0y7I1diIswXpaY";
         String url = "http://dataservice.accuweather.com/currentconditions/v1/7894.json?apikey="+key;
@@ -39,14 +39,15 @@ public class ApiClimaAccuweather {
             System.out.println(responseString);
 
             Gson gson = new Gson();
-            ArrayList<Header> listaClima = new ArrayList<>();
+            ArrayList<HeaderAccuweather> listaClima = new ArrayList<>();
 
-            Type listType = new TypeToken<ArrayList<Header>>(){}.getType();
+            Type listType = new TypeToken<ArrayList<HeaderAccuweather>>(){}.getType();
             listaClima = gson.fromJson(responseString, listType);
 
             currentConditions = listaClima.remove(0);
 
-            return currentConditions.getTemperature().getMetric().getValue();
+            double gradosDouble = currentConditions.getTemperature().getMetric().getValue();
+            return (int) Math.round(gradosDouble);
 
         }
         catch (IOException ioe) { System.err.println("Hubo un error al consultar el clima: "); ioe.printStackTrace();}

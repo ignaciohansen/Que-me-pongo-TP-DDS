@@ -1,6 +1,5 @@
 package Generador;
 
-import Clima.ApiClima;
 import Clima.ApiClimaAccuweather;
 import Exceptions.ListaRopaVacia;
 import Exceptions.atuendoEnListaNegra;
@@ -19,13 +18,8 @@ public class Generador {
 
     Boolean usuarioConforme = true;
 
-    /*
-    ApiClima api = new ApiClima();
-    int grados = api.obtenerHttp();
-    */
     ApiClimaAccuweather api = new ApiClimaAccuweather();
-    double gradosDouble = api.getTemperatura();
-    int grados = (int) Math.round(gradosDouble);
+    int grados = api.getTemperatura();
 
     private int gradosQueHacenApi = grados;
     private int numeroReferenciaParaCalculo = 30; // Podria ir en un archiv config

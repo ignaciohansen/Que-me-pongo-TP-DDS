@@ -1,4 +1,4 @@
-import Clima.ApiClima;
+
 import Imagenes.pruebaImagen;
 import Ropas.Atuendo;
 import Ropas.Guardarropa;
@@ -129,7 +129,7 @@ public class Entrega2 {
         Assert.assertTrue(atuendoCreadoUno.nivelAbrigo()>nivelDeAbrigoParaTemperaturaDe5Grados);
 }
 
-    @Test
+    /*@Test
     public void consultarClima() throws Exception {
         ApiClima clima = new ApiClima();
 
@@ -137,7 +137,7 @@ public class Entrega2 {
         System.out.println("Temperatura que devuelve la api:" + temperatura);
 
         Assert.assertTrue(temperatura>-10);
-    }
+    }*/
 
 }
 
