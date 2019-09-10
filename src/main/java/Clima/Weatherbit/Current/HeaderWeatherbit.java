@@ -1,4 +1,4 @@
-package Clima;
+package Clima.Weatherbit.Current;
 
 import java.util.List;
 

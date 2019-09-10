@@ -1,15 +1,10 @@
-package Clima;
+package Clima.Weatherbit;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.HashMap;
-import java.util.Map;
 
+import Clima.ApiClima;
+import Clima.Weatherbit.Current.HeaderWeatherbit;
 import com.google.gson.*;
-import com.google.gson.reflect.*;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -17,7 +12,7 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-public class ApiClimaWeatherbit implements ApiClima{
+public class ApiClimaWeatherbit implements ApiClima {
 
     public HeaderWeatherbit currentConditions = new HeaderWeatherbit();
 

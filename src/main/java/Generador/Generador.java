@@ -1,6 +1,6 @@
 package Generador;
 
-import Clima.ApiClimaAccuweather;
+import Clima.Accuweather.ApiClimaAccuweather;
 import Exceptions.ListaRopaVacia;
 import Exceptions.atuendoEnListaNegra;
 import Ropas.Atuendo;
@@ -12,7 +12,6 @@ import Usuario.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import static java.lang.System.out;
 
 public class Generador {
 

@@ -1,4 +1,4 @@
-package Clima;
+package Clima.Weatherbit.Current;
 
 public class ClassData {
 

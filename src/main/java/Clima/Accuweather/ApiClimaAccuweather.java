@@ -1,7 +1,8 @@
-package Clima;
+package Clima.Accuweather;
 
+import Clima.Accuweather.CurrentConditions.HeaderAccuweather;
+import Clima.ApiClima;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -9,15 +10,13 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 
-public class ApiClimaAccuweather implements ApiClima{
+public class ApiClimaAccuweather implements ApiClima {
 
     public HeaderAccuweather currentConditions = new HeaderAccuweather();
 

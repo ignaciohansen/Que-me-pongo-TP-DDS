@@ -1,10 +1,5 @@
-import Clima.*;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import Clima.Weatherbit.ApiClimaWeatherbit;
 import org.junit.Test;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 public class MapeoClima {
 /*

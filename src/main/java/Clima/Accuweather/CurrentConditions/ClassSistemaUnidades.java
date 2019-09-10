@@ -1,4 +1,4 @@
-package Clima;
+package Clima.Accuweather.CurrentConditions;
 
 public class ClassSistemaUnidades {
     private double Value;
