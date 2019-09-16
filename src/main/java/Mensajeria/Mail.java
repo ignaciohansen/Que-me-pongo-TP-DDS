@@ -21,7 +21,7 @@ public class Mail {
 
         Email email = EmailBuilder.startingBlank()
                 .from("QueMePongo", "correo.2019-mi-no-group-10@hotmail.com")
-                //.to("nacho", "ignaciohansen@hotmail.com")
+                .to("nacho", "ignaciohansen@hotmail.com")
                 .to("juan", "jc.sala@hotmail.com")
                 .withSubject(subject)
                 .withPlainText(body)

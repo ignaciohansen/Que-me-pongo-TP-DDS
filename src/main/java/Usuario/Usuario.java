@@ -44,14 +44,6 @@ public class Usuario{
 
     public void agregarUnGuardarropas(Guardarropa guardarropa) throws SuperoLimiteDeGuardarropas {
 
-        //VER ESTA IMPLEMENTACION PARA NO REPETIR GUARDARROPAS EN USUARIOS, ES LA MISMA QUE ROPA Y GUARDARROPA
-        // COMENTO CODIGO PORQUE AHORA SE PUEDE COMPARTIR GUARDARROPA ENTRE USUARIOS
-
-        //if(guardarropa.perteneceAUsuario){throw new MismoGuardarropas("El guardarropa ya esta asignado a un usuario"); }else{
-
-        // guardarropa.perteneceAUsuario =  true;
-        // }
-
         tipoUsuario.agregarGuardarropa(guardarropas,guardarropa);
     }
 
