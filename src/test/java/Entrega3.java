@@ -22,7 +22,6 @@ import Usuario.UsuarioPremium;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import sun.plugin2.liveconnect.JSExceptions;
 
 import java.util.Date;
 import java.util.stream.Collectors;
@@ -180,7 +179,7 @@ public void juanCalurosoYtomasFriolento() throws ListaRopaVacia, atuendoEnListaN
 
 
     @Test
-    public void generarEventoParaMañana(){
+    public void generarEventoParaManiana(){
 
         Evento siguienteEvento = eventoDiaDeHoy.crearSiguienteEvento();
         System.out.println("Mi evento del dia de hoy es: " + eventoDiaDeHoy);
