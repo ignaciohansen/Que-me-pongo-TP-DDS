@@ -1,7 +1,5 @@
 package Telas;
 
-import java.util.ArrayList;
-
 import javax.persistence.*;
 
 @Entity
@@ -9,10 +7,9 @@ import javax.persistence.*;
 public class Seda extends Tela {
 
     public Seda() {
-        prendasIncompatibles = new ArrayList<>();
-        prendasIncompatibles.add("campera");
-        prendasIncompatibles.add("reloj");
-        prendasIncompatibles.add("zapatilla");
+        this.getPrendasIncompatibles().add("campera");
+        this.getPrendasIncompatibles().add("reloj");
+        this.getPrendasIncompatibles().add("zapatilla");
 
     }
    /*

@@ -8,6 +8,8 @@ import TipoPrenda.TipoPrenda;
 @DiscriminatorValue(value="friolento")
 public class Friolento extends tipoSensibilidad {
 
+	public Friolento() {}
+	
     public Friolento(TipoPrenda.parteDelCuerpoQueAbriga parteCuerpo) {
         this.setValor(7);
         this.setParteCuerpo(parteCuerpo);

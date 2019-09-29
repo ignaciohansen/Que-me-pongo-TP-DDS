@@ -14,6 +14,7 @@ import javax.persistence.*;
 public abstract class TipoUsuario {
 	
 	@Id
+	@GeneratedValue
 	@Column(name="tipo_usu_id")
 	protected long id;
 

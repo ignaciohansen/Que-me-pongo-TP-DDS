@@ -11,6 +11,7 @@ import javax.persistence.*;
 public abstract class tipoSensibilidad {
 
 	@Id
+	@GeneratedValue
 	@Column(name="tipo_sensibilidad_id")
 	protected long id;
 	

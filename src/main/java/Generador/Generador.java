@@ -30,7 +30,7 @@ public class Generador {
     // Se toma una prenda random de una lista que esta filtrada segun categoria y de la capa1
     private List<Prenda> listaDePrendasDeCapaYcategoria(Guardarropa guardarropa,int capa,int categoria){
         return  guardarropa.getPrendas().stream()
-                .filter(prenda -> prenda.seUtilizaEnUnAtuendo == false)
+                .filter(prenda -> prenda.getSeUtilizaEnUnAtuendo() == false)
                 .filter(prenda -> prenda.getTipoDePrenda().suNivelDeCapaEs(capa))
                 .filter(prenda -> prenda.getCategoria().ordinal() == categoria)
                 .collect(Collectors.toList());}
@@ -83,7 +83,7 @@ public class Generador {
     }
 
     private void utilizarLasPrendas(List<Prenda> lista){
-        lista.stream().forEach(prenda -> prenda.seUtilizaEnUnAtuendo = true); // Con esto, otro usuario que quiera un atuendo no va a tener estas ropas
+        lista.stream().forEach(prenda -> prenda.setSeUtilizaEnUnAtuendo(true)); // Con esto, otro usuario que quiera un atuendo no va a tener estas ropas
 
     }
 

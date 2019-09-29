@@ -37,10 +37,10 @@ public class Prenda {
     private String descripcion;
     
     @Column(name="prenda_esta_en_guard")
-    public Boolean estaEnGuardarropa = false;
+    private Boolean estaEnGuardarropa = false;
     
     @Column(name="prenda_utiliza_atuendo")
-    public Boolean seUtilizaEnUnAtuendo = false;
+    private Boolean seUtilizaEnUnAtuendo = false;
 
     public Prenda() {}
     
@@ -101,8 +101,30 @@ public class Prenda {
 
     public int suCapa(){ return tipoDePrenda.getNivelDeAbrigo(); }
     public Tela getTela() { return tela; }
+    
+    public Boolean getEstaEnGuardarropa() {
+		return estaEnGuardarropa;
+	}
 
-    public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};
+	public void setEstaEnGuardarropa(Boolean estaEnGuardarropa) {
+		this.estaEnGuardarropa = estaEnGuardarropa;
+	}
+
+	public Boolean getSeUtilizaEnUnAtuendo() {
+		return seUtilizaEnUnAtuendo;
+	}
+
+	public void setSeUtilizaEnUnAtuendo(Boolean seUtilizaEnUnAtuendo) {
+		this.seUtilizaEnUnAtuendo = seUtilizaEnUnAtuendo;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+
+
+	public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};
 
     public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio}; //Ver si agregar manos, cabeza como categoria
 

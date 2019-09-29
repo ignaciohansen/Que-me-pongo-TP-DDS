@@ -21,7 +21,7 @@ public abstract class Tela {
 	@ElementCollection
 	@CollectionTable(name="prendasIncompatibles", joinColumns=@JoinColumn(name="tela_id"))
 	@Column(name="prendasIncompatibles")
-    public List<String> prendasIncompatibles = new ArrayList<>();
+    private List<String> prendasIncompatibles = new ArrayList<>();
 
 
     //public Boolean incompatible(TipoPrenda tipoDePrenda){ return false;

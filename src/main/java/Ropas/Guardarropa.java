@@ -30,16 +30,16 @@ public class Guardarropa {
 
     public void sacarPrenda(Prenda prenda){
         prendas.remove(prenda);
-        prenda.estaEnGuardarropa = false;
+        prenda.setEstaEnGuardarropa(false);
     }
 
     public void agregarPrenda(Prenda prenda) throws Exceptions.En2Guardarropas {
 
-        if(prenda.estaEnGuardarropa){
+        if(prenda.getEstaEnGuardarropa()){
         throw new Exceptions.En2Guardarropas("La prenda ya esta asignada en un guardarropa");
         }else{
         prendas.add(prenda);
-        prenda.estaEnGuardarropa = true;
+        prenda.setEstaEnGuardarropa(true);
         }
 
     }

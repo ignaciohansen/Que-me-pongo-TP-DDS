@@ -7,10 +7,10 @@ import javax.persistence.*;
 public class Cuero extends Tela {
 
     public Cuero() {
-        prendasIncompatibles.add("remera");
-        prendasIncompatibles.add("camisa");
-        prendasIncompatibles.add("gorro");
-        prendasIncompatibles.add("guantes");
+        this.getPrendasIncompatibles().add("remera");
+        this.getPrendasIncompatibles().add("camisa");
+        this.getPrendasIncompatibles().add("gorro");
+        this.getPrendasIncompatibles().add("guantes");
     }
 
     @Override

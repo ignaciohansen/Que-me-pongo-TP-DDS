@@ -119,9 +119,9 @@ public class Entrega3 {
     @Test
 public void AtuendosSinRepetirRopaDeMismoGuardarropa() throws En2Guardarropas, SuperoLimiteDeGuardarropas, ListaRopaVacia, atuendoEnListaNegra {
 
-    System.out.println("Cantidad de prendas en guardarropa sin utilizar " + guardarropaCompartido.getPrendas().stream().filter(prenda -> prenda.seUtilizaEnUnAtuendo == false).collect(Collectors.toList()).size());
+    System.out.println("Cantidad de prendas en guardarropa sin utilizar " + guardarropaCompartido.getPrendas().stream().filter(prenda -> prenda.getSeUtilizaEnUnAtuendo() == false).collect(Collectors.toList()).size());
     Atuendo segundoAtuendo = tomas.generarAtuendo(guardarropaCompartido);
-    System.out.println("Cantidad de prendas en guardarropa sin utilizar " + guardarropaCompartido.getPrendas().stream().filter(prenda -> prenda.seUtilizaEnUnAtuendo == false).collect(Collectors.toList()).size());
+    System.out.println("Cantidad de prendas en guardarropa sin utilizar " + guardarropaCompartido.getPrendas().stream().filter(prenda -> prenda.getSeUtilizaEnUnAtuendo() == false).collect(Collectors.toList()).size());
     Atuendo primerAtuendo = juan.generarAtuendo(guardarropaCompartido);
 
 

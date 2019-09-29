@@ -6,7 +6,7 @@ import javax.persistence.*;
 @DiscriminatorValue(value="algodon")
 public class Algodon extends Tela {
     public Algodon() {
-        prendasIncompatibles.add("reloj");
-        prendasIncompatibles.add("pantalon");
+        this.getPrendasIncompatibles().add("reloj");
+        this.getPrendasIncompatibles().add("pantalon");
     }
 }
