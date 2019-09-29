@@ -1,5 +1,9 @@
 package TipoPrenda;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="sweater")
 public class Sweater extends TipoPrenda {
 
     public Sweater() {

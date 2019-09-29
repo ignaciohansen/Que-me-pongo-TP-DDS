@@ -5,8 +5,13 @@ import Ropas.Guardarropa;
 
 import java.util.List;
 
-public class  UsuarioGratuito extends TipoUsuario {
+import javax.persistence.*;
 
+@Entity
+@DiscriminatorValue(value="gratuito")
+public class UsuarioGratuito extends TipoUsuario {
+
+	@Column(name="cant_maxima")
     int cantidadMaximaGuardarropas = 2;
 
     @Override

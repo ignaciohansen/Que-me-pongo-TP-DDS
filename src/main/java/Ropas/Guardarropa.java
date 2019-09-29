@@ -3,7 +3,18 @@ package Ropas;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="GUARDARROPA")
 public class Guardarropa {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="guardarropa_id")
+	private long id;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Set<Prenda> prendas;
 
     public Guardarropa(){

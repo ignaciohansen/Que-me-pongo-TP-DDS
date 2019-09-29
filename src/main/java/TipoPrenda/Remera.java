@@ -1,5 +1,9 @@
 package TipoPrenda;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="remera")
 public class Remera extends TipoPrenda {
 
     public Remera() {

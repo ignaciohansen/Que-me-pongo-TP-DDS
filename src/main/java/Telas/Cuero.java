@@ -1,9 +1,9 @@
 package Telas;
 
+import javax.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
+@Entity
+@DiscriminatorValue(value="cuero")
 public class Cuero extends Tela {
 
     public Cuero() {

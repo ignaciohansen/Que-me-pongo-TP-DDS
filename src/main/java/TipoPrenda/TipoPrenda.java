@@ -1,13 +1,33 @@
 package TipoPrenda;
 
+import javax.persistence.*;
 import javax.swing.*;
 
+@Entity
+@Table(name = "TIPO_PRENDA")
+@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "prenda_tipo", discriminatorType = DiscriminatorType.STRING)
 public abstract class TipoPrenda {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="tipo_prenda_id")
+	protected long id;
 
+	@Column(name="tipo_prenda_su_tipo")
     private String suTipo;
+	
+	@Column(name="tipo_prenda_capa")
     private int CapaDePrenda = 1;
+	
+	@Column(name="tipo_prenda_nivel")
     private int nivelDeAbrigo = 0;
+	
+	@Column(name="tipo_prenda_foto")
     private ImageIcon foto;
+	
+    @Enumerated(EnumType.STRING)
+    @Column(name="tipo_prenda_parte")
     private parteDelCuerpoQueAbriga parteDelCuerpo;
 
     public String getSuTipo() {

@@ -2,6 +2,10 @@ package Sensibilidad;
 
 import TipoPrenda.TipoPrenda;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="indiferente")
 public class Indiferente extends tipoSensibilidad {
 
 

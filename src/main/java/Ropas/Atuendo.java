@@ -6,8 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name="ATUENDO")
 public class Atuendo {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="atuendo_id")
+	protected long id;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Prenda> prendas;
 
     public Atuendo(){

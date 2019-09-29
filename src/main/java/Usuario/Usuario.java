@@ -1,6 +1,7 @@
 package Usuario;
 
 import Eventos.Evento;
+
 import Exceptions.ListaRopaVacia;
 import Exceptions.SuperoLimiteDeGuardarropas;
 import Exceptions.atuendoEnListaNegra;
@@ -17,23 +18,34 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="USUARIO")
 public class Usuario{
+	
+	@Id
+	@GeneratedValue
+	@Column(name="usuario_id")
+	private long id;
+	
+	@ManyToMany(cascade = {CascadeType.ALL}, fetch=FetchType.LAZY)
     private List<Guardarropa> guardarropas;
+    
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private TipoUsuario tipoUsuario;
-
-    public List<Atuendo> getListaNegraAtuendos() {
-        return listaNegraAtuendos;
-    }
-
+    
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Atuendo> listaNegraAtuendos;
+    
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Evento> eventos;
-
-    public void setSensibilidad(tipoSensibilidad sensibilidad) {
-        this.sensibilidad = sensibilidad;
-    }
-
+    
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private tipoSensibilidad sensibilidad;
 
+    public Usuario() {}
+    
     public Usuario(TipoUsuario suTipoUsuario, tipoSensibilidad suSensibilidad){
         guardarropas = new ArrayList<Guardarropa>();
         eventos = new ArrayList<Evento>();
@@ -42,6 +54,15 @@ public class Usuario{
         sensibilidad = suSensibilidad;
     }
 
+    public List<Atuendo> getListaNegraAtuendos() {
+    	return listaNegraAtuendos;
+    }
+    
+    
+    public void setSensibilidad(tipoSensibilidad sensibilidad) {
+    	this.sensibilidad = sensibilidad;
+    }
+    
     public void agregarUnGuardarropas(Guardarropa guardarropa) throws SuperoLimiteDeGuardarropas {
 
         tipoUsuario.agregarGuardarropa(guardarropas,guardarropa);

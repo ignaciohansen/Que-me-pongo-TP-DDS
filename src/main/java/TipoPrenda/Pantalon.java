@@ -1,5 +1,9 @@
 package TipoPrenda;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="pantalon")
 public class Pantalon extends TipoPrenda {
     int nivelDeAbrigo = 5;
     private String suTipo = "pantalon";

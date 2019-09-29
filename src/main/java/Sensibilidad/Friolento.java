@@ -1,7 +1,11 @@
 package Sensibilidad;
 
+import javax.persistence.*;
+
 import TipoPrenda.TipoPrenda;
 
+@Entity
+@DiscriminatorValue(value="friolento")
 public class Friolento extends tipoSensibilidad {
 
     public Friolento(TipoPrenda.parteDelCuerpoQueAbriga parteCuerpo) {

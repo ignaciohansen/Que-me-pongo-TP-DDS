@@ -1,6 +1,9 @@
 package TipoPrenda;
 
+import javax.persistence.*;
 
+@Entity
+@DiscriminatorValue(value="gorro")
 public class Gorro extends Accesorio {
 
 

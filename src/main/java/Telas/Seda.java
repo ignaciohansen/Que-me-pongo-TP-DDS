@@ -1,9 +1,11 @@
 package Telas;
 
-import TipoPrenda.TipoPrenda;
-
 import java.util.ArrayList;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="seda")
 public class Seda extends Tela {
 
     public Seda() {

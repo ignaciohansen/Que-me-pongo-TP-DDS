@@ -1,7 +1,10 @@
 package TipoPrenda;
 
+import javax.persistence.*;
 import javax.swing.*;
 
+@Entity
+@DiscriminatorValue(value="camisa")
 public class Camisa extends TipoPrenda {
 
     public Camisa() {

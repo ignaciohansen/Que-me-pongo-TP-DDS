@@ -4,23 +4,46 @@ import Telas.Tela;
 import TipoPrenda.TipoPrenda;
 import java.lang.reflect.Field;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="PRENDA")
 public class Prenda {
 
+	@Id
+	@GeneratedValue
+	@Column(name="prenda_id")
+	private long id;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="prenda_color_prim")
     private Color colorPrimario;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="prenda_color_sec")
     private Color colorSecundario;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private TipoPrenda tipoDePrenda;
+    
+    @Enumerated(EnumType.STRING)
+	@Column(name="prenda_categoria")
     private CategoriaPrenda categoria;
+    
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Tela tela;
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
+    @Column(name="prenda_descripcion")
     private String descripcion;
+    
+    @Column(name="prenda_esta_en_guard")
     public Boolean estaEnGuardarropa = false;
+    
+    @Column(name="prenda_utiliza_atuendo")
     public Boolean seUtilizaEnUnAtuendo = false;
 
-
+    public Prenda() {}
+    
     public Prenda(Color colorPrimario, Color colorSecundario, TipoPrenda tipoDePrenda,CategoriaPrenda categoria,Tela unaTela,String descripcion) throws Exception {
         this.colorPrimario = colorPrimario;
         this.tipoDePrenda = tipoDePrenda;
@@ -30,6 +53,10 @@ public class Prenda {
         setTela(unaTela);
     }
 
+    public String getDescripcion() {
+    	return descripcion;
+    }
+    
     public Color getColorPrimario() {
         return colorPrimario;
     }
