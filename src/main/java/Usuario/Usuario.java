@@ -43,6 +43,9 @@ public class Usuario{
     
     @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private tipoSensibilidad sensibilidad;
+    
+    @Column(name="usuario_nombre")
+    private String nombre;
 
     public Usuario() {}
     
@@ -94,10 +97,22 @@ public class Usuario{
     public TipoPrenda.parteDelCuerpoQueAbriga parteSensible(){
         return sensibilidad.getParteCuerpo();
     }
-
+    
+    public String getNombre() {
+    	return nombre;
+    }
+    
+    public void setNombre(String nombre) {
+    	this.nombre = nombre;
+    }
+    
+    public tipoSensibilidad getSensibilidad() {
+    	return sensibilidad;
+    }
+    
 // EVENTOS
 
-    public List<Evento> getEventos() {
+	public List<Evento> getEventos() {
         return eventos;
     }
 
@@ -132,6 +147,13 @@ public class Usuario{
         System.out.println("Eventos actualizados : " + this.getEventos());
     }
 
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", guardarropas=" + guardarropas + ", tipoUsuario=" + tipoUsuario
+				+ ", listaNegraAtuendos=" + listaNegraAtuendos + ", eventos=" + eventos + ", sensibilidad="
+				+ sensibilidad + ", nombre=" + nombre + "]";
+	}
+    
 }
 
 /* Asistir a evento ( de mi lista )
