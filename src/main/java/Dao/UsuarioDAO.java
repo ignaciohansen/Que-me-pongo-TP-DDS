@@ -1,5 +1,7 @@
 package Dao;
 
+import java.util.List;
+
 import Usuario.Usuario;
 
 public class UsuarioDAO extends AbstractDAO{
@@ -15,4 +17,10 @@ public class UsuarioDAO extends AbstractDAO{
 		transaccion.commit();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Usuario> obtenerUsuarios() throws Exception {
+
+		return entityManager.createQuery("FROM Usuario.Usuario").getResultList();
+
+	}
 }

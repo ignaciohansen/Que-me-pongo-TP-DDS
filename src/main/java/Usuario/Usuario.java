@@ -110,7 +110,25 @@ public class Usuario{
     	return sensibilidad;
     }
     
+    public long getId() {
+    	return id;
+    }
+    
+    public void setId(long id) {
+    	this.id = id;
+    }
+    
+    
 // EVENTOS
+
+
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
 
 	public List<Evento> getEventos() {
         return eventos;

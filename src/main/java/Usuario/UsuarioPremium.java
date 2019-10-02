@@ -6,4 +6,9 @@ import javax.persistence.*;
 @DiscriminatorValue(value="premium")
 public class UsuarioPremium extends TipoUsuario{
 
+	@Override
+	public String toString() {
+		return "UsuarioPremium";
+	}
+	
 }

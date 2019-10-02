@@ -47,4 +47,9 @@ public class Guardarropa {
     public int cantidadDePrendas(){
         return prendas.size();
     }
+	@Override
+	public String toString() {
+		return "Guardarropa [id=" + id + ", prendas=" + prendas + "]";
+	}
+    
 }

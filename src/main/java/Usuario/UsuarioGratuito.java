@@ -23,4 +23,11 @@ public class UsuarioGratuito extends TipoUsuario {
         }
 
     }
+
+	@Override
+	public String toString() {
+		return "UsuarioGratuito [cantidadMaximaGuardarropas=" + cantidadMaximaGuardarropas + "]";
+	}
+    
+    
 }
