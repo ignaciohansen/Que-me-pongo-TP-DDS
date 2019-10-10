@@ -40,6 +40,8 @@
             <version>2.8.2</version>
         </dependency>
 
+        <!--  Api -->
+
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
@@ -85,7 +87,46 @@
             <version>2.2.8</version>
         </dependency>
 
-    </dependencies>
+
+        <!--   Spark -->
+
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-core</artifactId>
+            <version>2.8.0</version>
+        </dependency>
 
 
-</project>
+        <!--   Dependencias copiadas del repo de unisocial -->
+
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-template-handlebars</artifactId>
+            <version>2.5.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-debug-tools</artifactId>
+            <version>0.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.jknack</groupId>
+            <artifactId>handlebars-helpers</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.jknack</groupId>
+            <artifactId>handlebars-humanize</artifactId>
+            <version>4.0.6</version>
+        </dependency>
+
+
+        <!--   Dependencias copiadas del repo de unisocial -->
+
+      </dependencies>
+
+
+  </project>

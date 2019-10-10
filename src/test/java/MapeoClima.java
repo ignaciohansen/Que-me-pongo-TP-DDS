@@ -1,4 +1,4 @@
-import Clima.Weatherbit.ApiClimaWeatherbit;
+import Api.Clima.Weatherbit.ApiClimaWeatherbit;
 import org.junit.Test;
 
 public class MapeoClima {

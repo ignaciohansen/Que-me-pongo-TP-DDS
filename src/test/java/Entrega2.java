@@ -1,16 +1,17 @@
 
-import Imagenes.pruebaImagen;
-import Ropas.Atuendo;
-import Ropas.Guardarropa;
-import Ropas.Prenda;
-import Sensibilidad.Indiferente;
-import Sensibilidad.tipoSensibilidad;
-import Telas.Algodon;
-import Telas.Cuero;
-import TipoPrenda.*;
-import Usuario.Usuario;
-import Usuario.UsuarioGratuito;
-import Usuario.UsuarioPremium;
+import Entities.Exceptions.En2Guardarropas;
+import Entities.Exceptions.SuperoLimiteDeGuardarropas;
+import Entities.Exceptions.TelaIncompatible;
+import Entities.TipoPrenda.*;
+import Entities.Ropas.Atuendo;
+import Entities.Ropas.Guardarropa;
+import Entities.Ropas.Prenda;
+import Entities.Sensibilidad.Indiferente;
+import Entities.Telas.Algodon;
+import Entities.Telas.Cuero;
+import Entities.Usuario.Usuario;
+import Entities.Usuario.UsuarioGratuito;
+import Entities.Usuario.UsuarioPremium;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -80,7 +81,7 @@ public class Entrega2 {
         Assert.assertEquals(2,juan.cantidadDeGuardarropas());
     }
 
-    @Test(expected = Exceptions.SuperoLimiteDeGuardarropas.class)
+    @Test(expected = SuperoLimiteDeGuardarropas.class)
     public void cantidadDeGuardarropasDeTomas() throws Exception{
         tomas.agregarUnGuardarropas(guardarropaPruebaTomas);
         tomas.agregarUnGuardarropas(guardarropaPruebaTomas);
@@ -93,7 +94,7 @@ public class Entrega2 {
         tomas.agregarUnGuardarropas(guardarropaPruebaJuan); }
 */
 
-    @Test(expected = Exceptions.En2Guardarropas.class)
+    @Test(expected = En2Guardarropas.class)
     public void MismaPrendaEnDosGuardarropas() throws Exception {
             guardarropaPruebaJuan.agregarPrenda(reloj);
             guardarropaConRelojError.agregarPrenda(reloj);
@@ -101,7 +102,7 @@ public class Entrega2 {
         }
 
 
-    @Test(expected = Exceptions.TelaIncompatible.class)
+    @Test(expected = TelaIncompatible.class)
     public void remeraCueroError() throws Exception {
         Prenda remeraDeCuero;
         remeraDeCuero = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, tipoRemera, Prenda.CategoriaPrenda.ParteSuperior,cuero,"remera de cuero");

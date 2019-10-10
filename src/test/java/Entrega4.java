@@ -1,33 +1,23 @@
 
-import Eventos.Evento;
-import Exceptions.En2Guardarropas;
-import Exceptions.ListaRopaVacia;
-import Exceptions.SuperoLimiteDeGuardarropas;
-import Exceptions.atuendoEnListaNegra;
-import Imagenes.pruebaImagen;
-import Mensajeria.Whatsapp;
-import Ropas.Atuendo;
-import Ropas.Guardarropa;
-import Ropas.Prenda;
-import Sensibilidad.Caluroso;
-import Sensibilidad.Friolento;
-import Sensibilidad.Indiferente;
-import Sensibilidad.tipoSensibilidad;
-import Telas.Algodon;
-import Telas.Cuero;
-import TipoPrenda.*;
-import Usuario.Usuario;
-import Usuario.UsuarioGratuito;
-import Usuario.UsuarioPremium;
-import org.junit.Assert;
+import Entities.TipoPrenda.*;
+import Entities.Eventos.Evento;
+import Entities.Ropas.Guardarropa;
+import Entities.Ropas.Prenda;
+import Entities.Sensibilidad.Caluroso;
+import Entities.Sensibilidad.Friolento;
+import Entities.Sensibilidad.Indiferente;
+import Entities.Telas.Algodon;
+import Entities.Telas.Cuero;
+import Entities.Usuario.Usuario;
+import Entities.Usuario.UsuarioGratuito;
+import Entities.Usuario.UsuarioPremium;
 import org.junit.Before;
 import org.junit.Test;
 
-import Dao.GuardarropaDAO;
-import Dao.UsuarioDAO;
+import Repositories.Dao.GuardarropaDAO;
+import Repositories.Dao.UsuarioDAO;
 
 import java.util.Date;
-import java.util.stream.Collectors;
 
 public class Entrega4 {
 	

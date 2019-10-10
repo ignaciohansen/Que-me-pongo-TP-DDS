@@ -1,4 +1,4 @@
-import Mensajeria.Mail;
+import Api.Mensajeria.Mail;
 import org.junit.Test;
 
 public class EnvioMail {

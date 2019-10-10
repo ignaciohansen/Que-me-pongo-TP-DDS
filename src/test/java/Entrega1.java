@@ -1,16 +1,18 @@
 
-import Imagenes.pruebaImagen;
-import Ropas.*;
-import Sensibilidad.Indiferente;
-import Sensibilidad.tipoSensibilidad;
-import TipoPrenda.*;
-import Usuario.*;
-import Telas.*;
+import Entities.Ropas.Atuendo;
+import Entities.Ropas.Guardarropa;
+import Entities.Ropas.Prenda;
+import Entities.Telas.Algodon;
+import Entities.Telas.Cuero;
+import Entities.TipoPrenda.*;
+import Entities.Usuario.Usuario;
+import Entities.Usuario.UsuarioGratuito;
+import Entities.Usuario.UsuarioPremium;
+import Entities.Sensibilidad.Indiferente;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.swing.*;
 
 public class Entrega1 {
     private Prenda pantufla;
