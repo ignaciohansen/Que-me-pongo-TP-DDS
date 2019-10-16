@@ -1,14 +1,14 @@
 package Repositories;
 
-import Repositories.Dao.AbstractDAO;
+import Repositories.daos.DAO;
 
 public abstract class Repositorio {
-    protected AbstractDAO dao;
+    protected DAO dao;
 
-    public void setDao(AbstractDAO dao) {
+    public void setDao(DAO dao) {
         this.dao = dao;
     }
-/*
+
     public void agregar(Object unObjeto){
         this.dao.agregar(unObjeto);
     }
@@ -21,5 +21,4 @@ public abstract class Repositorio {
         this.dao.eliminar(unObjeto);
     }
 
- */
 }
