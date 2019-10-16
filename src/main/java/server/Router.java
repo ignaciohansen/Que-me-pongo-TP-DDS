@@ -24,8 +24,7 @@ public class Router {
     }
 
     private static void configure(){
-        Spark.get("/",HomeController::usuario,engine);
-        //completar homecontroller:: con el modelandview creado en clase homercontroller
+        Spark.get("/",HomeController::,engine); //completar homecontroller
 
     }
 }

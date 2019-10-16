@@ -14,7 +14,7 @@ public class HomeController {
 	public static ModelAndView usuario(Request req, Response res) {
 		Map<String, Object> view = new HashMap<>();
 
-		return new ModelAndView(view, "usuario.hbs"); //completar viewname con template
+		return new ModelAndView(view, ".hbs"); //completar viewname con template
 	}
 
 	//agregar modelandview que se necesiten acceder aca
