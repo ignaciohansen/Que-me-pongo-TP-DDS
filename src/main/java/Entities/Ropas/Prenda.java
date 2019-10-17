@@ -122,7 +122,13 @@ public class Prenda {
 		this.descripcion = descripcion;
 	}
 
+	public long getId() {
+		return id;
+	}
 
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};
 

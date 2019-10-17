@@ -46,6 +46,12 @@ public class Usuario{
     
     @Column(name="usuario_nombre")
     private String nombre;
+    
+    @Column(name="usuario_user")
+    private String user;
+    
+    @Column(name="usuario_password")
+    private String password;
 
     public Usuario() {}
     
@@ -118,21 +124,47 @@ public class Usuario{
     	this.id = id;
     }
     
+    public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getPassword() {
+    	return password;
+    }
+    
+    public void setPassword(String password) {
+    	this.password = password;
+    }
+    
+    public void setGuardarropas(List<Guardarropa> guardarropas) {
+    	this.guardarropas = guardarropas;
+    }
+    
+    public void setListaNegraAtuendos(List<Atuendo> listaNegraAtuendos) {
+    	this.listaNegraAtuendos = listaNegraAtuendos;
+    }
+    
+    public void setEventos(List<Evento> eventos) {
+    	this.eventos = eventos;
+    }
+    
+    public TipoUsuario getTipoUsuario() {
+    	return tipoUsuario;
+    }
+    
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+    	this.tipoUsuario = tipoUsuario;
+    }
+    
+    public List<Evento> getEventos() {
+    	return eventos;
+    }
     
 // EVENTOS
-
-
-	public TipoUsuario getTipoUsuario() {
-		return tipoUsuario;
-	}
-
-	public void setTipoUsuario(TipoUsuario tipoUsuario) {
-		this.tipoUsuario = tipoUsuario;
-	}
-
-	public List<Evento> getEventos() {
-        return eventos;
-    }
 
     public Evento generarEvento(Date fecha,String lugar,Evento descripcionEvento,int diaRepeticion){
         descripcionEvento = new Evento(fecha,lugar,diaRepeticion);

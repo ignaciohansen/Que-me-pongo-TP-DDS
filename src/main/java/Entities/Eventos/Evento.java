@@ -79,4 +79,25 @@ public class Evento {
     public int getDiasEnQueSeRepite() {
         return diasEnQueSeRepite;
     }
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+
+	public void setDiasEnQueSeRepite(int diasEnQueSeRepite) {
+		this.diasEnQueSeRepite = diasEnQueSeRepite;
+	}
+    
 }

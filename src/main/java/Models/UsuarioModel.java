@@ -24,7 +24,8 @@ public class UsuarioModel extends Model {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Usuario buscar(int id) {
-		return EntityManagerHelper.getEntityManager().find(Usuario.class, id);
+		return (Usuario) EntityManagerHelper.getEntityManager().createQuery("from Entities.Usuario.Usuario where usuario_id = :usuario_id")
+				.setParameter("usuario_id", id).getSingleResult();
 	}
 	
 	public Usuario buscarPorUsuario(String usuario) {

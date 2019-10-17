@@ -24,7 +24,8 @@ public class GuardarropaModel extends Model {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Guardarropa buscar(int id) {
-		return EntityManagerHelper.getEntityManager().find(Guardarropa.class, id);
+		return (Guardarropa) EntityManagerHelper.getEntityManager().createQuery("from Entities.Ropas.Guardarropa where guardarropa_id = :guardarropa_id")
+				.setParameter("guardarropa_id", id).getSingleResult();
 	}
 
 }

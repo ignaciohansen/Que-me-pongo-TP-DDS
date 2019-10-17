@@ -24,7 +24,8 @@ public class PrendaModel extends Model {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Prenda buscar(int id) {
-		return EntityManagerHelper.getEntityManager().find(Prenda.class, id);
+		return (Prenda) EntityManagerHelper.getEntityManager().createQuery("from Entities.Ropas.Prenda where prenda_id = :prenda_id")
+				.setParameter("prenda_id", id).getSingleResult();
 	}
 
 }

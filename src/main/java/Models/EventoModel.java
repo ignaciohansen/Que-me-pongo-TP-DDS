@@ -24,7 +24,8 @@ public class EventoModel extends Model {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Evento buscar(int id) {
-		return EntityManagerHelper.getEntityManager().find(Evento.class, id);
+		return (Evento) EntityManagerHelper.getEntityManager().createQuery("from Entities.Eventos.Evento where evento_id = :evento_id")
+				.setParameter("evento_id", id).getSingleResult();
 	}
 
 }

@@ -18,6 +18,9 @@ public class Guardarropa {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Set<Prenda> prendas;
+	
+	@Column(name="guardarropa_descripcion")
+	private String descripcion;
 
     public Guardarropa(){
         this.prendas = new HashSet<Prenda>();
@@ -30,7 +33,27 @@ public class Guardarropa {
         return prendas;
     }
 
-    public void sacarPrenda(Prenda prenda){
+    public long getId() {
+		return id;
+	}
+    
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	public void setPrendas(Set<Prenda> prendas) {
+		this.prendas = prendas;
+	}
+	
+	public void sacarPrenda(Prenda prenda){
         prendas.remove(prenda);
         prenda.setEstaEnGuardarropa(false);
     }
