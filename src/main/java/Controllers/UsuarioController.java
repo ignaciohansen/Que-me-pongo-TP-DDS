@@ -1,13 +1,8 @@
 package Controllers;
 
-
-/*
-import entities.Rol;
-import entities.Usuario;
-import repositories.RepositorioRol;
-import repositories.RepositorioUsuario;
-import repositories.factories.FactoryRepositorioRol;
-import repositories.factories.FactoryRepositorioUsuario;
+import Entities.Usuario.Usuario;
+import Repositories.RepositorioUsuario;
+import Repositories.factories.FactoryRepositorioUsuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -31,7 +26,9 @@ public class UsuarioController {
         parametros.put("usuarios", usuarios);
         return new ModelAndView(parametros, "usuarios.hbs");
     }
+}
 
+/*
     public ModelAndView mostrar(Request request, Response response){
         Usuario usuario = this.repo.buscar(new Integer(request.params("id")));
         RepositorioRol repoRol = FactoryRepositorioRol.get();
@@ -87,29 +84,6 @@ public class UsuarioController {
             usuario.setRol(unRol);
         }
     }
-
-    public ModelAndView crear(Request request, Response response){
-        Map<String, Object> parametros = new HashMap<>();
-        RepositorioRol repoRol = FactoryRepositorioRol.get();
-
-        parametros.put("roles", repoRol.buscarTodos());
-        return new ModelAndView(parametros, "usuario.hbs");
-    }
-
-    public Response guardar(Request request, Response response){
-        Usuario usuario = new Usuario();
-        asignarAtributosA(usuario, request);
-        this.repo.agregar(usuario);
-        response.redirect("/usuarios");
-        return response;
-    }
-
-    public Response eliminar(Request request, Response response){
-        Usuario usuario = this.repo.buscar(new Integer(request.params("id")));
-        this.repo.eliminar(usuario);
-        return response;
-    }
-
 
 }
 */

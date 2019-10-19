@@ -9,4 +9,9 @@ public class Algodon extends Tela {
         this.getPrendasIncompatibles().add("reloj");
         this.getPrendasIncompatibles().add("pantalon");
     }
+
+    @Override
+    public String toString() {
+        return "Algodon";
+    }
 }

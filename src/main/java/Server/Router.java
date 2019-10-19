@@ -1,6 +1,9 @@
 package Server;
 
- // import controllers.UsuarioController;
+import Controllers.EventoController;
+import Controllers.GuardarropaController;
+import Controllers.PrendaController;
+import Controllers.UsuarioController;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import Spark.utils.BooleanHelper;
@@ -17,18 +20,28 @@ public class Router {
                 .build();
     }
 
-    public static void init() {
+    public static void init() throws Exception {
         Router.initEngine();
         Spark.staticFileLocation("/public");
         Router.configure();
     }
 
-    private static void configure(){
-        /*
+    private static void configure() throws Exception {
+
         UsuarioController usuarioController = new UsuarioController();
+        EventoController eventoController = new EventoController();
+        PrendaController prendaController = new PrendaController();
+        GuardarropaController guardarropaController = new GuardarropaController();
 
         Spark.get("/usuarios", usuarioController::mostrarTodos, Router.engine);
 
+        Spark.get("/eventos", eventoController::mostrarTodos, Router.engine);
+
+        Spark.get("/prendas", prendaController::mostrarTodos, Router.engine);
+
+        Spark.get("/guardarropas", guardarropaController::mostrarTodos, Router.engine);
+ /*
+ /*
         Spark.get("/usuario/:id", usuarioController::mostrar, Router.engine);
 
         Spark.get("/usuario", usuarioController::crear, Router.engine);
