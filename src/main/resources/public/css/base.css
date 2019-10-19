@@ -34,6 +34,7 @@ header{
 }
 .diseniologo img{
   width:45px;
+  height:37px;
   margin-bottom: 0px;
 }
 .diseniologo p{
@@ -46,9 +47,9 @@ header{
   top:70px;
   z-index: -1;
   font-size: 22px;
-  /* background-color: rgb(220, 230, 245); */
-  background-color: rgb(245, 245, 245);
-  height: 100vh;
+   /*background-color: RGB(205, 92, 92); */
+    background-color: rgb(245, 245, 245);
+   height: 100vh;
 
 }
 .encabezado{
@@ -64,13 +65,14 @@ header{
   margin-bottom: 10px;
   width:100%;
   margin-bottom: 20px;
+
 }
 
 .tabla th{
   text-align: left;
   padding: 10px;
-  background-color: rgb(36, 35, 33);
-  color:white;
+  background-color:RGB(205, 92, 92);
+  color:black;
 }
 .tabla td{
   font-family: 'Lato', sans-serif;
@@ -81,8 +83,9 @@ header{
   border-bottom: 1px solid grey;
 
 }
+
 .tabla tr:nth-child(odd) {
-  background: #FFF
+  background-color:#FFF
 }
 
 .tabla tr:hover {
