@@ -1,11 +1,6 @@
 package Server;
 
-import Controllers.EventoController;
-import Controllers.GuardarropaController;
-import Controllers.HomeController;
-import Controllers.LoginController;
-import Controllers.PrendaController;
-import Controllers.UsuarioController;
+import Controllers.*;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import Spark.utils.BooleanHelper;
@@ -36,7 +31,9 @@ public class Router {
         GuardarropaController guardarropaController = new GuardarropaController();
         LoginController loginController = new LoginController();
         HomeController homeController = new HomeController();
-        
+        AtuendoController atuendoController = new AtuendoController();
+
+
         Spark.get("/login", loginController::mostrarLogin, Router.engine);
         
         Spark.post("/login", loginController::login);
@@ -50,6 +47,8 @@ public class Router {
         Spark.get("/prendas/:id", prendaController::mostrarTodos, Router.engine);
 
         Spark.get("/guardarropas", guardarropaController::mostrarTodos, Router.engine);
+
+        Spark.get("/atuendos", atuendoController::mostrarTodos, Router.engine);
         
     }
 }

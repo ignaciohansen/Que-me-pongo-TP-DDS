@@ -11,8 +11,12 @@ import javax.persistence.*;
 @Entity
 @Table(name="ATUENDO")
 public class Atuendo {
-	
-	@Id
+
+    public long getId() {
+        return id;
+    }
+
+    @Id
 	@GeneratedValue
 	@Column(name="atuendo_id")
 	protected long id;
@@ -37,6 +41,7 @@ public class Atuendo {
         this.prendas = prendas;
     }
 
+
     public List<Prenda> getPrendas() {
         return prendas;
     }
@@ -49,10 +54,12 @@ public class Atuendo {
 
     @Override
     public String toString() {
-       // return "Ropas.Atuendo{"+"prendas=" + this.getTipoPrenda() + '}';
+        return "Creamos un atuendo compuesto por: " + prendas.stream().map(prenda -> prenda.getDescripcion()).collect(Collectors.toList());
+
+    }
+        // return "Ropas.Atuendo{"+"prendas=" + this.getTipoPrenda() + '}';
        // return this.getClass().getSimpleName();
         //return "Prendas=" + prendas.stream().map(prenda -> prenda.getDescripcion() + " de color " + prenda.getColorPrimario()).collect(Collectors.toList());
 
-        return "Creamos un atuendo compuesto por: " + prendas.stream().map(prenda -> prenda.getDescripcion()).collect(Collectors.toList());
-    }
+
 }

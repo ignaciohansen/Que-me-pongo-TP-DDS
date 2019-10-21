@@ -147,9 +147,13 @@ public class Generador {
             throw new atuendoEnListaNegra();
         }
 
-        if(usuarioConforme==false){
+//Agregado de aceptar atuendo , se pone en la lista
+
+        if(!usuarioConforme){
             usuario.agregarAListaNegra(atuendoCreado);
             System.out.println("El atuendo no le gusta al usuario");
+        }else{
+            usuario.aceptarUnAtuendo(atuendoCreado);
         }
 
         System.out.println(atuendoCreado);

@@ -151,7 +151,7 @@ public class Prenda {
 
         return false;
     }
-
+/*
     @Override
     public String toString() {
         return "Ropas.Prenda{" +
@@ -163,4 +163,10 @@ public class Prenda {
                 ", estaEnGuardarropa=" + estaEnGuardarropa +
                 '}';
     }
+*/
+    @Override
+    public String toString() {
+        return descripcion + " " + colorPrimario;
+    }
+
 }

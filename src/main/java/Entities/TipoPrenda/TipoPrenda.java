@@ -65,4 +65,9 @@ public abstract class TipoPrenda {
         this.parteDelCuerpo = parteDelCuerpo;
     }
 
+    @Override
+    public String toString() {
+        return this.suTipo;
+    }
+
 }

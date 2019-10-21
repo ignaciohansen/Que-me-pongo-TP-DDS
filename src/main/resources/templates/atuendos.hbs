@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/27517fada0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/generales.js"></script>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="icon" href="img/logosolo.png">
+    <link rel="stylesheet" href="/css/base.css">
+    <title>Atuendos</title>
+  </head>
+  <body id="body">
+    </head>
+    <body id="body">
+      <header>
+        <img src="/img/untlogo.png" alt="utn logo" class="utnLogo">
+        <div class="diseniologo">
+          <img src="/img/logosolo.png" alt="diseniologo" style="">
+          <p>Diseño de Sistemas - Que me pongo?</p>
+        </div>
+
+      </header>
+
+    <div class="main_container">
+      <h1 class="encabezado">Atuendos</h1>
+      <input type="text" name="" value="" placeholder="Buscar" id="inputUsuario"> <!-- ====== ver que es ese inputUsuario ====== -->
+
+
+      <table class="tabla" id="tabla">
+        <thead>
+
+          <th>ID</th>
+          <th>Prendas</th>
+          <th>Calificacion</th>
+        </thead>
+        <tbody>
+
+
+          <!-- ================= Each: Clase / Sus variables ================== -->
+        {{#each atuendos}}
+        <tr>
+
+            <td>1</td>
+            <!-- = <td>{{id}}</td> = -->
+            <td>{{prendas}}</td>
+            <td>
+
+                 <!-- ================= BOTONES  ================== -->
+
+                 <button type="button" name="button" class="btn" onclick="confirmarEliminacion('{{id}}')"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </body>
+
+
+  <!-- ================= MODAL ELIMINACION ================== -->
+    <!-- ================= Ver modal en el otro repo ================== -->
+  <!-- ================= FIN MODAL ELIMINACION ================== -->
+
+
+</html>

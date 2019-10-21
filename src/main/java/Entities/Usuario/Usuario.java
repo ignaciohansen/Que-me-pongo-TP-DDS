@@ -40,7 +40,7 @@ public class Usuario{
     
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Evento> eventos;
-    
+
     @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private tipoSensibilidad sensibilidad;
     
@@ -53,11 +53,14 @@ public class Usuario{
     @Column(name="usuario_password")
     private String password;
 
+    List<Atuendo> atuendosAceptados;
+
     public Usuario() {}
     
     public Usuario(TipoUsuario suTipoUsuario, tipoSensibilidad suSensibilidad){
         guardarropas = new ArrayList<Guardarropa>();
         eventos = new ArrayList<Evento>();
+        atuendosAceptados = new ArrayList<Atuendo>();
         listaNegraAtuendos = new ArrayList<Atuendo>();
         tipoUsuario = suTipoUsuario;
         sensibilidad = suSensibilidad;
@@ -66,8 +69,7 @@ public class Usuario{
     public List<Atuendo> getListaNegraAtuendos() {
     	return listaNegraAtuendos;
     }
-    
-    
+
     public void setSensibilidad(tipoSensibilidad sensibilidad) {
     	this.sensibilidad = sensibilidad;
     }
@@ -162,6 +164,10 @@ public class Usuario{
     
     public List<Evento> getEventos() {
     	return eventos;
+    }
+
+    public void aceptarUnAtuendo(Atuendo unAtuendo) {
+        atuendosAceptados.add(unAtuendo);
     }
     
 // EVENTOS
