@@ -26,7 +26,6 @@ public class GuardarropaController {
 
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        //List<Evento> eventos = this.repo.buscarTodos();
         UsuarioModel model = new UsuarioModel();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
         parametros.put("guardarropas", usuario.getGuardarropas());

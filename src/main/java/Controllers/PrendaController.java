@@ -1,9 +1,12 @@
 package Controllers;
 
+import Entities.Ropas.Guardarropa;
 import Entities.Ropas.Prenda;
 import Entities.Telas.*;
 import Entities.TipoPrenda.*;
+import Repositories.RepositorioGuardarropa;
 import Repositories.RepositorioPrenda;
+import Repositories.factories.FactoryRepositorioGuardarropa;
 import Repositories.factories.FactoryRepositorioPrenda;
 import spark.ModelAndView;
 import spark.Request;
@@ -26,15 +29,9 @@ public class PrendaController {
 
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        //List<Evento> eventos = this.repo.buscarTodos();
-        List<Prenda> prendas = new ArrayList<Prenda>();
-        pantufla.setId(1);
-        remera.setId(2);
-        gorro.setId(3);
-        prendas.add(pantufla);
-        prendas.add(remera);
-        prendas.add(gorro);
-        parametros.put("prendas", prendas);
+        RepositorioGuardarropa repo = FactoryRepositorioGuardarropa.get();
+        Guardarropa guardarropa = repo.buscar(new Integer(request.params("id")));
+        parametros.put("prendas", guardarropa.getPrendas());
         return new ModelAndView(parametros, "prendas.hbs");
     }
 }

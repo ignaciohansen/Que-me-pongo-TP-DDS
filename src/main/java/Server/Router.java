@@ -47,8 +47,9 @@ public class Router {
 
         Spark.get("/eventos", eventoController::mostrarTodos, Router.engine);
 
-        Spark.get("/prendas", prendaController::mostrarTodos, Router.engine);
+        Spark.get("/prendas/:id", prendaController::mostrarTodos, Router.engine);
 
         Spark.get("/guardarropas", guardarropaController::mostrarTodos, Router.engine);
+        
     }
 }
