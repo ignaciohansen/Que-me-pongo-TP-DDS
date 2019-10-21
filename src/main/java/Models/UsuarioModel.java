@@ -29,8 +29,8 @@ public class UsuarioModel extends Model {
 	}
 	
 	public Usuario buscarPorUsuario(String usuario) {
-		return (Usuario) EntityManagerHelper.getEntityManager().createQuery("from Entities.Usuario.Usuario where usuario_nombre = :usuario_nombre")
-				.setParameter("usuario_nombre", usuario).getSingleResult();
+		return (Usuario) EntityManagerHelper.getEntityManager().createQuery("from Entities.Usuario.Usuario where usuario_user = :usuario_user")
+				.setParameter("usuario_user", usuario).getSingleResult();
 	}
 	
 }
