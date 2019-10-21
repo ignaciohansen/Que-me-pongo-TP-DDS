@@ -2,6 +2,8 @@ package Server;
 
 import Controllers.EventoController;
 import Controllers.GuardarropaController;
+import Controllers.HomeController;
+import Controllers.LoginController;
 import Controllers.PrendaController;
 import Controllers.UsuarioController;
 import spark.Spark;
@@ -32,6 +34,14 @@ public class Router {
         EventoController eventoController = new EventoController();
         PrendaController prendaController = new PrendaController();
         GuardarropaController guardarropaController = new GuardarropaController();
+        LoginController loginController = new LoginController();
+        HomeController homeController = new HomeController();
+        
+        Spark.get("/login", loginController::mostrarLogin, Router.engine);
+        
+        Spark.post("/login", loginController::login);
+        
+        Spark.get("/home",homeController::mostrarHome, Router.engine);
 
         Spark.get("/usuarios", usuarioController::mostrarTodos, Router.engine);
 
@@ -40,18 +50,5 @@ public class Router {
         Spark.get("/prendas", prendaController::mostrarTodos, Router.engine);
 
         Spark.get("/guardarropas", guardarropaController::mostrarTodos, Router.engine);
- /*
- /*
-        Spark.get("/usuario/:id", usuarioController::mostrar, Router.engine);
-
-        Spark.get("/usuario", usuarioController::crear, Router.engine);
-
-        Spark.post("/usuario/:id", usuarioController::modificar);
-
-        Spark.post("/usuario", usuarioController::guardar);
-
-        Spark.delete("/usuario/:id", usuarioController::eliminar);
-
-         */
     }
 }

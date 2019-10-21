@@ -23,9 +23,6 @@ public abstract class TipoPrenda {
 	@Column(name="tipo_prenda_nivel")
     private int nivelDeAbrigo = 0;
 	
-	@Column(name="tipo_prenda_foto")
-    private ImageIcon foto;
-	
     @Enumerated(EnumType.STRING)
     @Column(name="tipo_prenda_parte")
     private parteDelCuerpoQueAbriga parteDelCuerpo;
@@ -42,10 +39,6 @@ public abstract class TipoPrenda {
         return nivelDeAbrigo;
     }
 
-    public ImageIcon getFoto() {
-        return foto;
-    }
-
     public void setSuTipo(String suTipo) {
         this.suTipo = suTipo;
     }
@@ -56,10 +49,6 @@ public abstract class TipoPrenda {
 
     public void setNivelDeAbrigo(int nivelDeAbrigo) {
         this.nivelDeAbrigo = nivelDeAbrigo;
-    }
-
-    public void setFoto(ImageIcon foto) {
-        this.foto = foto;
     }
 
     public boolean suNivelDeCapaEs(int nivelObjetivo){

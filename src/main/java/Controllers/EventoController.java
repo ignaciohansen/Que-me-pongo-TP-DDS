@@ -1,6 +1,8 @@
 package Controllers;
 
 import Entities.Eventos.Evento;
+import Entities.Usuario.Usuario;
+import Models.UsuarioModel;
 import Repositories.RepositorioEvento;
 import Repositories.factories.FactoryRepositorioEvento;
 import spark.ModelAndView;
@@ -23,11 +25,9 @@ public class EventoController {
 
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        //List<Evento> eventos = this.repo.buscarTodos();
-        List<Evento> eventos = new ArrayList<Evento>();
-        eventoDiaDeHoy.setId(1);
-        eventos.add(eventoDiaDeHoy);
-        parametros.put("eventos", eventos);
+        UsuarioModel model = new UsuarioModel();
+        Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
+        parametros.put("eventos", usuario.getEventos());
         return new ModelAndView(parametros, "eventos.hbs");
     }
 
