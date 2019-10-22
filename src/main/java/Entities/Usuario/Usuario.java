@@ -53,7 +53,8 @@ public class Usuario{
     @Column(name="usuario_password")
     private String password;
 
-    List<Atuendo> atuendosAceptados;
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<Atuendo> atuendosAceptados;
 
     public Usuario() {}
     
