@@ -48,6 +48,8 @@ public class Router {
 
         Spark.get("/guardarropas", guardarropaController::mostrarTodos, Router.engine);
 
+        Spark.get("/guardarropa", guardarropaController::crear, Router.engine);  // creo que deberia ser un post o tener un metodo post tambien
+
         Spark.get("/atuendos", atuendoController::mostrarTodos, Router.engine);
         
     }

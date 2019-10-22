@@ -30,5 +30,13 @@ public class GuardarropaController {
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
         parametros.put("guardarropas", usuario.getGuardarropas());
         return new ModelAndView(parametros, "guardarropas.hbs");
+}
+
+    public ModelAndView crear(Request request, Response response) {
+        Map<String, Object> parametros = new HashMap<>();
+        //UsuarioModel model = new UsuarioModel();
+        //Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
+        parametros.put("usuario",true);
+        return new ModelAndView(parametros, "guardarropa.hbs");
     }
 }
