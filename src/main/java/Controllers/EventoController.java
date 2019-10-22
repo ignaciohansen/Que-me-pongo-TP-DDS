@@ -46,8 +46,8 @@ public class EventoController {
             int dias = new Integer(request.queryParams("diasEnQueSeRepite"));
             evento.setDiasEnQueSeRepite(dias);
         }
+        /*            REVISAR
 
-/*
         if(request.queryParams("fecha") != null && !request.queryParams("fecha").isEmpty()){
             Date fecha = Date.parse(request.queryParams("fecha"));
             evento.setFecha(fecha);

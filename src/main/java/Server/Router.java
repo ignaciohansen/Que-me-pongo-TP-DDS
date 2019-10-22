@@ -35,9 +35,9 @@ public class Router {
 
 
         Spark.get("/login", loginController::mostrarLogin, Router.engine);
-        
+
         Spark.post("/login", loginController::login);
-        
+
         Spark.get("/home",homeController::mostrarHome, Router.engine);
 
         Spark.get("/usuarios", usuarioController::mostrarTodos, Router.engine);
@@ -50,7 +50,13 @@ public class Router {
 
         Spark.get("/guardarropa", guardarropaController::crear, Router.engine);  // creo que deberia ser un post o tener un metodo post tambien
 
+        Spark.post("/guardarropa", guardarropaController::guardar);
+
         Spark.get("/atuendos", atuendoController::mostrarTodos, Router.engine);
+
+        Spark.get("/atuendo", atuendoController::crear, Router.engine);
+
+
         
     }
 }

@@ -34,9 +34,23 @@ public class GuardarropaController {
 
     public ModelAndView crear(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        //UsuarioModel model = new UsuarioModel();
-        //Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
-        parametros.put("usuario",true);
+       // UsuarioModel model = new UsuarioModel();
+      //  Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
         return new ModelAndView(parametros, "guardarropa.hbs");
+    }
+
+    public Response guardar(Request request, Response response){
+        Guardarropa guardarropa = new Guardarropa();
+        asignarAtributosA(guardarropa, request);
+        this.repo.agregar(guardarropa);
+        response.redirect("/guardarropas");
+        return response;
+    }
+
+    //REVISAR
+    private void asignarAtributosA(Guardarropa guardarropa, Request request) {
+        if (request.queryParams("descripcion") != null) {
+            guardarropa.setDescripcion(request.queryParams("descripcion"));
+        }
     }
 }

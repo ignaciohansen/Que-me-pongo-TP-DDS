@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="icon" href="/img/logosolo.png">
     <link rel="stylesheet" href="/css/base.css">
-    <title>Nuevo Guardarropa</title>
+    <title>Nuevo Atuendo</title>
 </head>
 <body>
 <header>
@@ -24,27 +24,35 @@
 
     <div class="contenedor-carta-usuario">
         <div class="carta-usuario">
-            <form class="" {{#if usuario}} action="/usuario/{{usuario.id}}" method="post" {{else}} action="/usuario" method="post" {{/if}} style="">
+            <form class="" {{#if atuendo}} action="/atuendo/{{atuendo.id}}" method="post" {{else}} action="/atuendo" method="post" {{/if}} style="">
 
                 <div class="form-cargar-usuario">
                     <div class="" style="text-align:center;">
-                        <label for="input-img-usuario"><img src="/img/guardarropa.png" class="imagen-perfil" alt=""></label>
+                        <label for="input-img-usuario"><img src="/img/remera.png" class="imagen-perfil" alt=""></label>
                         <input id="input-img-usuario" type="file" name="" value="" style="display:none;">
                     </div>
                     <div class="" style="margin:40px;">
-                        <label><i class="fas fa-audio-description"></i> Agregar Descripcion</label>
+                        <label> Creacion del atuendo</label>
                         <br>
-                        <input type="text" name="descripcion"  class="input-datos" placeholder="Descripcion" {{#if guardarropa}}value="{{guardarropa.descripcion}}" {{/if}}>
                         <br>
                         <br>
                     </div>
                 </div>
-                {{#if usuario}}
-                    <input type="submit" name="" class="btn-verde" style="float:right;"  value="Guardar cambios">
+                <select class="input-select" name="rol">
+                    <option selected disabled>Seleccionar guardarropa</option>
+                    {{#each guardarropas}}
+                        <label> {{descripcion}}</label>
+                        <option value="{{id}}">{{descripcion}}</option>
+                    {{/each}}
+                </select>
+                <br>
+                <br>
+                {{#if atuendo}}
+                    <input type="submit" name="" class="btn-verde" style="float:right;"  value="Crear Atuendo">
                 {{else}}
-                    <input type="submit" name="" class="btn-verde" style="float:right;"  value="Crear Guardarropa">
+                    <input type="submit" name="" class="btn-verde" style="float:right;"  value="Crear Atuendo">
                 {{/if}}
-                <a href="/usuarios" class="btn-border-blue" style="">Volver</a>
+                <a href="/atuendos" class="btn-border-blue" style="">Volver</a>
             </form>
         </div>
     </div>
