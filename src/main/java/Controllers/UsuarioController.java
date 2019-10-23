@@ -1,6 +1,8 @@
 package Controllers;
 
 import Entities.Usuario.Usuario;
+import Entities.Usuario.UsuarioGratuito;
+import Models.UsuarioModel;
 import Repositories.RepositorioUsuario;
 import Repositories.factories.FactoryRepositorioUsuario;
 import spark.ModelAndView;
@@ -26,6 +28,21 @@ public class UsuarioController {
         parametros.put("usuarios", usuarios);
         return new ModelAndView(parametros, "usuarios.hbs");
     }
+
+    public ModelAndView mostrarInfo(Request request, Response response) {
+        Map<String, Object> parametros = new HashMap<>();
+        Usuario usuario = new Usuario();
+        UsuarioGratuito usuarioGratuito = new UsuarioGratuito();
+        usuario.setNombre("juan");
+        usuario.setTipoUsuario(usuarioGratuito);
+        usuario.setUser("juancito");
+        //UsuarioModel model = new UsuarioModel();
+       // Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
+        parametros.put("usuario", usuario);
+        return new ModelAndView(parametros, "informacion.hbs");
+    }
+
+
 }
 
 /*

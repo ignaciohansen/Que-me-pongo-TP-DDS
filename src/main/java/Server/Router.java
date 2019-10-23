@@ -42,6 +42,8 @@ public class Router {
 
         Spark.get("/usuarios", usuarioController::mostrarTodos, Router.engine);
 
+        Spark.get("/informacion", usuarioController::mostrarInfo, Router.engine);
+
         Spark.get("/eventos", eventoController::mostrarTodos, Router.engine);
 
         Spark.get("/evento", eventoController::crear);
