@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/27517fada0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/generales.js"></script>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="icon" href="/img/logosolo.png">
+    <link rel="stylesheet" href="/css/base.css">
+    <title>Nuevo Guardarropa</title>
+</head>
+<body>
+<header>
+    <img src="/img/untlogo.png" alt="utn logo" class="utnLogo">
+    <div class="diseniologo">
+        <img src="/img/logosolo.png" alt="diseniologo" style="">
+        <p>Diseño de Sistemas</p>
+    </div>
+</header>
+<div class="main_container">
+
+    <div class="contenedor-carta-usuario">
+        <div class="carta-usuario">
+            <form class="" {{#if usuario}} action="/usuario/{{usuario.id}}" method="post" {{else}} action="/usuario" method="post" {{/if}} style="">
+
+                <div class="form-cargar-usuario">
+                    <div class="" style="text-align:center;">
+                        <label for="input-img-usuario"><img src="/img/time.png" class="imagen-perfil" alt=""></label>
+                    </div>
+                    <div class="" style="margin:40px;">
+                        <label><i class="fas fa-audio-description"></i> ID</label>
+                        <br>
+                        <input type="text" name="id"  class="input-datos" placeholder="Descripcion">
+                        <label><i class="fas fa-audio-description"></i> Lugar</label>
+                        <br>
+                        <input type="text" name="lugar"  class="input-datos" placeholder="Lugar">
+                        <label><i class="fas fa-audio-description"></i> Dias que se repite</label>
+                        <br>
+                        <input type="text" name="dias"  class="input-datos" placeholder="Cantidad">
+                        <label><i class="fas fa-audio-description"></i> Fecha</label>
+                        <br>
+                        <input type="date" name="fecha"  class="input-datos" placeholder="Descripcion">
+                        <br>
+                    </div>
+                </div>
+                {{#if usuario}}
+                    <input type="submit" name="" class="btn-verde" style="float:right;"  value="Guardar cambios">
+                {{else}}
+                    <input type="submit" name="" class="btn-verde" style="float:right;"  value="Crear Evento">
+                {{/if}}
+                <a href="/usuario" class="btn-border-blue" style="">Volver</a>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

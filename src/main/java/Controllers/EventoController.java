@@ -9,12 +9,15 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
-import java.util.*;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class EventoController {
 
-    public Evento eventoDiaDeHoy = new Evento(new Date(),"CABA",1);
+    public Evento evento= new Evento();
 
 
     private RepositorioEvento repo;
@@ -46,14 +49,25 @@ public class EventoController {
             int dias = new Integer(request.queryParams("diasEnQueSeRepite"));
             evento.setDiasEnQueSeRepite(dias);
         }
-        /*            REVISAR
-
+/*
         if(request.queryParams("fecha") != null && !request.queryParams("fecha").isEmpty()){
-            Date fecha = Date.parse(request.queryParams("fecha"));
-            evento.setFecha(fecha);
+            LocalDate fecha = LocalDate.parse(request.queryParams("fecha"));
+            evento.setFecha(fecha); //problema con la fecha en formato LocalDate en calendar de entities.eventos.evento
+        }*/
         }
-*/
+
+    public ModelAndView crear(Request request, Response response){
+        Evento evento = new Evento();
+        asignarAtributosA(evento, request);
+        this.repo.agregar(evento);
+        response.redirect("/evento");
+        return new ModelAndView(evento, "evento.hbs");
     }
+
+
+
+
+
 
 }
 
