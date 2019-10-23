@@ -60,7 +60,8 @@ public AtuendoController() throws Exception {}
         List<Guardarropa> guardarropas = new ArrayList<Guardarropa>();
         guardarropas.add(g1);
         guardarropas.add(g2);
-        return new ModelAndView(guardarropas, "atuendo.hbs");
+        parametros.put("guardarropas", guardarropas);
+        return new ModelAndView(parametros, "atuendo.hbs");
     }
 /*
     public Response guardar(Request request, Response response){
