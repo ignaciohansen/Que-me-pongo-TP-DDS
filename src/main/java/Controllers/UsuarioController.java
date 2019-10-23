@@ -31,13 +31,8 @@ public class UsuarioController {
 
     public ModelAndView mostrarInfo(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        Usuario usuario = new Usuario();
-        UsuarioGratuito usuarioGratuito = new UsuarioGratuito();
-        usuario.setNombre("juan");
-        usuario.setTipoUsuario(usuarioGratuito);
-        usuario.setUser("juancito");
-        //UsuarioModel model = new UsuarioModel();
-       // Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
+        UsuarioModel model = new UsuarioModel();
+        Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
         parametros.put("usuario", usuario);
         return new ModelAndView(parametros, "informacion.hbs");
     }
