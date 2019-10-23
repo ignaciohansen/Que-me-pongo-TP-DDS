@@ -11,7 +11,6 @@ import spark.Response;
 
 import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -51,19 +50,17 @@ public class EventoController {
         int diaRepeticion = new Integer(request.queryParams("diasEnQueSeRepite"));
 
         Evento evento = new Evento();
-        evento.crearEvento(fecha, lugar, diaRepeticion);
-        this.repo.agregar(evento);
-        response.redirect("/eventos");
-
-        Map<String, Object> parametro = new HashMap<>();
+        evento = evento.crearEvento(fecha, lugar, diaRepeticion);
         UsuarioModel model = new UsuarioModel();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
-        parametro.put("eventos", usuario.getEventos());
-        return new ModelAndView(parametro, "eventos.hbs");
+        usuario.cargarEvento(evento);
+        model.modificar(usuario);
+        response.redirect("/eventos");
+        return null;
     }
 
 
-    }
+}
 
 
 
