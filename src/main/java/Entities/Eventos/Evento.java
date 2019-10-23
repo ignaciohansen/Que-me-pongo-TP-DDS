@@ -8,6 +8,10 @@ import Entities.Ropas.Atuendo;
 import Entities.Ropas.Guardarropa;
 import Entities.Usuario.Usuario;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -23,7 +27,7 @@ public class Evento {
 	private long id;
 	
 	@Column(name="evento_fecha")
-    private Date fecha;
+    private LocalDate fecha;
 	
 	@Column(name="evento_lugar")
     private String lugar;
@@ -33,20 +37,27 @@ public class Evento {
 
 	public Evento() {}
 	
-    public Evento(Date fecha, String lugar,int diaRepeticion) {
+    public Evento(LocalDate fecha, String lugar,int diaRepeticion) {
         this.fecha = fecha;
         this.lugar = lugar;
         this.diasEnQueSeRepite = diaRepeticion;
     }
     //notificar usuario ()
 
-    public Evento crearSiguienteEvento(){
+    public Evento crearSiguienteEvento()  {
+        Date date = Date.from(fecha.atStartOfDay(ZoneId.systemDefault()).toInstant());
         Calendar calendario = Calendar.getInstance();
-        calendario.setTime(fecha);
+        calendario.setTime(date);
         calendario.add(Calendar.DAY_OF_YEAR, diasEnQueSeRepite);
-        Date fechaNueva = calendario.getTime();
+        Date fechaNuevaDate = calendario.getTime();
 
-        return new Evento(fechaNueva,lugar,diasEnQueSeRepite);
+        LocalDate fechaNuevaLocalDate = fechaNuevaDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        return new Evento(fechaNuevaLocalDate,lugar,diasEnQueSeRepite);
+    }
+
+    public Evento crearEvento(LocalDate fecha, String lugar, int diaRepeticion) {
+	    return new Evento(fecha, lugar, diaRepeticion);
     }
 
     public Atuendo generarAtuendo(Guardarropa guardarropa, Usuario usuario) throws ListaRopaVacia, atuendoEnListaNegra {
@@ -68,7 +79,7 @@ public class Evento {
                 ']';
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
@@ -88,7 +99,7 @@ public class Evento {
 		this.id = id;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}
 

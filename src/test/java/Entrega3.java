@@ -22,6 +22,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.stream.Collectors;
 
@@ -72,7 +73,7 @@ public class Entrega3 {
     private Guardarropa guardarropaCompartido = new Guardarropa();
     private Guardarropa guardarropaCasiVacio = new Guardarropa();
 
-    private Evento eventoDiaDeHoy = new Evento(new Date(),"CABA",1);
+    private Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
 
     @Before
     public void init() throws Exception {

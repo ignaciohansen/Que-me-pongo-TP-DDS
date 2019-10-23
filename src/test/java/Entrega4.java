@@ -17,6 +17,7 @@ import org.junit.Test;
 import Repositories.Dao.GuardarropaDAO;
 import Repositories.Dao.UsuarioDAO;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Entrega4 {
@@ -64,7 +65,7 @@ public class Entrega4 {
     private Guardarropa guardarropaCompartido = new Guardarropa();
     private Guardarropa guardarropaCasiVacio = new Guardarropa();
 
-    private Evento eventoDiaDeHoy = new Evento(new Date(),"CABA",1);
+    private Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
     
     @Before
     public void init() throws Exception {
@@ -143,7 +144,7 @@ public class Entrega4 {
     	
     	Usuario juan = dao.obtenerUsuario("juan");
     	
-    	Evento eventoDiaDeHoy = new Evento(new Date(),"CABA",1);
+    	Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
     	
     	juan.cargarEvento(eventoDiaDeHoy);
     	

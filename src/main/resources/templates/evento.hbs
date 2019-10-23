@@ -24,34 +24,31 @@
 
     <div class="contenedor-carta-usuario">
         <div class="carta-usuario">
-            <form class="" {{#if usuario}} action="/usuario/{{usuario.id}}" method="post" {{else}} action="/usuario" method="post" {{/if}} style="">
+            <form class="" {{#if evento}} action="/evento/{{evento.id}}" method="post" {{else}} action="/eventos" method="post" {{/if}} style="">
 
                 <div class="form-cargar-usuario">
                     <div class="" style="text-align:center;">
                         <label for="input-img-usuario"><img src="/img/time.png" class="imagen-perfil" alt=""></label>
                     </div>
                     <div class="" style="margin:40px;">
-                        <label><i class="fas fa-audio-description"></i> ID</label>
+                        <label><i class="fas fa-audio-description"></i> Fecha</label>
                         <br>
-                        <input type="text" name="id"  class="input-datos" placeholder="Descripcion">
+                        <input type="date" name="fecha"  class="input-datos" placeholder="fecha">
                         <label><i class="fas fa-audio-description"></i> Lugar</label>
                         <br>
                         <input type="text" name="lugar"  class="input-datos" placeholder="Lugar">
                         <label><i class="fas fa-audio-description"></i> Dias que se repite</label>
                         <br>
-                        <input type="text" name="dias"  class="input-datos" placeholder="Cantidad">
-                        <label><i class="fas fa-audio-description"></i> Fecha</label>
-                        <br>
-                        <input type="date" name="fecha"  class="input-datos" placeholder="Descripcion">
-                        <br>
+                        <input type="text" name="diasEnQueSeRepite"  class="input-datos" placeholder="Cantidad">
+
                     </div>
                 </div>
-                {{#if usuario}}
+                {{#if evento}}
                     <input type="submit" name="" class="btn-verde" style="float:right;"  value="Guardar cambios">
                 {{else}}
                     <input type="submit" name="" class="btn-verde" style="float:right;"  value="Crear Evento">
                 {{/if}}
-                <a href="/usuario" class="btn-border-blue" style="">Volver</a>
+                <a href="/eventos" class="btn-border-blue" style="">Volver</a>
             </form>
         </div>
     </div>

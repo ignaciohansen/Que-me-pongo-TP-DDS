@@ -13,6 +13,7 @@ import Entities.Sensibilidad.tipoSensibilidad;
 
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -173,7 +174,7 @@ public class Usuario{
     
 // EVENTOS
 
-    public Evento generarEvento(Date fecha,String lugar,Evento descripcionEvento,int diaRepeticion){
+    public Evento generarEvento(LocalDate fecha, String lugar, Evento descripcionEvento, int diaRepeticion){
         descripcionEvento = new Evento(fecha,lugar,diaRepeticion);
         return  descripcionEvento;
     }
