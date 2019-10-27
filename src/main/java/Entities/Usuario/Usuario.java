@@ -54,6 +54,14 @@ public class Usuario{
     @Column(name="usuario_password")
     private String password;
 
+    public List<Atuendo> getAtuendosAceptados() {
+        return atuendosAceptados;
+    }
+
+    public void setAtuendosAceptados(List<Atuendo> atuendosAceptados) {
+        this.atuendosAceptados = atuendosAceptados;
+    }
+
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Atuendo> atuendosAceptados;
 

@@ -1,5 +1,6 @@
 package Controllers;
 
+import Entities.Exceptions.SuperoLimiteDeGuardarropas;
 import Entities.Ropas.Guardarropa;
 import Entities.Usuario.Usuario;
 import Models.UsuarioModel;
@@ -39,15 +40,19 @@ public class GuardarropaController {
         return new ModelAndView(parametros, "guardarropa.hbs");
     }
 
-    public Response guardar(Request request, Response response){
+    public Response guardar(Request request, Response response) throws SuperoLimiteDeGuardarropas {
+        UsuarioModel model = new UsuarioModel();
+        Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
         Guardarropa guardarropa = new Guardarropa();
         asignarAtributosA(guardarropa, request);
+        usuario.agregarUnGuardarropas(guardarropa);
+        model.modificar(usuario);
         this.repo.agregar(guardarropa);
         response.redirect("/guardarropas");
         return response;
     }
 
-    //REVISAR
+
     private void asignarAtributosA(Guardarropa guardarropa, Request request) {
         if (request.queryParams("descripcion") != null) {
             guardarropa.setDescripcion(request.queryParams("descripcion"));

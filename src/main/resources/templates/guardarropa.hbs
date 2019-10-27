@@ -24,8 +24,7 @@
 
     <div class="contenedor-carta-usuario">
         <div class="carta-usuario">
-            <form class="" {{#if usuario}} action="/usuario/{{usuario.id}}" method="post" {{else}} action="/usuario" method="post" {{/if}} style="">
-
+            <form method="post">
                 <div class="form-cargar-usuario">
                     <div class="" style="text-align:center;">
                         <label for="input-img-usuario"><img src="/img/guardarropa.png" class="imagen-perfil" alt=""></label>
@@ -44,7 +43,7 @@
                 {{else}}
                     <input type="submit" name="" class="btn-verde" style="float:right;"  value="Crear Guardarropa">
                 {{/if}}
-                <a href="/usuarios" class="btn-border-blue" style="">Volver</a>
+                <a href="/guardarropas" class="btn-border-blue" style="">Volver</a>
             </form>
         </div>
     </div>
