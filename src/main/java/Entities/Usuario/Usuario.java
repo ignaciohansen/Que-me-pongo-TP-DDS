@@ -35,7 +35,10 @@ public class Usuario{
     
     @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private TipoUsuario tipoUsuario;
-    
+
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<Atuendo> atuendosAceptados;
+
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Atuendo> listaNegraAtuendos;
     
@@ -54,6 +57,7 @@ public class Usuario{
     @Column(name="usuario_password")
     private String password;
 
+
     public List<Atuendo> getAtuendosAceptados() {
         return atuendosAceptados;
     }
@@ -61,9 +65,6 @@ public class Usuario{
     public void setAtuendosAceptados(List<Atuendo> atuendosAceptados) {
         this.atuendosAceptados = atuendosAceptados;
     }
-
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    private List<Atuendo> atuendosAceptados;
 
     public Usuario() {}
     
@@ -178,6 +179,10 @@ public class Usuario{
 
     public void aceptarUnAtuendo(Atuendo unAtuendo) {
         atuendosAceptados.add(unAtuendo);
+    }
+
+    public Guardarropa getGuardarropaPorDescripcion(String descripcion){
+        return guardarropas.stream().filter(guardarropa -> (guardarropa.getDescripcion()).equals(descripcion)).collect(Collectors.toList()).get(0);
     }
     
 // EVENTOS

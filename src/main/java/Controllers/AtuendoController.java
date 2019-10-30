@@ -1,5 +1,7 @@
 package Controllers;
 
+import Entities.Exceptions.ListaRopaVacia;
+import Entities.Exceptions.atuendoEnListaNegra;
 import Entities.Generador.Generador;
 import  Entities.Ropas.Atuendo;
 //import Repositories.RepositorioAtuendo;
@@ -10,9 +12,8 @@ import Entities.Telas.Algodon;
 import Entities.TipoPrenda.Remera;
 import Entities.TipoPrenda.Sweater;
 import Entities.Usuario.Usuario;
+import Models.PrendaModel;
 import Models.UsuarioModel;
-import Repositories.RepositorioGuardarropa;
-import Repositories.factories.FactoryRepositorioGuardarropa;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -29,26 +30,15 @@ public class AtuendoController {
     Prenda sweater = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, new Sweater(), Prenda.CategoriaPrenda.ParteSuperior,new Algodon(),"sweater");
     Generador generador = new Generador();
     List<Prenda> prendas = new ArrayList<Prenda>();
-    UsuarioModel model = new UsuarioModel();
+    UsuarioModel usuarioModel = new UsuarioModel();
+    PrendaModel prendaModel = new PrendaModel();
 
     public AtuendoController() throws Exception {}
 
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
 
-        Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
-
-
-         /* PRUEBAS - OK con la base PRUEBAS
-         List<Atuendo> atuendos = new ArrayList<Atuendo>();
-         prendas.add(remera);
-         prendas.add(sweater);
-         atuendoPrueba.setPrendas(prendas);
-         atuendos.add(atuendoPrueba);
-         usuario.setAtuendosAceptados(atuendos);
-*/
-
-
+        Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
         parametros.put("atuendos", usuario.getAtuendosAceptados());
         return new ModelAndView(parametros, "atuendos.hbs");
     }
@@ -56,22 +46,26 @@ public class AtuendoController {
 
     public ModelAndView crear(Request request, Response response){
         Map<String, Object> parametros = new HashMap<>();
-        Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
+        Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
         parametros.put("guardarropas", usuario.getGuardarropas());
         return new ModelAndView(parametros, "atuendo.hbs");
     }
 
+    public Response guardar(Request request, Response response) throws atuendoEnListaNegra, ListaRopaVacia {
 
+    Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
 
+    //Se agarra el guardarropa del menu de seleccion
+    Guardarropa guardarropaElegido = usuario.getGuardarropas().get(new Integer(request.queryParams("descripcion")) -1);
 
-    /*
-    public Response guardar(Request request, Response response){
-     if(request.queryParams("guardarropa") != null){
-           generador.generarAtuendoGR(request.queryParams("guardarropa"),);
+    if(guardarropaElegido != null){
+          generador.generarAtuendoGR(guardarropaElegido,usuario);
         }
-        this.repo.agregar(atuendo);
+        //quizas falta agregar
+        // Falla en  " field listanegraatuendos_atuendo_id' doesn't have a default value "
+        usuarioModel.modificar(usuario);
         response.redirect("/atuendos");
         return response;
     }
-  */
+
 }

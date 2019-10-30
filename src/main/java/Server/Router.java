@@ -63,6 +63,8 @@ public class Router {
 
         Spark.get("/atuendo", atuendoController::crear, Router.engine);
 
+        Spark.post("/atuendo", atuendoController::guardar);
+
 
         
     }
