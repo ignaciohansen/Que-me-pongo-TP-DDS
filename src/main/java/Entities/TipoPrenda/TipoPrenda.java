@@ -12,7 +12,7 @@ public abstract class TipoPrenda {
 	@Id
 	@GeneratedValue
 	@Column(name="tipo_prenda_id")
-	protected long id;
+	private long id;
 
 	@Column(name="tipo_prenda_su_tipo")
     private String suTipo;
@@ -53,6 +53,14 @@ public abstract class TipoPrenda {
 
     public boolean suNivelDeCapaEs(int nivelObjetivo){
         return nivelObjetivo == this.getCapaDePrenda();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public enum parteDelCuerpoQueAbriga {Cabeza,Manos,Ninguna};

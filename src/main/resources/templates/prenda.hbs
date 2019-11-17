@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/27517fada0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/generales.js"></script>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="icon" href="/img/logosolo.png">
+    <link rel="stylesheet" href="/css/base.css">
+    <title>Nueva prenda</title>
+  </head>
+  <body>
+    <header>
+      <img src="/img/untlogo.png" alt="utn logo" class="utnLogo">
+      <div class="diseniologo">
+        <img src="/img/logosolo.png" alt="diseniologo" style="">
+        <p>Diseño de Sistemas</p>
+      </div>
+    </header>
+    <div class="main_container">
+
+      <div class="contenedor-carta-usuario">
+        <div class="carta-usuario">
+          <form class="" {{#if usuario}} action="/usuario/{{usuario.id}}" method="post" {{else}} action="/crearPrenda" method="post" {{/if}} style="">
+
+            <div class="form-cargar-usuario">
+              <div class="" style="text-align:center;">
+                <label for="input-img-usuario"><img src="/img/prenda.png" class="imagen-perfil" alt=""></label>
+                <input id="input-img-usuario" type="file" name="" value="" style="display:none;">
+              </div>
+                <div class="" style="margin:40px;">
+                    <label><i class="fas fa-palette"></i> Color Primario</label>
+                    <br>
+                    {{#if prenda}}
+                        <input type="text" name="" value="{{prenda.colorPrimario.toString}}" class="input-datos" placeholder="Color Primario">
+                    {{else}}
+                        <select class="input-select" name="color">
+                            <option selected disabled> Seleccionar Color</option>
+                            {{#each colores}}
+                                </option value="{{toString}}">{{colorPrimario.toString}}</option>
+                            {{/each}}
+                            <option value="Rojo">Rojo</option>
+                            <option value="Azul">Azul</option>
+                        </select>
+                    {{/if}}
+                    <br>
+                    <br>
+                    <label><i class="fas fa-palette"></i> Color Secundario</label>
+                    <br>
+                    <input type="text" name="colorSecundario"  class="input-datos" placeholder="Color Secundario" {{#if prenda}}value="{{prenda.colorSecundario}}" {{/if}}>
+                </div>
+                <div class="" style="margin:40px;">
+                    <label><i class="fas fa-tshirt"></i> Tipo de Prenda</label>
+                    <br>
+
+                        <select class="input-select" name="tipo">
+                            <option selected disabled> Seleccionar tipo de prenda</option>
+                            <!--{{#each tipos}}
+                                <label>{{suTipo}}</label>
+                                </option value="{{id}}">{{suTipo}}</option>
+                            {{/each}}-->
+                            {{#each guardarropas}}
+                            <label>{{descripcion}}</label>
+                                <option value="{{id}}">{{descripcion}}</option>
+                            {{/each}}
+                            <option value="remera"> Remera</option>
+                        </select>
+
+                    <br>
+                    <br>
+                    <label><i class="fas fa-child"></i> Categoria de Prenda</label>
+                    <br>
+                    <input type="text" name="categoriaPrenda" class="input-datos" placeholder="Categoria de Prenda" {{#if prenda}} value="{{prenda.categoriaPrenda}}" {{/if}} >
+                </div>
+                <div class="" style="margin:40px;">
+                    <label><i class="fas fa-scroll"></i> Tela</label>
+                    <br>
+                    <input type="text" name="tela" class="input-datos" placeholder="Tela" {{#if prenda}} value="{{prenda.tela}}" {{/if}} >
+                    <br>
+                    <br>
+                    <label><i class="fas fa-file-signature"></i> Descripción</label>
+                    <br>
+                    <input type="text" name="descripción" class="input-datos" placeholder="Descripción" {{#if prenda}} value="{{prenda.descripción}}" {{/if}} >
+                    <br>
+                    <br>
+                    <a href="/home" class="btn btn-info" role="button">Guardar</a>
+                </div>
+            </div>
+            {{#if usuario}}
+                <input type="submit" name="" class="btn-verde" style="float:right;"  value="Guardar cambios">
+            {{else}}
+                <input type="submit" name="" class="btn-verde" style="float:right;"  value="Crear prenda">
+            {{/if}}
+            <!--<a href="/usuarios" class="btn-border-blue" style="">Volver</a>-->
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </body>
+  </html>
