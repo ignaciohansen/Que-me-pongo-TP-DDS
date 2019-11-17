@@ -2,6 +2,7 @@ package Controllers;
 
 import Entities.Usuario.Usuario;
 import Entities.Usuario.UsuarioGratuito;
+import Entities.Usuario.UsuarioPremium;
 import Models.UsuarioModel;
 import Repositories.RepositorioUsuario;
 import Repositories.factories.FactoryRepositorioUsuario;
@@ -17,6 +18,7 @@ import java.util.Map;
 public class UsuarioController {
 
     private RepositorioUsuario repo;
+    UsuarioModel model = new UsuarioModel();
 
     public UsuarioController(){
         this.repo = FactoryRepositorioUsuario.get();
@@ -31,12 +33,10 @@ public class UsuarioController {
 
     public ModelAndView mostrarInfo(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        UsuarioModel model = new UsuarioModel();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
         parametros.put("usuario", usuario);
         return new ModelAndView(parametros, "informacion.hbs");
     }
-
 
 }
 
@@ -58,44 +58,5 @@ public class UsuarioController {
         return response;
     }
 
-    private void asignarAtributosA(Usuario usuario, Request request){
-        if(request.queryParams("telefono") != null){
-            int telefono = new Integer(request.queryParams("telefono"));
-            usuario.setTelefono(telefono);
-        }
 
-        if(request.queryParams("nombre") != null){
-            usuario.setNombre(request.queryParams("nombre"));
-        }
-
-        if(request.queryParams("email") != null){
-            usuario.setEmail(request.queryParams("email"));
-        }
-
-        if(request.queryParams("nombreDeUsuario") != null){
-            usuario.setNombreDeUsuario(request.queryParams("nombreDeUsuario"));
-        }
-
-        if(request.queryParams("apellido") != null){
-            usuario.setApellido(request.queryParams("apellido"));
-        }
-
-        if(request.queryParams("legajo") != null){
-            int legajo = new Integer(request.queryParams("legajo"));
-            usuario.setLegajo(legajo);
-        }
-
-        if(request.queryParams("fechaDeNacimiento") != null && !request.queryParams("fechaDeNacimiento").isEmpty()){
-            LocalDate fechaDeNacimiento = LocalDate.parse(request.queryParams("fechaDeNacimiento"));
-            usuario.setFechaDeNacimiento(fechaDeNacimiento);
-        }
-
-        if(request.queryParams("rol") != null){
-            RepositorioRol repoRol = FactoryRepositorioRol.get();
-            Rol unRol = repoRol.buscar(new Integer(request.queryParams("rol")));
-            usuario.setRol(unRol);
-        }
-    }
-
-}
 */
