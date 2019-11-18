@@ -38,10 +38,6 @@ public class PrendaController {
 
     private RepositorioPrenda repositorioPrenda;
 
-    public List<String> getColores() {
-        return colores;
-    }
-
     private Prenda.CategoriaPrenda obtenerCategoria(String descripcionTipoPrenda){
         if(descripcionTipoPrenda.equals("zapatilla") || descripcionTipoPrenda.equals("pantufla")){
             return Prenda.CategoriaPrenda.Calzado;
@@ -57,8 +53,6 @@ public class PrendaController {
         }
     }
 
-    List<String> colores =  Stream.of("Rojo", "Verde", "Azul", "Negro", "Blanco", "Gris", "Amarillo", "Marron", "Rosa", "Violeta", "Celeste").collect(Collectors.toList());
-
     public PrendaController() throws Exception {
         this.repositorioPrenda = FactoryRepositorioPrenda.get();
     }
@@ -73,7 +67,6 @@ public class PrendaController {
     public ModelAndView crearPrimeraPartePrenda(Request request, Response response){
         Map<String, Object> parametros = new HashMap<>();
         parametros.put("tipos", repositorioTipoPrenda.buscarTodos());
-        parametros.put("colores", colores);
         return new ModelAndView(parametros, "prenda1.hbs");
     }
 
@@ -88,6 +81,7 @@ public class PrendaController {
     public Response guardarPrimeraParte(Request request, Response response){
         prendaAcrear = new Prenda();
         tipoPrendaElegido = repositorioTipoPrenda.buscar(new Integer(request.queryParams("suTipo")));
+        prendaAcrear.setColorPrimario(Prenda.Color.valueOf(request.queryParams("colores")));
         prendaAcrear.setTipoDePrenda(tipoPrendaElegido);
         prendaAcrear.setDescripcion(tipoPrendaElegido.getSuTipo());
         prendaAcrear.setCategoria(this.obtenerCategoria(tipoPrendaElegido.getSuTipo()));
@@ -96,7 +90,12 @@ public class PrendaController {
     }
 
     @Transactional
-    public Response guardarSegundaParte(Request request, Response response) throws TelaIncompatible, En2Guardarropas {
+    public Response guardarSegundaParte(Request request, Response response) throws Exception {
+
+        if(!prendaAcrear.getColorPrimario().equals(Prenda.Color.valueOf(request.queryParams("colores")))) {prendaAcrear.setColorSecundario(Prenda.Color.valueOf(request.queryParams("colores"))); }
+        else{
+            response.redirect("/crearPrenda");
+        }       // Te lleva a la primera parte de crear prenda, Deberia mostrar un error de porque
 
         Tela tela = repositorioTela.buscar(new Integer(request.queryParams("descripcion")));
         prendaAcrear.setTela(tela);

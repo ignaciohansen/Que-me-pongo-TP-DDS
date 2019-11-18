@@ -34,18 +34,22 @@
                 <div class="" style="margin:40px;">
                     <label><i class="fas fa-palette"></i> Color Secundario</label>
                     <br>
-                    {{#if prenda}}
-                        <input type="text" name="" value="{{prenda.colorSecundario.toString}}" class="input-datos" placeholder="Color Secundario">
-                    {{else}}
-                        <select class="input-select" name="color">
-                            <option selected disabled> Seleccionar Color</option>
-                            {{#each colores}}
-                                </option value="{{toString}}">{{colorPrimario.toString}}</option>
-                            {{/each}}
-                            <option value="Rojo">Rojo</option>
-                            <option value="Azul">Azul</option>
-                        </select>
-                    {{/if}}
+                    <select class="input-select" name="colores">
+                        <option selected disabled> Seleccionar Color</option>
+                        <option value="Rojo">Rojo</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Negro">Negro</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Gris">Gris</option>
+                        <option value="Amarillo">Amarillo</option>
+                        <option value="Marron">Marron</option>
+                        <option value="Rosa">Rosa</option>
+                        <option value="Violeta">Violeta</option>
+                        <option value="Celeste">Celeste</option>
+                    </select>
+                    <br>
+                    <br>
                 </div>
                 <div class="" style="margin:40px;">
                     <label><i class="fas fa-tshirt"></i>Tela</label>
