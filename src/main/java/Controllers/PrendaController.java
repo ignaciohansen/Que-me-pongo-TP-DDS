@@ -1,75 +1,112 @@
 package Controllers;
 
+import Entities.Exceptions.En2Guardarropas;
+import Entities.Exceptions.TelaIncompatible;
 import Entities.Ropas.Guardarropa;
 import Entities.Ropas.Prenda;
 import Entities.Telas.*;
 import Entities.TipoPrenda.*;
+import Models.GuardarropaModel;
 import Models.PrendaModel;
-import Repositories.RepositorioGuardarropa;
-import Repositories.RepositorioPrenda;
-import Repositories.factories.FactoryRepositorioGuardarropa;
-import Repositories.factories.FactoryRepositorioPrenda;
+import Models.TelaModel;
+import Models.TipoPrendaModel;
+import Repositories.*;
+import Repositories.factories.*;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import javax.swing.plaf.synth.SynthEditorPaneUI;
+import javax.transaction.Transactional;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class PrendaController {
 
+    Prenda prendaAcrear;
+    Guardarropa guardarropa;
+    TipoPrenda tipoPrendaElegido;
+    TipoPrendaModel tipoPrendaModel = new TipoPrendaModel();
+    TelaModel telaModel = new TelaModel();
+    PrendaModel prendaModel = new PrendaModel();
+    GuardarropaModel guardarropaModel = new GuardarropaModel();
 
-    Prenda pantufla = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, new Pantufla() , Prenda.CategoriaPrenda.Calzado,new Cuero(),"pantufla");
-    Prenda remera = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, new Remera(), Prenda.CategoriaPrenda.ParteSuperior,new Algodon(),"remera");
-    Prenda gorro = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, new Gorro() , Prenda.CategoriaPrenda.Accesorio,new Algodon(),"gorro");
+    RepositorioTipoPrenda repositorioTipoPrenda = FactoryRepositorioTipoPrenda.get();
+    RepositorioGuardarropa repositorioGuardarropa = FactoryRepositorioGuardarropa.get();
+    RepositorioTela repositorioTela = FactoryRepositorioTela.get();
 
-    private RepositorioPrenda repo;
+    private RepositorioPrenda repositorioPrenda;
+
+    public List<String> getColores() {
+        return colores;
+    }
+
+    private Prenda.CategoriaPrenda obtenerCategoria(String descripcionTipoPrenda){
+        if(descripcionTipoPrenda.equals("zapatilla") || descripcionTipoPrenda.equals("pantufla")){
+            return Prenda.CategoriaPrenda.Calzado;
+        }
+        else if(descripcionTipoPrenda.equals("gorro") || descripcionTipoPrenda.equals("reloj") || descripcionTipoPrenda.equals("pulsera")){
+            return Prenda.CategoriaPrenda.Accesorio;
+        }
+        else if(descripcionTipoPrenda.equals("joggin") || descripcionTipoPrenda.equals("pantalon")){
+            return Prenda.CategoriaPrenda.ParteInferior;
+        }
+        else{
+            return Prenda.CategoriaPrenda.ParteSuperior;
+        }
+    }
+
+    List<String> colores =  Stream.of("Rojo", "Verde", "Azul", "Negro", "Blanco", "Gris", "Amarillo", "Marron", "Rosa", "Violeta", "Celeste").collect(Collectors.toList());
 
     public PrendaController() throws Exception {
-        this.repo = FactoryRepositorioPrenda.get();
+        this.repositorioPrenda = FactoryRepositorioPrenda.get();
     }
 
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
-        RepositorioGuardarropa repo = FactoryRepositorioGuardarropa.get();
-        Guardarropa guardarropa = repo.buscar(new Integer(request.params("id")));
+        guardarropa = repositorioGuardarropa.buscar(new Integer(request.params("id")));
         parametros.put("prendas", guardarropa.getPrendas());
         return new ModelAndView(parametros, "prendas.hbs");
     }
 
-    public ModelAndView crearPrenda(Request request, Response response){
+    public ModelAndView crearPrimeraPartePrenda(Request request, Response response){
         Map<String, Object> parametros = new HashMap<>();
-        /*List<TipoPrenda> tipos = new ArrayList<TipoPrenda>();
-        Remera remera = new Remera();
-        remera.setId(1);
-        Pantalon pantalon = new Pantalon();
-        pantalon.setId(2);
-        tipos.add(remera);
-        tipos.add(pantalon);
-        parametros.put("tipos", tipos);
-        Guardarropa g1 = new Guardarropa();
-        Guardarropa g2 = new Guardarropa();
-        g1.setDescripcion("g1");
-        g1.setId(1);
-        g2.setDescripcion("g2");
-        g2.setId(2);
-        List<Guardarropa> guardarropas = new ArrayList<Guardarropa>();
-        guardarropas.add(g1);
-        guardarropas.add(g2);
-        parametros.put("guardarropas", guardarropas);*/
-        PrendaModel model = new PrendaModel();
-
-
-        return new ModelAndView(parametros, "prenda.hbs");
+        parametros.put("tipos", repositorioTipoPrenda.buscarTodos());
+        parametros.put("colores", colores);
+        return new ModelAndView(parametros, "prenda1.hbs");
     }
 
-    public Response guardar(Request request, Response response){
-        Prenda prenda = new Prenda();
-        if(request.queryParams("tipoDePrenda") != null){
-            Remera tipo = new Remera();
-            prenda.setTipoDePrenda(tipo);
-            System.out.println("Paso por el guardar" + tipo.getSuTipo());
-        }
-        response.redirect("/guardarropas");
+    public ModelAndView crearSegundaPartePrenda(Request request, Response response){
+        Map<String, Object> parametros = new HashMap<>();
+        List<Tela> telasrepo = repositorioTela.buscarTodos();
+        List<Tela> telas = telasrepo.stream().filter(unaTela -> !unaTela.getPrendasIncompatibles().contains(prendaAcrear.getTipoDePrenda().getSuTipo())).collect(Collectors.toList());
+        parametros.put("telas",telas);
+        return new ModelAndView(parametros, "prenda2.hbs");
+    }
+
+    public Response guardarPrimeraParte(Request request, Response response){
+        prendaAcrear = new Prenda();
+        tipoPrendaElegido = repositorioTipoPrenda.buscar(new Integer(request.queryParams("suTipo")));
+        prendaAcrear.setTipoDePrenda(tipoPrendaElegido);
+        prendaAcrear.setDescripcion(tipoPrendaElegido.getSuTipo());
+        prendaAcrear.setCategoria(this.obtenerCategoria(tipoPrendaElegido.getSuTipo()));
+        response.redirect("/SegundoPasoCrearPrenda");
+        return response;
+    }
+
+    @Transactional
+    public Response guardarSegundaParte(Request request, Response response) throws TelaIncompatible, En2Guardarropas {
+
+        Tela tela = repositorioTela.buscar(new Integer(request.queryParams("descripcion")));
+        prendaAcrear.setTela(tela);
+        guardarropa.agregarPrenda(prendaAcrear);
+        tipoPrendaModel.modificar(tipoPrendaElegido);
+        telaModel.modificar(tela);
+        prendaModel.modificar(prendaAcrear);
+        //guardarropaModel.modificar(guardarropa);    ERROR AL GRABAR: detached entity passed to persist
+        response.redirect("home");
+        //response.redirect("/prendas/:id");
         return response;
     }
 }

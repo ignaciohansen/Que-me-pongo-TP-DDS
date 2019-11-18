@@ -63,12 +63,16 @@ public class Router {
 
         Spark.get("/atuendo", atuendoController::crear, Router.engine);
 
+        Spark.post("/atuendo", atuendoController::guardar);
 
-       /* Spark.get("/crearPrenda", prendaController::crearPrenda, Router.engine);
+        Spark.get("/crearPrenda", prendaController::crearPrimeraPartePrenda, Router.engine);
 
-        Spark.post("/atuendo", atuendoController::guardar);*/
+        Spark.post("/crearPrenda", prendaController::guardarPrimeraParte);
 
-        Spark.post("crearPrenda", prendaController::guardar);
+        Spark.get("/SegundoPasoCrearPrenda", prendaController::crearSegundaPartePrenda, Router.engine);
+
+        Spark.post("/SegundoPasoCrearPrenda", prendaController::guardarSegundaParte);
+
         
     }
 }

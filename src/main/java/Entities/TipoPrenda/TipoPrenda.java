@@ -72,10 +72,5 @@ public abstract class TipoPrenda {
     public void setParteDelCuerpo(parteDelCuerpoQueAbriga parteDelCuerpo) {
         this.parteDelCuerpo = parteDelCuerpo;
     }
-
-    @Override
-    public String toString() {
-        return this.suTipo;
-    }
-
+    
 }

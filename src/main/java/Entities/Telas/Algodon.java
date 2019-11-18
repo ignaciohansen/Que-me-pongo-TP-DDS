@@ -8,6 +8,7 @@ public class Algodon extends Tela {
     public Algodon() {
         this.getPrendasIncompatibles().add("reloj");
         this.getPrendasIncompatibles().add("pantalon");
+        setDescripcion("Algodon");
     }
 
     @Override

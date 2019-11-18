@@ -11,6 +11,7 @@ public class Cuero extends Tela {
         this.getPrendasIncompatibles().add("camisa");
         this.getPrendasIncompatibles().add("gorro");
         this.getPrendasIncompatibles().add("guantes");
+        setDescripcion("Cuero");
     }
 
     @Override
