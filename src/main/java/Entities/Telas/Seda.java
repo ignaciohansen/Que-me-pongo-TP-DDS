@@ -10,6 +10,7 @@ public class Seda extends Tela {
         this.getPrendasIncompatibles().add("campera");
         this.getPrendasIncompatibles().add("reloj");
         this.getPrendasIncompatibles().add("zapatilla");
+        setDescripcion("Seda");
 
     }
    /*

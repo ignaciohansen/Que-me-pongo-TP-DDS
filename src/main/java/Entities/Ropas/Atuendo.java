@@ -14,10 +14,6 @@ import org.hibernate.annotations.ColumnDefault;
 @Table(name="ATUENDO")
 public class Atuendo {
 
-    public long getId() {
-        return id;
-    }
-
     @Id
 	@GeneratedValue
 	@Column(name="atuendo_id")
@@ -28,6 +24,17 @@ public class Atuendo {
 	
 	@Column(name="atuendo_aceptado")
 	private boolean aceptado;
+
+    public int getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(int calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    @Column(name="calificacion")
+    private int calificacion;
 
     public Atuendo(){
         this.prendas = new ArrayList<Prenda>();
@@ -61,6 +68,14 @@ public class Atuendo {
 
 	public List<TipoPrenda> getTipoPrenda()  {
         return prendas.stream().map(prenda -> prenda.getTipoDePrenda()).collect(Collectors.toList());
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public int nivelAbrigo(){ return  prendas.stream().mapToInt(Prenda::suCapa).sum();}

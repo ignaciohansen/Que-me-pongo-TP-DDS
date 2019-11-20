@@ -1,6 +1,7 @@
-
-import Entities.TipoPrenda.*;
 import Entities.Eventos.Evento;
+import Entities.Exceptions.ListaRopaVacia;
+import Entities.Exceptions.atuendoEnListaNegra;
+import Entities.Ropas.Atuendo;
 import Entities.Ropas.Guardarropa;
 import Entities.Ropas.Prenda;
 import Entities.Sensibilidad.Caluroso;
@@ -8,19 +9,18 @@ import Entities.Sensibilidad.Friolento;
 import Entities.Sensibilidad.Indiferente;
 import Entities.Telas.Algodon;
 import Entities.Telas.Cuero;
+import Entities.TipoPrenda.*;
 import Entities.Usuario.Usuario;
 import Entities.Usuario.UsuarioGratuito;
 import Entities.Usuario.UsuarioPremium;
+import Repositories.Dao.GuardarropaDAO;
+import Repositories.Dao.UsuarioDAO;
 import org.junit.Before;
 import org.junit.Test;
 
-import Repositories.Dao.GuardarropaDAO;
-import Repositories.Dao.UsuarioDAO;
-
 import java.time.LocalDate;
-import java.util.Date;
 
-public class Entrega4 {
+public class DatosBase {
 	
 	private Prenda pantufla;
     private Prenda zapatillas;
@@ -66,7 +66,8 @@ public class Entrega4 {
     private Guardarropa guardarropaCasiVacio = new Guardarropa();
 
     private Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
-    
+
+
     @Before
     public void init() throws Exception {
 
@@ -105,11 +106,16 @@ public class Entrega4 {
         guardarropaCompartido.agregarPrenda(buzo);
         guardarropaCompartido.agregarPrenda(gorro);
 
+
+
+
     }
     
     @Test
  public void persistirJuan() throws Exception {
-   	UsuarioDAO dao = new UsuarioDAO();
+
+
+    UsuarioDAO dao = new UsuarioDAO();
   	juan.setNombre("juan");
   	juan.setUser("juan1234");
   	juan.setPassword("1234");
@@ -117,44 +123,4 @@ public class Entrega4 {
 
  	System.out.println("usuario persistido");
   }
-    
-    
-    @Test
-    public void recuperarJuan() throws Exception {
-    	UsuarioDAO dao = new UsuarioDAO();
-    	
-    	System.out.println(dao.obtenerUsuario("juan"));
-    }
-    
-    @Test
-    public void agregarPrendaAGuardarropasJuan() throws Exception {
-    	GuardarropaDAO dao = new GuardarropaDAO();
-    	
-    	Guardarropa guardarropa = dao.obtenerGuardarropa(1);
-    	
-    	Prenda remeraBlanca = new Prenda(Prenda.Color.Blanco, Prenda.Color.Negro, tipoRemera, Prenda.CategoriaPrenda.ParteSuperior,algodon,"remera blanca");
-    	
-    	guardarropa.agregarPrenda(remeraBlanca);
-    	
-    	dao.actualizar(guardarropa);
-    	
-    	System.out.println("se actualizo correctamente");
-    }
-    
-    @Test
-    public void agregarEventoAJuan() throws Exception {
-    	UsuarioDAO dao = new UsuarioDAO();
-    	
-    	Usuario juan = dao.obtenerUsuario("juan");
-    	
-    	Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
-    	
-    	juan.cargarEvento(eventoDiaDeHoy);
-    	
-    	dao.actualizarUsuario(juan);
-    	
-    	System.out.println("se actualizo eventos de juan");
-    	
-    }
-
 }

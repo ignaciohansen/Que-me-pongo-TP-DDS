@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/27517fada0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/generales.js"></script>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="icon" href="/img/logosolo.png">
+    <link rel="stylesheet" href="/css/base.css">
+    <title>Nueva prenda - Segunda seleccion</title>
+  </head>
+  <body>
+    <header>
+      <img src="/img/untlogo.png" alt="utn logo" class="utnLogo">
+      <div class="diseniologo">
+        <img src="/img/logosolo.png" alt="diseniologo" style="">
+        <p>Diseño de Sistemas</p>
+      </div>
+    </header>
+    <div class="main_container">
+
+      <div class="contenedor-carta-usuario">
+        <div class="carta-usuario">
+            <form class="" method="post" style="">
+
+            <div class="form-cargar-usuario">
+              <div class="" style="text-align:center;">
+                <label for="input-img-usuario"><img src="/img/prenda.png" class="imagen-perfil" alt=""></label>
+                <input id="input-img-usuario" type="file" name="" value="" style="display:none;">
+              </div>
+                <div class="" style="margin:40px;">
+                    <label><i class="fas fa-palette"></i> Color Secundario</label>
+                    <br>
+                    <select class="input-select" name="colores">
+                        <option selected disabled> Seleccionar Color</option>
+                        <option value="Rojo">Rojo</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Negro">Negro</option>
+                        <option value="Blanco">Blanco</option>
+                        <option value="Gris">Gris</option>
+                        <option value="Amarillo">Amarillo</option>
+                        <option value="Marron">Marron</option>
+                        <option value="Rosa">Rosa</option>
+                        <option value="Violeta">Violeta</option>
+                        <option value="Celeste">Celeste</option>
+                    </select>
+                    <br>
+                    <br>
+                </div>
+                <div class="" style="margin:40px;">
+                    <label><i class="fas fa-tshirt"></i>Tela</label>
+                    <br>
+                    <select class="input-select" name="descripcion">
+                        <option selected disabled>Seleccionar Tela</option>
+                        {{#each telas}}
+                            <label> {{descripcion}}</label>}
+                            <option value="{{id}}">{{descripcion}}</option>
+                        {{/each}}
+                    </select>
+                    <br>
+                    <br>
+                </div>
+            </div>
+              <a href="/crearPrenda" class="btn-border-blue" style="">Volver</a>
+              <input type="submit" name="" class="btn-verde" style="float:right;"  value="Crear prenda">
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </body>
+  </html>
