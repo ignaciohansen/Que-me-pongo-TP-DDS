@@ -16,7 +16,6 @@ import Entities.Usuario.Usuario;
 import Models.PrendaModel;
 import Models.UsuarioModel;
 import Repositories.factories.FactoryRepositorioAtuendo;
-import Repositories.factories.FactoryRepositorioTipoPrenda;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -29,34 +28,26 @@ import java.util.stream.Collectors;
 
 public class AtuendoController {
 
-    // Pruebas hardcodeadas
-    Atuendo atuendo1 = new Atuendo();
-    Atuendo atuendo2 = new Atuendo();
-
-    List<Atuendo> atuendos = new ArrayList<>();
+    Atuendo atuendo = new Atuendo();
 
     RepositorioAtuendo repositorioAtuendo = FactoryRepositorioAtuendo.get();
     Prenda remera = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, new Remera(), Prenda.CategoriaPrenda.ParteSuperior,new Algodon(),"remera");
     Prenda sweater = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, new Sweater(), Prenda.CategoriaPrenda.ParteSuperior,new Algodon(),"sweater");
     Generador generador = new Generador();
     List<Prenda> prendas = new ArrayList<Prenda>();
+    AtuendoModel atuendoModel = new AtuendoModel();
     UsuarioModel usuarioModel = new UsuarioModel();
     PrendaModel prendaModel = new PrendaModel();
 
 
     public AtuendoController() throws Exception {
-        atuendo1.setId(1);
-        atuendo2.setId(2);
-        atuendo1.setCalificacion(4);
-        atuendos.add(atuendo1);
-        atuendos.add(atuendo2);
+
     }
 
     public ModelAndView mostrarTodos(Request request, Response response) {
         Map<String, Object> parametros = new HashMap<>();
         Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
-        //parametros.put("atuendos", usuario.getAtuendosAceptados());
-        parametros.put("atuendos", atuendos);
+        parametros.put("atuendos", usuario.getAtuendos());
         return new ModelAndView(parametros, "atuendos.hbs");
     }
 
@@ -85,7 +76,8 @@ public class AtuendoController {
     	
     	parametros.put("atuendo", atuendoCreado);
     	parametros.put("guardarropa", idGuardarropa);
-    	request.session().attribute("atuendo", atuendoCreado);
+        parametros.put("guardarropaDescripcion", guardarropaElegido.getDescripcion());
+        request.session().attribute("atuendo", atuendoCreado);
     	return new ModelAndView(parametros, "atuendoCreado.hbs");
     }
     
@@ -111,6 +103,7 @@ public class AtuendoController {
     	
     	parametros.put("atuendo", atuendoCreado);
     	parametros.put("guardarropa", idGuardarropa);
+        parametros.put("guardarropaDescripcion", guardarropaElegido.getDescripcion());
     	request.session().attribute("atuendo", atuendoCreado);
     	return new ModelAndView(parametros, "atuendoCreado.hbs");
     }
@@ -137,8 +130,9 @@ public class AtuendoController {
     }
 
     public Response guardarCalificacion(Request request, Response response){
-        //atuendoPrueba = repositorioAtuendo.buscar(new Integer(request.params("id")));
-        atuendo2.setCalificacion(new Integer(request.queryParams("calificacion")));
+        atuendo = repositorioAtuendo.buscar(new Integer(request.params("id")));
+        atuendo.setCalificacion(new Integer(request.queryParams("calificacion")));
+        atuendoModel.modificar(atuendo);
         response.redirect("/atuendos");
         return response;
     }
