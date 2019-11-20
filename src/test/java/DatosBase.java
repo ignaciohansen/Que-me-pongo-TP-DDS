@@ -1,4 +1,7 @@
 import Entities.Eventos.Evento;
+import Entities.Exceptions.ListaRopaVacia;
+import Entities.Exceptions.atuendoEnListaNegra;
+import Entities.Ropas.Atuendo;
 import Entities.Ropas.Guardarropa;
 import Entities.Ropas.Prenda;
 import Entities.Sensibilidad.Caluroso;
@@ -63,7 +66,8 @@ public class DatosBase {
     private Guardarropa guardarropaCasiVacio = new Guardarropa();
 
     private Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
-    
+
+
     @Before
     public void init() throws Exception {
 
@@ -102,11 +106,16 @@ public class DatosBase {
         guardarropaCompartido.agregarPrenda(buzo);
         guardarropaCompartido.agregarPrenda(gorro);
 
+
+
+
     }
     
     @Test
  public void persistirJuan() throws Exception {
-   	UsuarioDAO dao = new UsuarioDAO();
+
+
+    UsuarioDAO dao = new UsuarioDAO();
   	juan.setNombre("juan");
   	juan.setUser("juan1234");
   	juan.setPassword("1234");

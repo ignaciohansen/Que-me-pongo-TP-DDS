@@ -26,7 +26,7 @@
 
     <div class="main_container">
       <h1 class="encabezado">Atuendos</h1>
-      <input type="text" name="" value="" placeholder="Buscar" id="inputUsuario"> <!-- ====== ver que es ese inputUsuario ====== -->
+      <input type="text" name="" value="" placeholder="Buscar" id="inputUsuario">
 
         <a href="/home" class="btn-border-blue fuente">Volver</a>
       <table class="tabla" id="tabla">
@@ -35,22 +35,28 @@
           <th>ID</th>
           <th>Prendas</th>
           <th>Calificacion</th>
+          <th>Acciones</th>
         </thead>
         <tbody>
-
 
           <!-- ================= Each: Clase / Sus variables ================== -->
         {{#each atuendos}}
         <tr>
 
-            <td>1</td>
-            <!-- = <td>{{id}}</td> = -->
-            <td>{{prendas}}</td>
+            <td>{{id}}</td>
+            <td>{{prendas}} </td>
+            <td>{{calificacion}} <i class="fas fa-star"></i> </td>
+
+
             <td>
 
-                 <!-- ================= BOTONES  ================== -->
+         <!-- ================= BOTONES  ================== -->
 
-                 <button type="button" name="button" class="btn" onclick="confirmarEliminacion('{{id}}')"><i class="fas fa-trash"></i></button>
+        <button type="button" name="button" class="btn" onclick="confirmarEliminacion('{{id}}')"><i class="fas fa-trash"></i></button>
+        {{#if calificacion}}
+        {{else}}
+                <a href="/calificar/{{id}}" class="btn-border-blue fuente">Calificar</a>
+        {{/if}}
             </td>
         </tr>
         {{/each}}

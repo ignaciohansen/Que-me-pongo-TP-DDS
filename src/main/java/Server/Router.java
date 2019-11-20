@@ -73,6 +73,8 @@ public class Router {
 
         Spark.post("/SegundoPasoCrearPrenda", prendaController::guardarSegundaParte);
 
-        
+        Spark.get("/calificar/:id", atuendoController::mostrarCalificacion, Router.engine);
+
+        Spark.post("/calificar/:id", atuendoController::guardarCalificacion);
     }
 }

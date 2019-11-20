@@ -103,7 +103,7 @@ public class PrendaController {
         tipoPrendaModel.modificar(tipoPrendaElegido);
         telaModel.modificar(tela);
         prendaModel.modificar(prendaAcrear);
-        //guardarropaModel.modificar(guardarropa);    ERROR AL GRABAR: detached entity passed to persist
+        guardarropaModel.modificar(guardarropa);    //ERROR AL GRABAR: detached entity passed to persist - Solucionado con un persist en el cascade de prendas del guardarropa
         response.redirect("home");
         //response.redirect("/prendas/:id");
         return response;
