@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="icon" href="/img/logosolo.png">
     <link rel="stylesheet" href="/css/base.css">
-    <title>Nuevo Atuendo</title>
+    <title>Mi Perfil</title>
 </head>
 <body>
 <header>
@@ -21,37 +21,27 @@
     </div>
 </header>
 <div class="main_container">
-
+    
     <div class="contenedor-carta-usuario">
         <div class="carta-usuario">
-            <form class="" style="">
+            <form method="post">
 
                 <div class="form-cargar-usuario">
-                    <div class="" style="text-align:center;">
-                        <label for="input-img-usuario"><img src="/img/remera.png" class="imagen-perfil" alt=""></label>
-                        <input id="input-img-usuario" type="file" name="" value="" style="display:none;">
-                    </div>
+                    
                     <div class="" style="margin:40px;">
-                        <label> Creacion del atuendo</label>
+                        <label><i class="fas fa-audio-description"></i> Prendas</label>
                         <br>
-                        <br>
-                        <br>
+                        <input id="guardarropa" name="guardarropa" type="text" class="form-control" value="{{guardarropa}}" disabled>
+                        {{#each atuendo.prendas}}
+                            <p> {{descripcion}} de color: {{colorPrimario}}/{{colorSecundario}}</p>
+                        {{/each}}
+                        <!--<input type="text" name="descripcion"  class="input-datos" placeholder="Nombre" value={{atuendo.prendas}} readonly>-->
+
                     </div>
                 </div>
-                <select class="input-select" name="descripcion">
-                    <option selected disabled>Seleccionar guardarropa</option>
-                    {{#each guardarropas}}
-                        <label> {{descripcion}}</label>
-                        <option value="{{id}}">{{descripcion}}</option>
-                    {{/each}}
-                </select>
-                <br>
-                <br>
-                {{#each guardarropas}}
-                    <a type="button" class="btn-verde" style="float:right" href="/atuendoGenerado/{{id}}" class="btn-border-blue">Crear Atuendo</a>
-                {{/each}}
-                    <a href="/atuendos" class="btn-border-blue" style="">Volver</a>
-                
+                    <!--<a type="button" class="btn-verde" style="float: left;" href="/atuendoGenerado/{{guardarropa}}">Rechazar atuendo</a>-->
+                    <input type="submit" name="" class="btn-verde" style="float:right;"  value="Aceptar Atuendo">
+                    <a href="/rechazar/{{guardarropa}}" class="btn-verde" style="float:left;">Rechazar Atuendo</a>
             </form>
         </div>
     </div>

@@ -37,11 +37,8 @@ public class Usuario{
     private TipoUsuario tipoUsuario;
 
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    private List<Atuendo> atuendosAceptados;
+    private List<Atuendo> atuendos;
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    private List<Atuendo> listaNegraAtuendos;
-    
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Evento> eventos;
 
@@ -57,28 +54,14 @@ public class Usuario{
     @Column(name="usuario_password")
     private String password;
 
-
-    public List<Atuendo> getAtuendosAceptados() {
-        return atuendosAceptados;
-    }
-
-    public void setAtuendosAceptados(List<Atuendo> atuendosAceptados) {
-        this.atuendosAceptados = atuendosAceptados;
-    }
-
     public Usuario() {}
     
     public Usuario(TipoUsuario suTipoUsuario, tipoSensibilidad suSensibilidad){
         guardarropas = new ArrayList<Guardarropa>();
         eventos = new ArrayList<Evento>();
-        atuendosAceptados = new ArrayList<Atuendo>();
-        listaNegraAtuendos = new ArrayList<Atuendo>();
+        atuendos = new ArrayList<Atuendo>();
         tipoUsuario = suTipoUsuario;
         sensibilidad = suSensibilidad;
-    }
-
-    public List<Atuendo> getListaNegraAtuendos() {
-    	return listaNegraAtuendos;
     }
 
     public void setSensibilidad(tipoSensibilidad sensibilidad) {
@@ -102,8 +85,14 @@ public class Usuario{
         Generador generador = new Generador();
         return generador.generarAtuendoGR(guardarropa,this);
     }
-    public void agregarAListaNegra(Atuendo atuendo){
-        listaNegraAtuendos.add(atuendo);
+    public void agregarAListaNegra(Atuendo atuendo) {
+    	atuendo.setAceptado(false);
+        this.atuendos.add(atuendo);
+    }
+    
+    public void agregarAtuendo(Atuendo atuendo) {
+    	atuendo.setAceptado(true);
+    	this.atuendos.add(atuendo);
     }
 
 
@@ -157,10 +146,6 @@ public class Usuario{
     	this.guardarropas = guardarropas;
     }
     
-    public void setListaNegraAtuendos(List<Atuendo> listaNegraAtuendos) {
-    	this.listaNegraAtuendos = listaNegraAtuendos;
-    }
-    
     public void setEventos(List<Evento> eventos) {
     	this.eventos = eventos;
     }
@@ -177,17 +162,27 @@ public class Usuario{
     	return eventos;
     }
 
-    public void aceptarUnAtuendo(Atuendo unAtuendo) {
-        atuendosAceptados.add(unAtuendo);
-    }
-
     public Guardarropa getGuardarropaPorDescripcion(String descripcion){
         return guardarropas.stream().filter(guardarropa -> (guardarropa.getDescripcion()).equals(descripcion)).collect(Collectors.toList()).get(0);
     }
     
+    public List<Atuendo> getAtuendos() {
+    	return atuendos;
+    }
+    
+    public void setAtuendos(List<Atuendo> atuendos) {
+    	this.atuendos = atuendos;
+    }
+    
+    public List<Atuendo> getAtuendosAceptados() {
+    	return this.atuendos.stream().filter(atuendo -> atuendo.getAceptado()).collect(Collectors.toList());
+    }
+    
+    
 // EVENTOS
 
-    public Evento generarEvento(LocalDate fecha, String lugar, Evento descripcionEvento, int diaRepeticion){
+
+	public Evento generarEvento(LocalDate fecha, String lugar, Evento descripcionEvento, int diaRepeticion){
         descripcionEvento = new Evento(fecha,lugar,diaRepeticion);
         return  descripcionEvento;
     }
@@ -221,7 +216,7 @@ public class Usuario{
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", guardarropas=" + guardarropas + ", tipoUsuario=" + tipoUsuario
-				+ ", listaNegraAtuendos=" + listaNegraAtuendos + ", eventos=" + eventos + ", sensibilidad="
+				+ ", atuendos=" + this.atuendos + ", eventos=" + eventos + ", sensibilidad="
 				+ sensibilidad + ", nombre=" + nombre + "]";
 	}
     

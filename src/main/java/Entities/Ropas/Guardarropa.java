@@ -27,7 +27,9 @@ public class Guardarropa {
     }
     public Guardarropa(Set<Prenda> prendas) {
         this.prendas = new HashSet<Prenda>();
-        this.prendas = prendas; }
+        this.prendas = prendas;
+        this.descripcion = "Guardarropa N°" + this.getId();
+        }
 
     public Set<Prenda> getPrendas() {
         return prendas;

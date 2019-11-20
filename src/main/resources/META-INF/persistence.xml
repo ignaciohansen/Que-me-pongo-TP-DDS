@@ -8,7 +8,7 @@
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
     	<provider>org.hibernate.ejb.HibernatePersistence</provider>
     	
-    	<class></class>
+    	
     	 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
@@ -16,12 +16,14 @@
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" /> 
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/quemepongo" />
             <property name="hibernate.connection.username" value="root" /> 
-            <property name="hibernate.connection.password" value="1234" />
+            <property name="hibernate.connection.password" value="arse1957" />
                         
             <property name="hibernate.show_sql" value="true" /> 
             <property name="hibernate.format_sql" value="true" /> 
             <property name="use_sql_comments" value="true" /> 
             <property name="hibernate.hbm2ddl.auto" value="update" /> 
+            
+            <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
         </properties>
           
     </persistence-unit> 

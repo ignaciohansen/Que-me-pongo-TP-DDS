@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.ColumnDefault;
+
 @Entity
 @Table(name="ATUENDO")
 public class Atuendo {
@@ -21,8 +23,11 @@ public class Atuendo {
 	@Column(name="atuendo_id")
 	protected long id;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Prenda> prendas;
+	
+	@Column(name="atuendo_aceptado")
+	private boolean aceptado;
 
     public Atuendo(){
         this.prendas = new ArrayList<Prenda>();
@@ -45,8 +50,16 @@ public class Atuendo {
     public List<Prenda> getPrendas() {
         return prendas;
     }
+    
+    public boolean getAceptado() {
+		return aceptado;
+	}
 
-    public List<TipoPrenda> getTipoPrenda()  {
+	public void setAceptado(boolean aceptado) {
+		this.aceptado = aceptado;
+	}
+
+	public List<TipoPrenda> getTipoPrenda()  {
         return prendas.stream().map(prenda -> prenda.getTipoDePrenda()).collect(Collectors.toList());
     }
 

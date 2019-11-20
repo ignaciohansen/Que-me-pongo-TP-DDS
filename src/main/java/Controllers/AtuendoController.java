@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class AtuendoController {
 
@@ -51,21 +52,66 @@ public class AtuendoController {
         return new ModelAndView(parametros, "atuendo.hbs");
     }
 
-    public Response guardar(Request request, Response response) throws atuendoEnListaNegra, ListaRopaVacia {
+    public ModelAndView mostrarAtuendoGenerado(Request request, Response response) throws atuendoEnListaNegra, ListaRopaVacia {
 
-    Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
+    	Map<String, Object> parametros = new HashMap<>();
+    	Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
 
-    //Se agarra el guardarropa del menu de seleccion
-    Guardarropa guardarropaElegido = usuario.getGuardarropas().get(new Integer(request.queryParams("descripcion")) -1);
+    	//Se agarra el guardarropa del menu de seleccion
+    	
+    	String idGuardarropa = String.valueOf(new Integer(request.params("id")));
+    	Guardarropa guardarropaElegido = usuario.getGuardarropas().stream().filter(guardarropa -> idGuardarropa.equals(String.valueOf(guardarropa.getId()))).collect(Collectors.toList()).get(0);
 
-    if(guardarropaElegido != null){
-          generador.generarAtuendoGR(guardarropaElegido,usuario);
-        }
-        //quizas falta agregar
-        // Falla en  " field listanegraatuendos_atuendo_id' doesn't have a default value "
-        usuarioModel.modificar(usuario);
-        response.redirect("/atuendos");
-        return response;
+    	Atuendo atuendoCreado = new Atuendo();
+    	if(guardarropaElegido != null){
+    		atuendoCreado = generador.generarAtuendoGR(guardarropaElegido,usuario);
+    	}
+    	
+    	parametros.put("atuendo", atuendoCreado);
+    	parametros.put("guardarropa", idGuardarropa);
+    	request.session().attribute("atuendo", atuendoCreado);
+    	return new ModelAndView(parametros, "atuendoCreado.hbs");
+    }
+    
+    public ModelAndView rechazar(Request request, Response response) throws ListaRopaVacia, atuendoEnListaNegra {
+    	Map<String, Object> parametros = new HashMap<>();
+    	Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
+    	String idGuardarropa = String.valueOf(new Integer(request.params("id")));
+    	
+    	// traigo el atuendo que rechace y lo agrego a la lista del usuario como rechazado
+    	Atuendo atuendo = request.session().attribute("atuendo");
+    	atuendo.setAceptado(false);
+    	usuario.getAtuendos().add(atuendo);
+    	
+    	usuarioModel.modificar(usuario);
+    	
+    	Guardarropa guardarropaElegido = usuario.getGuardarropas().stream().filter(guardarropa -> idGuardarropa.equals(String.valueOf(guardarropa.getId()))).collect(Collectors.toList()).get(0);
+    	
+    	Atuendo atuendoCreado = new Atuendo();
+    	
+    	if(guardarropaElegido != null){
+    		atuendoCreado = generador.generarAtuendoGR(guardarropaElegido,usuario);
+    	}
+    	
+    	parametros.put("atuendo", atuendoCreado);
+    	parametros.put("guardarropa", idGuardarropa);
+    	request.session().attribute("atuendo", atuendoCreado);
+    	return new ModelAndView(parametros, "atuendoCreado.hbs");
+    }
+    
+    public Response aceptarAtuendo(Request request, Response response) {
+    	Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
+    	
+    	
+    	Atuendo atuendo = request.session().attribute("atuendo");
+    	atuendo.setAceptado(true);
+    	usuario.getAtuendos().add(atuendo);
+    	
+    	usuarioModel.modificar(usuario);
+    	request.session().removeAttribute("atuendo");
+    	
+    	response.redirect("/atuendos");
+    	return null;
     }
 
 }

@@ -22,6 +22,8 @@ public class Generador {
 
     private int gradosQueHacenApi = grados;
     private int numeroReferenciaParaCalculo = 30; // Podria ir en un archiv config
+    
+    public List<Atuendo> atuendosCreados = new ArrayList<Atuendo>();
 
     /*public void setGrados(int grados){
         this.gradosQueHacenApi = grados;
@@ -139,23 +141,26 @@ public class Generador {
             }
         }
 
-        utilizarLasPrendas(listaPrenda);
+//        utilizarLasPrendas(listaPrenda);
 
         Atuendo atuendoCreado = new Atuendo(listaPrenda);
-
-        if(usuario.getListaNegraAtuendos().contains(atuendoCreado)){
-            throw new atuendoEnListaNegra();
+        
+        if(this.atuendosCreados.contains(atuendoCreado)) {
+        	this.generarAtuendoGR(guardarropa, usuario);
         }
 
 //Agregado de aceptar atuendo , se pone en la lista
 
         if(!usuarioConforme){
+        	System.out.println("El atuendo no es aceptado por tipo de sensibilidad u otro factor (codigo)");
             usuario.agregarAListaNegra(atuendoCreado);
-            System.out.println("El atuendo no le gusta al usuario");
+            this.generarAtuendoGR(guardarropa, usuario);
         }else{
-            usuario.aceptarUnAtuendo(atuendoCreado);
+        	// no aceptar atuendo hasta que no ponga que SI
+//            usuario.aceptarUnAtuendo(atuendoCreado);
         }
 
+        this.atuendosCreados.add(atuendoCreado);
         System.out.println(atuendoCreado);
         return atuendoCreado;
 }
