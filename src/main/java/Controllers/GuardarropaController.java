@@ -26,6 +26,7 @@ public class GuardarropaController {
     }
 
     public ModelAndView mostrarTodos(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         UsuarioModel model = new UsuarioModel();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
@@ -34,6 +35,7 @@ public class GuardarropaController {
 }
 
     public ModelAndView crear(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
        // UsuarioModel model = new UsuarioModel();
       //  Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
@@ -41,6 +43,7 @@ public class GuardarropaController {
     }
 
     public Response guardar(Request request, Response response) throws SuperoLimiteDeGuardarropas {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         UsuarioModel model = new UsuarioModel();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
         Guardarropa guardarropa = new Guardarropa();

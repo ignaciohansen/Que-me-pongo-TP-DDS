@@ -58,6 +58,7 @@ public class PrendaController {
     }
 
     public ModelAndView mostrarTodos(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         guardarropa = repositorioGuardarropa.buscar(new Integer(request.params("id")));
         parametros.put("prendas", guardarropa.getPrendas());
@@ -65,12 +66,14 @@ public class PrendaController {
     }
 
     public ModelAndView crearPrimeraPartePrenda(Request request, Response response){
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         parametros.put("tipos", repositorioTipoPrenda.buscarTodos());
         return new ModelAndView(parametros, "prenda1.hbs");
     }
 
     public ModelAndView crearSegundaPartePrenda(Request request, Response response){
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         List<Tela> telasrepo = repositorioTela.buscarTodos();
         List<Tela> telas = telasrepo.stream().filter(unaTela -> !unaTela.getPrendasIncompatibles().contains(prendaAcrear.getTipoDePrenda().getSuTipo())).collect(Collectors.toList());
@@ -79,6 +82,7 @@ public class PrendaController {
     }
 
     public Response guardarPrimeraParte(Request request, Response response){
+    	LoginController.ensureUserIsLoggedIn(request, response);
         prendaAcrear = new Prenda();
         tipoPrendaElegido = repositorioTipoPrenda.buscar(new Integer(request.queryParams("suTipo")));
         prendaAcrear.setColorPrimario(Prenda.Color.valueOf(request.queryParams("colores")));

@@ -25,6 +25,7 @@ public class UsuarioController {
     }
 
     public ModelAndView mostrarTodos(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         List<Usuario> usuarios = this.repo.buscarTodos();
         parametros.put("usuarios", usuarios);
@@ -32,6 +33,7 @@ public class UsuarioController {
     }
 
     public ModelAndView mostrarInfo(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
         parametros.put("usuario", usuario);

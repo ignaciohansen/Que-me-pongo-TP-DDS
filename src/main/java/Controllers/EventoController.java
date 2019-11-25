@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
+import Controllers.LoginController;
 
 public class EventoController {
 
@@ -26,6 +27,7 @@ public class EventoController {
     }
 
     public ModelAndView mostrarTodos(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         UsuarioModel model = new UsuarioModel();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
@@ -34,6 +36,7 @@ public class EventoController {
     }
 
     public ModelAndView crear(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         UsuarioModel model = new UsuarioModel();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
@@ -43,7 +46,7 @@ public class EventoController {
 
 
     public ModelAndView guardar(Request request, Response response){
-
+    	LoginController.ensureUserIsLoggedIn(request, response);
 
         LocalDate fecha = LocalDate.parse(request.queryParams("fecha"));
         String lugar = request.queryParams("lugar");

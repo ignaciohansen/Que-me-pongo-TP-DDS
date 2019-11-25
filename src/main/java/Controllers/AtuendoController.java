@@ -45,6 +45,7 @@ public class AtuendoController {
     }
 
     public ModelAndView mostrarTodos(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
         parametros.put("atuendos", usuario.getAtuendos());
@@ -60,6 +61,7 @@ public class AtuendoController {
     }
 
     public ModelAndView mostrarAtuendoGenerado(Request request, Response response) throws atuendoEnListaNegra, ListaRopaVacia {
+    	LoginController.ensureUserIsLoggedIn(request, response);
 
     	Map<String, Object> parametros = new HashMap<>();
     	Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
@@ -82,6 +84,7 @@ public class AtuendoController {
     }
     
     public ModelAndView rechazar(Request request, Response response) throws ListaRopaVacia, atuendoEnListaNegra {
+    	LoginController.ensureUserIsLoggedIn(request, response);
     	Map<String, Object> parametros = new HashMap<>();
     	Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
     	String idGuardarropa = String.valueOf(new Integer(request.params("id")));
@@ -109,6 +112,7 @@ public class AtuendoController {
     }
     
     public Response aceptarAtuendo(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
     	Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
     	
     	
@@ -125,11 +129,13 @@ public class AtuendoController {
 
 
     public ModelAndView mostrarCalificacion(Request request, Response response) {
+    	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         return new ModelAndView(parametros, "calificar.hbs");
     }
 
     public Response guardarCalificacion(Request request, Response response){
+    	LoginController.ensureUserIsLoggedIn(request, response);
         atuendo = repositorioAtuendo.buscar(new Integer(request.params("id")));
         atuendo.setCalificacion(new Integer(request.queryParams("calificacion")));
         atuendoModel.modificar(atuendo);
