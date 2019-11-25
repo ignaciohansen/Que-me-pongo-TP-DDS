@@ -14,28 +14,27 @@
 	    <property name="hibernate.archive.autodetection" value="class"/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-
-            <property name="hibernate.connection.url" value="jdbc:mysql://us-cdbr-iron-east-05.cleardb.net:3306/heroku_79bfefc7f862a1e" />
-             <property name="hibernate.connection.username" value="b336e36a6879e6a" />
-             <property name="hibernate.connection.password" value="2a616901" />
- <!--          <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />-->
-<!--                <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/quemepongo" />-->
-<!--                <property name="hibernate.connection.username" value="root" />-->
-<!--                <property name="hibernate.connection.password" value="1234" />-->
-
+             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://ocvwlym0zv3tcn68.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/y7mpm6p2dk3z29rb" />
+             <property name="hibernate.connection.username" value="ngf09ch0jey2eaa8" />
+             <property name="hibernate.connection.password" value="aattozmz0rqmp7q0" />-->
+            <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+                 <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/quemepongo" />
+                 <property name="hibernate.connection.username" value="root" />
+                <property name="hibernate.connection.password" value="1234" />
 
 
 
-                        
-            <property name="hibernate.show_sql" value="true" /> 
-            <property name="hibernate.format_sql" value="true" /> 
-            <property name="use_sql_comments" value="true" /> 
-            <property name="hibernate.hbm2ddl.auto" value="update" /> 
-            
-            <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
-        </properties>
-          
-    </persistence-unit> 
-  
-</persistence>
+
+
+              <property name="hibernate.show_sql" value="true" />
+              <property name="hibernate.format_sql" value="true" />
+              <property name="use_sql_comments" value="true" />
+              <property name="hibernate.hbm2ddl.auto" value="update" />
+
+              <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
+          </properties>
+
+      </persistence-unit>
+
+  </persistence>
