@@ -2,69 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95a0fe92-8bbb-4473-8456-0f2748d6164f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/Accuweather/ApiClimaAccuweather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/Accuweather/ApiClimaAccuweather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/Accuweather/CurrentConditions/ClassSistemaUnidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/Accuweather/CurrentConditions/ClassSistemaUnidades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/Accuweather/CurrentConditions/ClassTemperatura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/Accuweather/CurrentConditions/ClassTemperatura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/Accuweather/CurrentConditions/HeaderAccuweather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/Accuweather/CurrentConditions/HeaderAccuweather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/ApiClima.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/ApiClima.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/Weatherbit/ApiClimaWeatherbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/Weatherbit/ApiClimaWeatherbit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/Weatherbit/Current/ClassData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/Weatherbit/Current/ClassData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/Weatherbit/Current/ClassWeather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/Weatherbit/Current/ClassWeather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Clima/Weatherbit/Current/HeaderWeatherbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Clima/Weatherbit/Current/HeaderWeatherbit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/AbstractDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/EventoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/GuardarropaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/PrendaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/TipoUsuarioDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/UsuarioDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Eventos/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Eventos/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/En2Guardarropas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Exceptions/En2Guardarropas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/ListaRopaVacia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Exceptions/ListaRopaVacia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/MismoGuardarropas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Exceptions/MismoGuardarropas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/SuperoLimiteDeGuardarropas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Exceptions/SuperoLimiteDeGuardarropas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/TelaIncompatible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Exceptions/TelaIncompatible.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Exceptions/atuendoEnListaNegra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Exceptions/atuendoEnListaNegra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Generador/Generador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Generador/Generador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Imagenes/pruebaImagen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Images/pruebaImagen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mensajeria/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Mensajeria/Mail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Mensajeria/Whatsapp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Api/Mensajeria/Whatsapp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ropas/Atuendo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Ropas/Atuendo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ropas/Guardarropa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Ropas/Guardarropa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ropas/Prenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Ropas/Prenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sensibilidad/Caluroso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Sensibilidad/Caluroso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sensibilidad/Friolento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Sensibilidad/Friolento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sensibilidad/Indiferente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Sensibilidad/Indiferente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sensibilidad/tipoSensibilidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Sensibilidad/tipoSensibilidad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Telas/Algodon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Telas/Algodon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Telas/Cuero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Telas/Cuero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Telas/Seda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Telas/Seda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Telas/Tela.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Telas/Tela.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Accesorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Accesorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Camisa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Camisa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Campera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Campera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Gorro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Gorro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Guantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Guantes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Pantalon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Pantalon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Pantufla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Pantufla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Reloj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Reloj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Remera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Remera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Sweater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Sweater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/TipoPrenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/TipoPrenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TipoPrenda/Zapatilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/TipoPrenda/Zapatilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuario/TipoUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Usuario/TipoUsuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Usuario/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuario/UsuarioGratuito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Usuario/UsuarioGratuito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Usuario/UsuarioPremium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entities/Usuario/UsuarioPremium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Entrega1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Entrega1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Entrega2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Entrega2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Entrega3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Entrega3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Entrega4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Entrega4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/EnvioMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EnvioMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MapeoClima.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MapeoClima.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/avisos.log" beforeDir="false" afterPath="$PROJECT_DIR$/avisos.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestRopaDistinta.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -183,6 +122,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.Entrega3.anaNoLeGustaAtuendo" />
+      <item itemvalue="JUnit.Entrega3.generarEventoParaManiana" />
+      <item itemvalue="JUnit.Entrega3.juanCalurosoYtomasFriolento" />
+      <item itemvalue="JUnit.Entrega3.parteDelCuerpoCubiertaPorAccesorio" />
+      <item itemvalue="JUnit.Entrega4.recuperarJuan" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Entrega3.juanCalurosoYtomasFriolento" />

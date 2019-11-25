@@ -54,3 +54,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 target/test-classes/TestRopaDistinta.class
+avisos.log
+.idea/workspace.xml
+target/test-classes/TestRopaDistinta.class
