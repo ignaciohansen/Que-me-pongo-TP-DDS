@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Entrega4 {
-	
+
 	private Prenda pantufla;
     private Prenda zapatillas;
     private Prenda pantalon;
@@ -61,12 +61,12 @@ public class Entrega4 {
     private Usuario juan = new Usuario(premium,caluroso);
     private Usuario tomas = new Usuario(gratuito,friolentoYfriolentoCabeza);
     private Usuario ana = new Usuario(premium,friolentoYfriolentoManos);
-    
+
     private Guardarropa guardarropaCompartido = new Guardarropa();
     private Guardarropa guardarropaCasiVacio = new Guardarropa();
 
     private Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
-    
+
     @Before
     public void init() throws Exception {
 
@@ -106,7 +106,7 @@ public class Entrega4 {
         guardarropaCompartido.agregarPrenda(gorro);
 
     }
-    
+
     @Test
  public void persistirJuan() throws Exception {
    	UsuarioDAO dao = new UsuarioDAO();
@@ -117,44 +117,44 @@ public class Entrega4 {
 
  	System.out.println("usuario persistido");
   }
-    
-    
+
+
     @Test
     public void recuperarJuan() throws Exception {
     	UsuarioDAO dao = new UsuarioDAO();
-    	
+
     	System.out.println(dao.obtenerUsuario("juan"));
     }
-    
+
     @Test
     public void agregarPrendaAGuardarropasJuan() throws Exception {
     	GuardarropaDAO dao = new GuardarropaDAO();
-    	
+
     	Guardarropa guardarropa = dao.obtenerGuardarropa(1);
-    	
+
     	Prenda remeraBlanca = new Prenda(Prenda.Color.Blanco, Prenda.Color.Negro, tipoRemera, Prenda.CategoriaPrenda.ParteSuperior,algodon,"remera blanca");
-    	
+
     	guardarropa.agregarPrenda(remeraBlanca);
-    	
+
     	dao.actualizar(guardarropa);
-    	
+
     	System.out.println("se actualizo correctamente");
     }
-    
+
     @Test
     public void agregarEventoAJuan() throws Exception {
     	UsuarioDAO dao = new UsuarioDAO();
-    	
+
     	Usuario juan = dao.obtenerUsuario("juan");
-    	
+
     	Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
-    	
+
     	juan.cargarEvento(eventoDiaDeHoy);
-    	
+
     	dao.actualizarUsuario(juan);
-    	
+
     	System.out.println("se actualizo eventos de juan");
-    	
+
     }
 
 }
