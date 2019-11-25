@@ -57,3 +57,6 @@ target/test-classes/TestRopaDistinta.class
 avisos.log
 .idea/workspace.xml
 target/test-classes/TestRopaDistinta.class
+*.log
+.idea/compiler.xml
+.idea/workspace.xml

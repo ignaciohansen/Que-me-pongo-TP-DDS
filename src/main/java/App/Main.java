@@ -6,8 +6,8 @@ import spark.debug.DebugScreen;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-       Spark.port(getHerokuAssignedPort());
-
+        Spark.port(getHerokuAssignedPort());
+       // Spark.port(9000);
         Router.init();
         DebugScreen.enableDebugScreen();
     }
