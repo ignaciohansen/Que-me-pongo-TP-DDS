@@ -1,6 +1,7 @@
 package Server;
 
 import Controllers.*;
+import db.EntityManagerHelper;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import Spark.utils.BooleanHelper;
@@ -62,12 +63,6 @@ public class Router {
         Spark.get("/atuendos", atuendoController::mostrarTodos, Router.engine);
 
         Spark.get("/atuendo", atuendoController::crear, Router.engine);
-
-
-//        Spark.get("/crearPrenda", prendaController::crearPrenda, Router.engine);
-
-//        Spark.post("/atuendo", atuendoController::guardar);
-
         
         Spark.get("/atuendoGenerado/:id", atuendoController::mostrarAtuendoGenerado, Router.engine);
         
@@ -88,5 +83,9 @@ public class Router {
         Spark.get("/calificar/:id", atuendoController::mostrarCalificacion, Router.engine);
 
         Spark.post("/calificar/:id", atuendoController::guardarCalificacion);
+
+        Spark.after((req, res) -> {
+            EntityManagerHelper.getEntityManager().close();
+        });
     }
 }

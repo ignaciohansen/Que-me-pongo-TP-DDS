@@ -61,7 +61,8 @@ public class PrendaController {
     	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         guardarropa = repositorioGuardarropa.buscar(new Integer(request.params("id")));
-        parametros.put("prendas", guardarropa.getPrendas());
+        Set<Prenda> prendas = guardarropa.getPrendas().stream().filter(prenda -> prenda.getEstaEnGuardarropa()).collect(Collectors.toSet());
+        parametros.put("prendas",prendas);
         return new ModelAndView(parametros, "prendas.hbs");
     }
 
@@ -104,9 +105,9 @@ public class PrendaController {
         Tela tela = repositorioTela.buscar(new Integer(request.queryParams("descripcion")));
         prendaAcrear.setTela(tela);
         guardarropa.agregarPrenda(prendaAcrear);
-        tipoPrendaModel.modificar(tipoPrendaElegido);
-        telaModel.modificar(tela);
-        prendaModel.modificar(prendaAcrear);
+        //tipoPrendaModel.modificar(tipoPrendaElegido);
+        //telaModel.modificar(tela);
+        //prendaModel.modificar(prendaAcrear);
         guardarropaModel.modificar(guardarropa);    //ERROR AL GRABAR: detached entity passed to persist - Solucionado con un persist en el cascade de prendas del guardarropa
         response.redirect("home");
         //response.redirect("/prendas/:id");

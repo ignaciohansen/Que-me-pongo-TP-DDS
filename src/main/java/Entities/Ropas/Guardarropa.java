@@ -16,7 +16,7 @@ public class Guardarropa {
 	@Column(name="guardarropa_id")
 	private long id;
 	
-	@OneToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Set<Prenda> prendas;
 	
 	@Column(name="guardarropa_descripcion")
