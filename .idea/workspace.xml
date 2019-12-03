@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95a0fe92-8bbb-4473-8456-0f2748d6164f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/avisos.log" beforeDir="false" afterPath="$PROJECT_DIR$/avisos.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestRopaDistinta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +43,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -71,7 +74,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Entrega3.juanCalurosoYtomasFriolento">
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.Server" />
+      <module name="TpDisenio" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Entrega3.anaNoLeGustaAtuendo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Diseño" />
       <option name="PACKAGE_NAME" value="" />
@@ -102,16 +118,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Entrega3.parteDelCuerpoCubiertaPorAccesorio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Diseño" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Entrega3" />
-      <option name="METHOD_NAME" value="parteDelCuerpoCubiertaPorAccesorio" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Entrega4.recuperarJuan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Diseño" />
       <option name="PACKAGE_NAME" value="" />
@@ -126,16 +132,16 @@
       <item itemvalue="JUnit.Entrega3.anaNoLeGustaAtuendo" />
       <item itemvalue="JUnit.Entrega3.generarEventoParaManiana" />
       <item itemvalue="JUnit.Entrega3.juanCalurosoYtomasFriolento" />
-      <item itemvalue="JUnit.Entrega3.parteDelCuerpoCubiertaPorAccesorio" />
       <item itemvalue="JUnit.Entrega4.recuperarJuan" />
+      <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.Entrega3.juanCalurosoYtomasFriolento" />
         <item itemvalue="JUnit.Entrega4.recuperarJuan" />
         <item itemvalue="JUnit.Entrega3.anaNoLeGustaAtuendo" />
         <item itemvalue="JUnit.Entrega3.generarEventoParaManiana" />
-        <item itemvalue="JUnit.Entrega3.parteDelCuerpoCubiertaPorAccesorio" />
       </list>
     </recent_temporary>
   </component>
