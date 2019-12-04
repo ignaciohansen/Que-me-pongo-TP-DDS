@@ -7,7 +7,19 @@
     <groupId>TpDisenio</groupId>
     <artifactId>TpDisenio</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
 
         <dependency>
@@ -67,7 +79,25 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.26</version>
+            <version>8.0.18</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.3.6.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.6.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.1.Final</version>
         </dependency>
 
         <!-- hsqldb -->
@@ -126,71 +156,21 @@
        		<version>1.7.5</version>
    		</dependency>
 
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>tck-utils-api</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
 
         <!--   Dependencias copiadas del repo de unisocial -->
 
       </dependencies>
-
-
-
-    <build>
-        <plugins>
-            <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <descriptorRefs>
-                        <!-- This tells Maven to include all dependencies -->
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>App.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.heroku.sdk</groupId>
-                <artifactId>heroku-maven-plugin</artifactId>
-                <version>2.0.13</version>
-                <configuration>
-                    <jdkVersion>1.8</jdkVersion>
-                    <appName>quemepongogroup10</appName>
-                    <processTypes>
-                        <!-- Tell Heroku how to launch your application -->
-                        <!--<web>java -jar ./target/>TpDisenio-1.0-jar-with-dependencies.jar</web> -->
-                        <web>java -jar target/TpDisenio-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
-                    </processTypes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M4</version>
-                <configuration>
-                <testFailureIgnore>true</testFailureIgnore>
-                <shutdown>kill</shutdown> <!-- Use it if required-->
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 
   </project>

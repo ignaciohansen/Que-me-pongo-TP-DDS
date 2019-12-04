@@ -60,3 +60,4 @@ target/test-classes/TestRopaDistinta.class
 *.log
 .idea/compiler.xml
 .idea/workspace.xml
+*.log
