@@ -34,7 +34,6 @@ public class Router {
         HomeController homeController = new HomeController();
         AtuendoController atuendoController = new AtuendoController();
 
-
         Spark.get("/login", loginController::mostrarLogin, Router.engine);
 
         Spark.post("/login", loginController::login);
@@ -46,7 +45,6 @@ public class Router {
         Spark.get("/informacion", usuarioController::mostrarInfo, Router.engine);
 
         Spark.get("/eventos", eventoController::mostrarTodos, Router.engine);
-
 
         Spark.get("/evento", eventoController::crear, Router.engine);
 
@@ -84,6 +82,6 @@ public class Router {
 
         Spark.post("/calificar/:id", atuendoController::guardarCalificacion);
 
-       // Spark.after((req, res) -> { EntityManagerHelper.getEntityManager().close(); });
+        //Spark.after((req, res) -> { EntityManagerHelper.getEntityManager().close(); });
     }
 }
