@@ -82,6 +82,6 @@ public class Router {
 
         Spark.post("/calificar/:id", atuendoController::guardarCalificacion);
 
-        //Spark.after((req, res) -> { EntityManagerHelper.getEntityManager().close(); });
+        Spark.after((req, res) -> { EntityManagerHelper.getEntityManager().close(); });
     }
 }
