@@ -52,8 +52,9 @@
 
          <!-- ================= BOTONES  ================== -->
 
-        <button type="button" name="button" class="btn" onclick="confirmarEliminacion('{{id}}')"><i class="fas fa-trash"></i></button>
-        {{#if calificacion}}
+                <!-- <button type="button" name="button" class="btn" onclick="confirmarEliminacion('{{id}}')"><i class="fas fa-trash"></i></button>-->
+                <a href="/eliminarAtuendo/{{id}}" <i class="fas fa-trash"></i>>Eliminar</a>
+                {{#if calificacion}}
         {{else}}
                 <a href="/calificar/{{id}}" class="btn-border-blue fuente">Calificar</a>
         {{/if}}

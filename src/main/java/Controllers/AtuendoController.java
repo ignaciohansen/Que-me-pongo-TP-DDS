@@ -48,7 +48,8 @@ public class AtuendoController {
     	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
-        parametros.put("atuendos", usuario.getAtuendos());
+        List<Atuendo> atuendos = usuario.getAtuendos().stream().filter(atuendo -> atuendo.getEliminado() == 0).collect(Collectors.toList());
+        parametros.put("atuendos", atuendos);
         return new ModelAndView(parametros, "atuendos.hbs");
     }
 
@@ -143,5 +144,19 @@ public class AtuendoController {
         return response;
     }
 
+    public ModelAndView mostrarEliminar(Request request, Response response) {
+        LoginController.ensureUserIsLoggedIn(request, response);
+        Map<String, Object> parametros = new HashMap<>();
+        return new ModelAndView(parametros, "eliminarAtuendo.hbs");
+    }
 
+    public Response Eliminar(Request request, Response response) {
+        LoginController.ensureUserIsLoggedIn(request, response);
+        Map<String, Object> parametros = new HashMap<>();
+        Atuendo atuendo = repositorioAtuendo.buscar(new Integer(request.params("id")));
+        atuendo.Eliminar();
+        atuendoModel.modificar(atuendo);
+        response.redirect("/atuendos");
+        return  response;
+    }
 }

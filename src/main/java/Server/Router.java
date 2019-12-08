@@ -54,6 +54,10 @@ public class Router {
 
         Spark.post("/evento", eventoController::guardar);
 
+        Spark.get("/eliminarEvento/:id", eventoController::mostrarEliminar, Router.engine);
+
+        Spark.post("/eliminarEvento/:id", eventoController::Eliminar);
+
         Spark.get("/prendas/:id", prendaController::mostrarTodos, Router.engine);
 
         Spark.get("/guardarropas", guardarropaController::mostrarTodos, Router.engine);
@@ -61,6 +65,10 @@ public class Router {
         Spark.get("/guardarropa", guardarropaController::crear, Router.engine);  // creo que deberia ser un post o tener un metodo post tambien
 
         Spark.post("/guardarropa", guardarropaController::guardar);
+
+        Spark.get("/eliminarGuardarropa/:id", guardarropaController::mostrarEliminar, Router.engine);
+
+        Spark.post("/eliminarGuardarropa/:id", guardarropaController::Eliminar);
 
         Spark.get("/atuendos", atuendoController::mostrarTodos, Router.engine);
 
@@ -73,6 +81,10 @@ public class Router {
         Spark.post("/atuendoGenerado/:id", atuendoController::aceptarAtuendo);
         
         Spark.post("/rechazar/:id", atuendoController::aceptarAtuendo);
+
+        Spark.get("/eliminarAtuendo/:id", atuendoController::mostrarEliminar, Router.engine);
+
+        Spark.post("/eliminarAtuendo/:id", atuendoController::Eliminar);
         
         Spark.get("/crearPrenda", prendaController::crearPrimeraPartePrenda, Router.engine);
 
@@ -81,6 +93,10 @@ public class Router {
         Spark.get("/SegundoPasoCrearPrenda", prendaController::crearSegundaPartePrenda, Router.engine);
 
         Spark.post("/SegundoPasoCrearPrenda", prendaController::guardarSegundaParte);
+
+        Spark.get("/eliminarPrenda/:id", prendaController::mostrarEliminar, Router.engine);
+
+        Spark.post("/eliminarPrenda/:id", prendaController::Eliminar);
 
         Spark.get("/calificar/:id", atuendoController::mostrarCalificacion, Router.engine);
 

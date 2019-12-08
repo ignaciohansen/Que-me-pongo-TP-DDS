@@ -25,6 +25,9 @@ public class Atuendo {
 	@Column(name="atuendo_aceptado")
 	private boolean aceptado;
 
+    @Column(name="atuendo_eliminado")
+    private int eliminado;
+
     public int getCalificacion() {
         return calificacion;
     }
@@ -43,6 +46,7 @@ public class Atuendo {
     public Atuendo(List<Prenda> prendas) {
         this.prendas = new ArrayList<Prenda>();
         this.prendas = prendas;
+        this.eliminado = 0;
     }
 
     public int cantidadDePrendas(){
@@ -79,6 +83,12 @@ public class Atuendo {
     }
 
     public int nivelAbrigo(){ return  prendas.stream().mapToInt(Prenda::suCapa).sum();}
+
+    public int getEliminado() { return eliminado; }
+
+    public void Eliminar() {
+        prendas.forEach(prenda -> prenda.setSeUtilizaEnUnAtuendo(false));
+        this.eliminado = 1; }
 
     @Override
     public String toString() {

@@ -3,6 +3,7 @@ package Controllers;
 import Entities.Exceptions.SuperoLimiteDeGuardarropas;
 import Entities.Ropas.Guardarropa;
 import Entities.Usuario.Usuario;
+import Models.GuardarropaModel;
 import Models.UsuarioModel;
 import Repositories.RepositorioGuardarropa;
 import Repositories.factories.FactoryRepositorioGuardarropa;
@@ -11,11 +12,14 @@ import spark.Request;
 import spark.Response;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class GuardarropaController {
 
     private Guardarropa guardarropa = new Guardarropa();
+    private GuardarropaModel guardarropaModel = new GuardarropaModel();
 
     private RepositorioGuardarropa repo;
 
@@ -28,7 +32,8 @@ public class GuardarropaController {
         Map<String, Object> parametros = new HashMap<>();
         UsuarioModel model = new UsuarioModel();
         Usuario usuario = model.buscarPorUsuario(request.session().attribute("currentUser"));
-        parametros.put("guardarropas", usuario.getGuardarropas());
+        List<Guardarropa> guardarropas = usuario.getGuardarropas().stream().filter(guardarropa -> guardarropa.getEliminado() == 0).collect(Collectors.toList());
+        parametros.put("guardarropas", guardarropas);
         return new ModelAndView(parametros, "guardarropas.hbs");
 }
 
@@ -53,10 +58,26 @@ public class GuardarropaController {
         return response;
     }
 
-
     private void asignarAtributosA(Guardarropa guardarropa, Request request) {
         if (request.queryParams("descripcion") != null) {
             guardarropa.setDescripcion(request.queryParams("descripcion"));
         }
+    }
+
+
+    public ModelAndView mostrarEliminar(Request request, Response response) {
+        LoginController.ensureUserIsLoggedIn(request, response);
+        Map<String, Object> parametros = new HashMap<>();
+        return new ModelAndView(parametros, "eliminarGuardarropa.hbs");
+    }
+
+    public Response Eliminar(Request request, Response response) {
+        LoginController.ensureUserIsLoggedIn(request, response);
+        Map<String, Object> parametros = new HashMap<>();
+        Guardarropa guardarropaAEliminar = repo.buscar(new Integer(request.params("id")));
+       guardarropaAEliminar.Eliminar();
+       guardarropaModel.modificar(guardarropaAEliminar);
+        response.redirect("/guardarropas");
+        return  response;
     }
 }

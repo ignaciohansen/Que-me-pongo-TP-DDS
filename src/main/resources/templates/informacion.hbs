@@ -21,7 +21,7 @@
     </div>
 </header>
 <div class="main_container">
-    
+
     <div class="contenedor-carta-usuario">
         <div class="carta-usuario">
             <form class="" {{#if usuario}} action="/usuario/{{usuario.id}}" method="post" {{else}} action="/usuario" method="post" {{/if}} style="">
@@ -49,7 +49,28 @@
                         <input type="text" name="descripcion"  class="input-datos" placeholder="Tipo de usuario" {{#if usuario}}value="{{usuario.tipoUsuario}}" {{/if}} readonly>
                         <br>
                         <br>
-                    </div>
+                          </div>
+                        <div class="" style="margin:40px;">
+                        <label><i class="fas fa-info-circle"></i> Sensibilidad de usuario</label>
+                        <br>
+                        <input type="text" name="descripcion"  class="input-datos" placeholder="Tipo de usuario" {{#if usuario}}value="{{usuario.sensibilidad.tipo}}" {{/if}} readonly>
+                        <br>
+                        <br>
+
+                        <label><i class="fas fa-info-circle"></i> Email</label>
+                        <br>
+                        <input type="text" name="descripcion"  class="input-datos" placeholder="Tipo de usuario" {{#if usuario}}value="{{usuario.email}}" {{/if}} readonly>
+                        <br>
+                        <br>
+
+
+                        <label><i class="fas fa-info-circle"></i> Telefono</label>
+                        <br>
+                        <input type="text" name="descripcion"  class="input-datos" placeholder="Tipo de usuario" {{#if usuario}}value="{{usuario.telefono}}" {{/if}} readonly>
+                        <br>
+                        <br>
+                        </div>
+
                 </div>
                 <a href="/home" class="btn-border-blue" style="">Volver</a>
             </form>

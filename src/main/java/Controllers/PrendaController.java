@@ -61,7 +61,7 @@ public class PrendaController {
     	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         guardarropa = repositorioGuardarropa.buscar(new Integer(request.params("id")));
-        Set<Prenda> prendas = guardarropa.getPrendas().stream().filter(prenda -> prenda.getEstaEnGuardarropa()).collect(Collectors.toSet());
+        Set<Prenda> prendas = guardarropa.getPrendas().stream().filter(prenda -> prenda.getEstaEnGuardarropa() && prenda.getEliminado() == 0).collect(Collectors.toSet());
         parametros.put("prendas",prendas);
         return new ModelAndView(parametros, "prendas.hbs");
     }
@@ -109,5 +109,22 @@ public class PrendaController {
         response.redirect("home");
         //response.redirect("/prendas/:id");
         return response;
+    }
+
+    public ModelAndView mostrarEliminar(Request request, Response response) {
+        LoginController.ensureUserIsLoggedIn(request, response);
+        Map<String, Object> parametros = new HashMap<>();
+        return new ModelAndView(parametros, "eliminarPrenda.hbs");
+    }
+
+    public Response Eliminar(Request request, Response response) {
+        LoginController.ensureUserIsLoggedIn(request, response);
+        Map<String, Object> parametros = new HashMap<>();
+        Prenda prenda = repositorioPrenda.buscar(new Integer(request.params("id")));
+        prenda.Eliminar();
+        prendaModel.modificar(prenda);
+        response.redirect("/home");
+        //response.redirect("/prendas/:id");
+        return  response;
     }
 }

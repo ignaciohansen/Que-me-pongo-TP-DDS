@@ -46,5 +46,4 @@ public abstract class tipoSensibilidad {
 
     public void setTipo(String tipo) { this.tipo = tipo; }
 
-
 }

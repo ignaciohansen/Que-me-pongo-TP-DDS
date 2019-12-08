@@ -22,13 +22,17 @@ public class Guardarropa {
 	@Column(name="guardarropa_descripcion")
 	private String descripcion;
 
+    @Column(name="guardarropa_eliminado")
+    private int eliminado;
+
     public Guardarropa(){
         this.prendas = new HashSet<Prenda>();
     }
     public Guardarropa(Set<Prenda> prendas) {
         this.prendas = new HashSet<Prenda>();
         this.prendas = prendas;
-        this.descripcion = "Guardarropa N°" + this.getId();
+        this.descripcion = "Guardarropa Nï¿½" + this.getId();
+        this.eliminado = 0;
         }
 
     public Set<Prenda> getPrendas() {
@@ -78,5 +82,12 @@ public class Guardarropa {
 	public String toString() {
 		return "Guardarropa [id=" + id + ", prendas=" + prendas + "]";
 	}
-    
+
+    public int getEliminado() { return eliminado; }
+
+    public void Eliminar() {
+        prendas.forEach(prenda -> prenda.Eliminar());
+        prendas.forEach(prenda -> prenda.setEstaEnGuardarropa(false));
+        this.eliminado = 1;
+    }
 }

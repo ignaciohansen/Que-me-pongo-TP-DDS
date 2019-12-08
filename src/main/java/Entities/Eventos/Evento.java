@@ -35,12 +35,16 @@ public class Evento {
 	@Column(name="evento_dias_repet")
     private int diasEnQueSeRepite;
 
+    @Column(name="evento_eliminado")
+    private int eliminado;
+
 	public Evento() {}
 	
     public Evento(LocalDate fecha, String lugar,int diaRepeticion) {
         this.fecha = fecha;
         this.lugar = lugar;
         this.diasEnQueSeRepite = diaRepeticion;
+        this.eliminado = 0;
     }
     //notificar usuario ()
 
@@ -106,5 +110,9 @@ public class Evento {
 	public void setDiasEnQueSeRepite(int diasEnQueSeRepite) {
 		this.diasEnQueSeRepite = diasEnQueSeRepite;
 	}
+
+    public int getEliminado() { return eliminado; }
+
+    public void Eliminar() { this.eliminado = 1; }
     
 }

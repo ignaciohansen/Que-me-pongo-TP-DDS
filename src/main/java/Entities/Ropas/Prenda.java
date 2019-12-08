@@ -42,6 +42,9 @@ public class Prenda {
     @Column(name="prenda_utiliza_atuendo")
     private Boolean seUtilizaEnUnAtuendo = false;
 
+    @Column(name="prenda_eliminada")
+    private int eliminado;
+
     public Prenda() {}
     
     public Prenda(Color colorPrimario, Color colorSecundario, TipoPrenda tipoDePrenda,CategoriaPrenda categoria,Tela unaTela,String descripcion) throws Exception {
@@ -51,6 +54,7 @@ public class Prenda {
         this.descripcion = descripcion;
         setColorSecundario(colorSecundario);
         setTela(unaTela);
+        this.eliminado = 0;
     }
 
     public String getDescripcion() {
@@ -133,6 +137,12 @@ public class Prenda {
 	public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};
 
     public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio}; //Ver si agregar manos, cabeza como categoria
+
+    public int getEliminado() { return eliminado; }
+
+    public void Eliminar() { this.eliminado = 1; }
+
+
 
     @Override
     public int hashCode() {
