@@ -1,8 +1,6 @@
 package Controllers;
 
 import Entities.Usuario.Usuario;
-import Entities.Usuario.UsuarioGratuito;
-import Entities.Usuario.UsuarioPremium;
 import Models.UsuarioModel;
 import Repositories.RepositorioUsuario;
 import Repositories.factories.FactoryRepositorioUsuario;
@@ -10,7 +8,6 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

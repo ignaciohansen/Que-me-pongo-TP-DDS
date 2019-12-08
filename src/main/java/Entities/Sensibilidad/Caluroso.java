@@ -13,5 +13,10 @@ public class Caluroso extends tipoSensibilidad {
     public Caluroso(TipoPrenda.parteDelCuerpoQueAbriga parteCuerpo) {
         this.setValor(-7);
         this.setParteCuerpo(parteCuerpo);
+        if(parteCuerpo == TipoPrenda.parteDelCuerpoQueAbriga.Ninguna)
+            this.setTipo("Caluroso");
+        else{
+            this.setTipo("Caluroso que abriga especialmente: " + parteCuerpo);
+        }
     }
 }

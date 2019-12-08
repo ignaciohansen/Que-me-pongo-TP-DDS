@@ -13,8 +13,6 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-import Controllers.LoginController;
-
 public class EventoController {
 
     public Evento evento= new Evento();

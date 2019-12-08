@@ -6,7 +6,7 @@ public class EnvioMail {
     @Test
     public void envioDeMail(){
         Mail mailAPI = new Mail();
-        mailAPI.enviarEmail("Testeo", "Cuerpo del Testeo");
+       // mailAPI.enviarEmail("Testeo", "Cuerpo del Testeo");
 
     }
 }

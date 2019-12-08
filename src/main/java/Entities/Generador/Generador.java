@@ -1,6 +1,7 @@
 package Entities.Generador;
 
 import Api.Clima.Accuweather.ApiClimaAccuweather;
+import Api.Mensajeria.*;
 import Entities.Exceptions.ListaRopaVacia;
 import Entities.Exceptions.atuendoEnListaNegra;
 import Entities.Ropas.Atuendo;
@@ -16,6 +17,9 @@ import java.util.stream.Collectors;
 public class Generador {
 
     Boolean usuarioConforme = true;
+    Mail mailAPI = new Mail();
+    Whatsapp mensaje = new Whatsapp();
+
 
     ApiClimaAccuweather api = new ApiClimaAccuweather();
     int grados = api.getTemperatura();
@@ -162,6 +166,9 @@ public class Generador {
 
         this.atuendosCreados.add(atuendoCreado);
         System.out.println(atuendoCreado);
+        mensaje.recibirMensajeAtuendo(atuendoCreado,usuario);
+        mailAPI.enviarEmail("Atuendo creado","El atuendo creado es:"+atuendoCreado,usuario);
+
         return atuendoCreado;
 }
 

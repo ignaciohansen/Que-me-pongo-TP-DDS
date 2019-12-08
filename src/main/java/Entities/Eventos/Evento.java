@@ -63,10 +63,6 @@ public class Evento {
     public Atuendo generarAtuendo(Guardarropa guardarropa, Usuario usuario) throws ListaRopaVacia, atuendoEnListaNegra {
         Generador generador = new Generador();
         Atuendo atuendo = generador.generarAtuendoGR(guardarropa,usuario);
-     Mail mail = new Mail();
-     mail.enviarEmail("Un atuendo fue generado para el evento del dia: " + this.fecha + " en " + this.lugar ,""+atuendo);
-        Whatsapp whatsapp = new Whatsapp();
-        whatsapp.recibirMensajeAtuendo(atuendo);
         return atuendo;
     }
 

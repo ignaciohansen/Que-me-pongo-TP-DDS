@@ -1,6 +1,7 @@
 package Api.Mensajeria;
 
 import Entities.Ropas.Atuendo;
+import Entities.Usuario.Usuario;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 
@@ -28,15 +29,18 @@ public class Whatsapp {
                 .create();
     }
 
-    public void recibirMensajeAtuendo(Atuendo unAtuendo) {
+    public void recibirMensajeAtuendo(Atuendo unAtuendo, Usuario usuario) {
 
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        if (usuario.getTelefono()>0) {
 
-        Message message = Message.creator(
-                new com.twilio.type.PhoneNumber("whatsapp:+5491161906402"),
-                new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),
-                "" + unAtuendo)
-                .create();
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+            Message message = Message.creator(
+                    new com.twilio.type.PhoneNumber("whatsapp:+549"+usuario.getTelefono()),
+                    new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),
+                    "" + unAtuendo)
+                    .create();
+        }
     }
 
 }

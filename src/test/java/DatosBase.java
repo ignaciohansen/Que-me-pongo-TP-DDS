@@ -13,6 +13,7 @@ import Entities.TipoPrenda.*;
 import Entities.Usuario.Usuario;
 import Entities.Usuario.UsuarioGratuito;
 import Entities.Usuario.UsuarioPremium;
+import Models.*;
 import Repositories.Dao.GuardarropaDAO;
 import Repositories.Dao.UsuarioDAO;
 import org.junit.Before;
@@ -123,4 +124,27 @@ public class DatosBase {
 
  	System.out.println("usuario persistido");
   }
+
+    @Test
+    public void persistirTiposUsuario() throws Exception {
+
+
+        tipoUsuarioModel dao = new tipoUsuarioModel();
+        dao.agregar(gratuito);
+        System.out.println("tipos de usuarios persistidos");
+
+    }
+
+    @Test
+    public void persistirSensibilidades() throws Exception {
+
+
+        SensibilidadModel dao = new SensibilidadModel();
+        dao.agregar(indiferente);
+        dao.agregar(friolento);
+        dao.agregar(friolentoYfriolentoCabeza);
+        dao.agregar(friolentoYfriolentoManos);
+
+        System.out.println("sensibilidades persistidas");
+    }
 }

@@ -1,4 +1,5 @@
 
+import Api.Mensajeria.Whatsapp;
 import Entities.Ropas.Atuendo;
 import Entities.Ropas.Guardarropa;
 import Entities.Ropas.Prenda;
@@ -105,7 +106,14 @@ public class Entrega1 {
     public void cantidadDePrendasDeAtuendoMinimo4() throws Exception {
 
         //Armo el atuendo
+        juan.setTelefono(1161906402);
+        juan.setNombre("juan");
+        Whatsapp mensaje = new Whatsapp();
+
+        //juan.setEmail("ignaciohansen@hotmail.com");
         Atuendo atuendoCreado = juan.generarAtuendo(guardarropaPruebaJuan);
+        mensaje.recibirMensajeAtuendo(atuendoCreado,juan);
+
 
         // Test funciona, tengo 7 prendas y retorna 6, el filtrado anda bien
         // Retorna 6 porque tiene 3 capas de parte superior , si son 5 son dos capas

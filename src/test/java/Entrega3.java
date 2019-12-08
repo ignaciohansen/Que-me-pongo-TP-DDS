@@ -173,7 +173,7 @@ public void juanCalurosoYtomasFriolento() throws ListaRopaVacia, atuendoEnListaN
     @Test
     public void whatsappPruebaAtuendo() throws ListaRopaVacia, atuendoEnListaNegra {
         Atuendo atuendoCreadoJuan = juan.generarAtuendo(guardarropaCompartido);
-        mensaje.recibirMensajeAtuendo(atuendoCreadoJuan);
+        //mensaje.recibirMensajeAtuendo(atuendoCreadoJuan);
     }
 
 

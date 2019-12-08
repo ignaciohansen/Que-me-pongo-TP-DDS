@@ -54,6 +54,12 @@ public class Usuario{
     @Column(name="usuario_password")
     private String password;
 
+    @Column(name="usuario_email")
+    private String email;
+
+    @Column(name="usuario_telefono")
+    private int telefono;
+
     public Usuario() {}
     
     public Usuario(TipoUsuario suTipoUsuario, tipoSensibilidad suSensibilidad){
@@ -141,6 +147,14 @@ public class Usuario{
     public void setPassword(String password) {
     	this.password = password;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
+
+    public int getTelefono() {return telefono; }
+
+    public void setTelefono(int telefono) { this.telefono = telefono; }
     
     public void setGuardarropas(List<Guardarropa> guardarropas) {
     	this.guardarropas = guardarropas;

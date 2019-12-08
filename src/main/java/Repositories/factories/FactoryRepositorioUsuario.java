@@ -1,6 +1,5 @@
 package Repositories.factories;
 
-import config.Config;
 import Models.UsuarioModel;
 import Repositories.RepositorioUsuario;
 import Repositories.daos.DAOMySQL;

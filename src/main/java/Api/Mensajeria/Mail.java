@@ -1,6 +1,7 @@
 package Api.Mensajeria;
 
 
+import Entities.Usuario.Usuario;
 import org.simplejavamail.email.Email;
 import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.Mailer;
@@ -17,12 +18,12 @@ public class Mail {
 
      */
 
-    public void enviarEmail(String subject, String body){
+    public void enviarEmail(String subject, String body, Usuario usuario){
 
+        if(usuario.getEmail() != null){
         Email email = EmailBuilder.startingBlank()
                 .from("QueMePongo", "correo.2019-mi-no-group-10@hotmail.com")
-                .to("nacho", "ignaciohansen@hotmail.com")
-                .to("juan", "jc.sala@hotmail.com")
+                .to(usuario.getNombre(), usuario.getEmail())
                 .withSubject(subject)
                 .withPlainText(body)
                 .buildEmail();
@@ -35,6 +36,6 @@ public class Mail {
                 .buildMailer();
 
         inhouseMailer.sendMail(email);
-
+        }
     }
 }

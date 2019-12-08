@@ -38,6 +38,10 @@ public class Router {
 
         Spark.post("/login", loginController::login);
 
+        Spark.post("/usuario", loginController::guardar);
+
+        Spark.get("/usuario", loginController::crearUsuario, Router.engine);
+
         Spark.get("/home",homeController::mostrarHome, Router.engine);
 
         Spark.get("/usuarios", usuarioController::mostrarTodos, Router.engine);

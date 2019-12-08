@@ -105,10 +105,7 @@ public class PrendaController {
         Tela tela = repositorioTela.buscar(new Integer(request.queryParams("descripcion")));
         prendaAcrear.setTela(tela);
         guardarropa.agregarPrenda(prendaAcrear);
-        //tipoPrendaModel.modificar(tipoPrendaElegido);
-        //telaModel.modificar(tela);
-        //prendaModel.modificar(prendaAcrear);
-        guardarropaModel.modificar(guardarropa);    //ERROR AL GRABAR: detached entity passed to persist - Solucionado con un persist en el cascade de prendas del guardarropa
+        guardarropaModel.modificar(guardarropa);
         response.redirect("home");
         //response.redirect("/prendas/:id");
         return response;
