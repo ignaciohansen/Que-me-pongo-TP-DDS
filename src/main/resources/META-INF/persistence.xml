@@ -10,26 +10,29 @@
 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>
+            <!-->
+                       <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />-->
 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-           <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-           <property name="hibernate.connection.url" value="jdbc:mysql://xpeq0g30zig9p6i5:j7n6jw81nkorep13@tkck4yllxdrw0bhi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/aw6cjzm88ce2in22" />
-            <property name="hibernate.connection.username" value="xpeq0g30zig9p6i5" />
-            <property name="hibernate.connection.password" value="j7n6jw81nkorep13" />
-            <property name="hibernate.id.new_generator_mappings" value="false" />
-            <!-->-->
-           <!--
-                    <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-                          <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/quemepongo?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
-                         <property name="hibernate.connection.username" value="root" />
-                          <property name="hibernate.connection.password" value="1234" />
+                       <property name="hibernate.connection.url" value="jdbc:mysql://o9uv81o1hualo5vf:u1v6ilnkmorbhplj@tkck4yllxdrw0bhi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/m1ddyw5a542z7zml"/>
+                        <property name="hibernate.connection.username" value="o9uv81o1hualo5vf"/>
+                        <property name="hibernate.connection.password" value="u1v6ilnkmorbhplj"/>
+                        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+                    <property name="hibernate.id.new_generator_mappings" value="false" />
 
-                          >-->
 
-            <property name="hibernate.show_sql" value="true" /> 
-            <property name="hibernate.format_sql" value="true" /> 
-            <property name="use_sql_comments" value="true" /> 
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <!--
+
+                        <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+                              <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/quemepongo?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+                             <property name="hibernate.connection.username" value="root" />
+                              <property name="hibernate.connection.password" value="1234" />
+>-->
+
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
 
         </properties>

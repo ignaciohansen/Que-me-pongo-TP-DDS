@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
-            <version>7.45.1</version>
+            <version>7.41.1</version>
         </dependency>
 
         <dependency>
@@ -59,7 +59,7 @@
         <dependency>
             <groupId>org.simplejavamail</groupId>
             <artifactId>simple-java-mail</artifactId>
-            <version>5.5.1</version>
+            <version>5.3.0</version>
         </dependency>
 
         <!-- JPA Persistence Dependencies -->
@@ -76,7 +76,23 @@
             <version>8.0.18</version>
         </dependency>
 
+
+        <!-- PARA CARGAR LAS TABLAS EN LA BASE
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.3.6.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.6.Final</version>
+        </dependency>
+-->
+        <!--  OTRA VERSION QUE SOLUCIONA PROBLEMA DE LOGEO¿?-->
+
+            <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.9.Final</version>
@@ -87,6 +103,7 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.4.9.Final</version>
         </dependency>
+
 
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
@@ -109,9 +126,6 @@
             <artifactId>spark-core</artifactId>
             <version>2.9.1</version>
         </dependency>
-
-
-
 
         <!--   Dependencias copiadas del repo de unisocial -->
 
@@ -142,12 +156,12 @@
          <dependency>
        		<groupId>org.slf4j</groupId>
        		<artifactId>slf4j-api</artifactId>
-       		<version>1.7.29</version>
+       		<version>1.7.5</version>
    		</dependency>
    		<dependency>
        		<groupId>org.slf4j</groupId>
        		<artifactId>slf4j-log4j12</artifactId>
-       		<version>1.7.29</version>
+       		<version>1.7.5</version>
    		</dependency>
 
         <dependency>
