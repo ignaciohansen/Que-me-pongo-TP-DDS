@@ -1,7 +1,4 @@
 import Entities.Eventos.Evento;
-import Entities.Exceptions.ListaRopaVacia;
-import Entities.Exceptions.atuendoEnListaNegra;
-import Entities.Ropas.Atuendo;
 import Entities.Ropas.Guardarropa;
 import Entities.Ropas.Prenda;
 import Entities.Sensibilidad.Caluroso;
@@ -14,7 +11,6 @@ import Entities.Usuario.Usuario;
 import Entities.Usuario.UsuarioGratuito;
 import Entities.Usuario.UsuarioPremium;
 import Models.*;
-import Repositories.Dao.GuardarropaDAO;
 import Repositories.Dao.UsuarioDAO;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,7 +55,7 @@ public class DatosBase {
 
     private UsuarioPremium premium  = new UsuarioPremium();
     private UsuarioGratuito gratuito = new UsuarioGratuito();
-    private Usuario juan = new Usuario(premium,caluroso);
+    private Usuario nacho = new Usuario(premium,caluroso);
     private Usuario tomas = new Usuario(gratuito,friolentoYfriolentoCabeza);
     private Usuario ana = new Usuario(premium,friolentoYfriolentoManos);
     
@@ -87,7 +83,7 @@ public class DatosBase {
         gorro = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoGorro, Prenda.CategoriaPrenda.Accesorio,algodon,"gorro");
         pulsera = new Prenda(Prenda.Color.Rojo, Prenda.Color.Blanco, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero,"pulsera");
 
-        juan.agregarUnGuardarropas(guardarropaCompartido);
+        nacho.agregarUnGuardarropas(guardarropaCompartido);
         tomas.agregarUnGuardarropas(guardarropaCompartido);
         ana.agregarUnGuardarropas(guardarropaCasiVacio);
 
@@ -113,14 +109,16 @@ public class DatosBase {
     }
     
     @Test
- public void persistirJuan() throws Exception {
+ public void persistir() throws Exception {
 
 
     UsuarioDAO dao = new UsuarioDAO();
-  	juan.setNombre("juan");
-  	juan.setUser("juan1234");
-  	juan.setPassword("1234");
-   	dao.agregar(juan);
+  	nacho.setNombre("nacho");
+  	nacho.setUser("nacho");
+  	nacho.setPassword("1234");
+  	nacho.setEmail("ignaciohansen@hotmail.com");
+  	nacho.setTelefono(1161906402);
+   	dao.agregar(nacho);
 
  	System.out.println("usuario persistido");
   }
