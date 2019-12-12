@@ -22,9 +22,9 @@
         }
 
         body {
+            background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
             /*background: #fff;*/
             /*background-image: radial-gradient(circle, #fff 0%, #e3f2fd   100%);*/
-            background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
         }
 
         .input-field input[type=date]:focus + label,
@@ -78,6 +78,17 @@
                             <label for='password'>Contraseña</label>
                         </div>
                     </div>
+
+                    <div class='row'>
+                        <div class='flow-text col s12'>
+                            <i class="material-icons prefix pulse">error</i>
+                            <h6 class="center-align red-text text-accent-2">Usuario o contraseña incorrecta</h6>
+                            <h6 class="center-align red-text text-accent-2">Intente nuevamente</h6>
+
+                        </div>
+                    </div>
+
+
 
                     <br />
                     <center>

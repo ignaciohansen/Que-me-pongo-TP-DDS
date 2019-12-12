@@ -30,6 +30,13 @@ public class LoginController {
         
         return new ModelAndView(parametros, "login.hbs");
     }
+
+	public ModelAndView mostrarLoginFailed(Request request, Response response) {
+		Map<String, Object> parametros = new HashMap<>();
+		request.session().removeAttribute("currentUser");
+
+		return new ModelAndView(parametros, "login_failed.hbs");
+	}
 	
 	public Response login(Request request, Response response) {
 		Map<String, Object> parametros = new HashMap<>();
@@ -37,6 +44,8 @@ public class LoginController {
 		if(authenticate(request.queryParams("username"),request.queryParams("password"))) {
 			request.session().attribute("currentUser", request.queryParams("username"));
 			response.redirect("/home");
+		} else {
+			response.redirect("/login_failed");
 		}
 		
 		return response;
