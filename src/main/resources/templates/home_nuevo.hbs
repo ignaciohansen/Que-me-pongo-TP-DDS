@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Home</title>
+
+  <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <style>
+        body {
+            background-color:#ff6f69;
+            background: radial-gradient(#ff6f69, #ff8b87);
+        }
+
+        .knockout {
+            line-height: normal;
+            vertical-align: middle;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size:50pt;
+            color: blue;
+            color: #fff;
+            background: linear-gradient(110deg, #ffeead 33%, rgba(0, 0, 0, 0) 33%), linear-gradient(110deg, #C5E7D7 34%, #88d8b0 34%);
+            background-size: 400%;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+        .knockout{
+            animation: Gradient 5s ease infinite;
+            -webkit-animation: Gradient 15s ease infinite;
+            -moz-animation: Gradient 5s ease infinite;
+        }
+
+        @-webkit-keyframes Gradient {
+            0% {
+                background-position: 30% 50%
+            }
+            50% {
+                background-position: 25% 50%
+            }
+            100% {
+                background-position: 30% 50%
+            }
+        }
+
+.icon-block{
+    text-align: center;
+    font-size:30pt;
+
+}
+
+    </style>
+</head>
+<body>
+
+  <nav class="light-blue lighten-1"  role="navigation" {{#if usuario}} action="/usuario/{{usuario.id}}" method="post" {{else}} action="/usuario" method="post" {{/if}}>
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Que me Pongo?</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/informacion">{{usuario.nombre}}</a></li><li><a href="/informacion"><i class="material-icons left">account_circle</i>Perfil</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <div class="main">
+                    <h1 class="knockout">Que me<br> Pongo?</h1>
+                </div>
+            </div>
+        </div>
+      <div class="row center">
+        <h5 class="header col s12 light white-text">Un creador de atuendos inteligente</h5>
+      </div>
+
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <p class="center white-text"><i class="large material-icons">event</i></p>
+             <p class="center white-text" >Eventos</p>
+            <a class="waves-effect waves-light btn "  href="/eventos">Ingresar</a>
+
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+              <p class="center white-text"><i class="large material-icons">check_box</i></p>
+              <p class="center white-text" >Atuendos</p>
+              <a class="waves-effect waves-light btn "  href="/atuendos">Ingresar</a>
+
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+              <p class="center white-text"><i class="large material-icons">home</i></p>
+              <p class="center white-text" >Guardarropas</p>
+              <a class="waves-effect waves-light btn "  href="/guardarropas">Ingresar</a>
+
+          </div>
+
+
+        </div>
+          <div class="col s12 m12">
+              <div class="icon-block">
+                  <p class="center white-text"><i class="large material-icons">person</i></p>
+                  <p class="center white-text" >Perfil</p>
+                  <a class="waves-effect waves-light btn "  href="/informacion">Ingresar</a>
+              </div>
+
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Diseño de Sistemas</h5>
+          <p class="grey-text text-lighten-4">Trabajo practico Anual</p>
+            <p class="grey-text text-lighten-4">Grupo 10</p>
+
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
