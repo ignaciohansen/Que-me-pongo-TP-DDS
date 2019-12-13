@@ -191,7 +191,7 @@ public void juanCalurosoYtomasFriolento() throws ListaRopaVacia, atuendoEnListaN
     public void JuanAsisteAEvento() throws ListaRopaVacia, atuendoEnListaNegra {
         juan.cargarEvento(eventoDiaDeHoy);
         System.out.println("Eventos: " + juan.getEventos());
-        juan.asistirAEvento(guardarropaCompartido);
+      //  juan.asistirAEvento(guardarropaCompartido);
 
 
     }

@@ -205,6 +205,7 @@ public class Usuario{
     public void sacarEvento(Evento unEvento) {eventos.remove(unEvento);}
     public void sacarEventoAsistidoYCargarSiguiente(Evento eventoViejo,Evento eventoNuevo){
         this.sacarEvento(eventoViejo);
+        eventoViejo.Eliminar();
         this.cargarEvento(eventoNuevo);
     }
 
@@ -219,11 +220,11 @@ public class Usuario{
         return eventosDeHoy.get(random);
     }
 
-    public void asistirAEvento(Guardarropa guardarropa) throws ListaRopaVacia, atuendoEnListaNegra {
-        Evento eventoAlAzar = this.tomarUnEventoDeHoy();
-        eventoAlAzar.generarAtuendo(guardarropa,this);
-        Evento eventoSiguiente = eventoAlAzar.crearSiguienteEvento();
-        this.sacarEventoAsistidoYCargarSiguiente(eventoAlAzar,eventoSiguiente);
+    public void asistirAEvento(Guardarropa guardarropa,Evento evento) throws ListaRopaVacia, atuendoEnListaNegra {
+
+        evento.generarAtuendo(guardarropa,this);
+        Evento eventoSiguiente = evento.crearSiguienteEvento();
+        this.sacarEventoAsistidoYCargarSiguiente(evento,eventoSiguiente);
         System.out.println("Eventos actualizados : " + this.getEventos());
     }
 

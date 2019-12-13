@@ -142,18 +142,16 @@ public class Entrega4 {
     }
 
     @Test
-    public void agregarEventoAJuan() throws Exception {
-    	UsuarioDAO dao = new UsuarioDAO();
-
-    	Usuario juan = dao.obtenerUsuario("juan");
+    public void asistirEventoAJuan() throws Exception {
 
     	Evento eventoDiaDeHoy = new Evento(LocalDate.now(),"CABA",1);
 
     	juan.cargarEvento(eventoDiaDeHoy);
 
-    	dao.actualizarUsuario(juan);
 
-    	System.out.println("se actualizo eventos de juan");
+        System.out.println("Eventos actuales : " + juan.getEventos());
+
+    	juan.asistirAEvento(guardarropaCompartido,eventoDiaDeHoy);
 
     }
 

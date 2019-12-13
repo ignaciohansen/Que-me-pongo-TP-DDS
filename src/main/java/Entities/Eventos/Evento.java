@@ -38,6 +38,9 @@ public class Evento {
     @Column(name="evento_eliminado")
     private int eliminado;
 
+    @Column(name="evento_hoy")
+    private int esEnElDiaDeHoy;
+
 	public Evento() {}
 	
     public Evento(LocalDate fecha, String lugar,int diaRepeticion) {
@@ -45,8 +48,8 @@ public class Evento {
         this.lugar = lugar;
         this.diasEnQueSeRepite = diaRepeticion;
         this.eliminado = 0;
-    }
-    //notificar usuario ()
+        actualizarSiElEventoEsHoy();
+	}
 
     public Evento crearSiguienteEvento()  {
         Date date = Date.from(fecha.atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -76,6 +79,7 @@ public class Evento {
                 "fecha=" + fecha +
                 ", lugar=" + lugar +
                 ", dias en que se repite=" + diasEnQueSeRepite +
+                ",Es hoy=" + esEnElDiaDeHoy +
                 ']';
     }
 
@@ -110,6 +114,21 @@ public class Evento {
 	public void setDiasEnQueSeRepite(int diasEnQueSeRepite) {
 		this.diasEnQueSeRepite = diasEnQueSeRepite;
 	}
+
+    public void actualizarSiElEventoEsHoy() {
+        LocalDate diaDeHoy = LocalDate.now();
+	    if(this.getFecha().equals(diaDeHoy)){
+	        this.esEnElDiaDeHoy = 1;
+        } else
+        {
+            this.esEnElDiaDeHoy = 0;
+        }
+
+    }
+
+    public int getEsEnElDiaDeHoy() {
+        return esEnElDiaDeHoy;
+    }
 
     public int getEliminado() { return eliminado; }
 
