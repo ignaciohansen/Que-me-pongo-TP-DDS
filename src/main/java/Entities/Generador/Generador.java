@@ -167,7 +167,7 @@ public class Generador {
         this.atuendosCreados.add(atuendoCreado);
         System.out.println(atuendoCreado);
         mensaje.recibirMensajeAtuendo(atuendoCreado,usuario);
-        mailAPI.enviarEmail("Atuendo creado","El atuendo creado es:"+atuendoCreado,usuario);
+        //mailAPI.enviarEmail("Atuendo creado","El atuendo creado es:"+atuendoCreado,usuario);
 
         return atuendoCreado;
 }

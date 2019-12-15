@@ -50,8 +50,11 @@
                 {{#each guardarropas}}
                     <a type="button" class="btn-verde" style="float:right" href="/atuendoGenerado/{{id}}" class="btn-border-blue">Crear Atuendo</a>
                 {{/each}}
+                {{#if evento}}
+                    <a href="/eventos" class="btn-border-blue" style="">Volver</a>
+                {{else}}
                     <a href="/guardarropas" class="btn-border-blue" style="">Volver</a>
-                
+                {{/if}}
             </form>
         </div>
     </div>

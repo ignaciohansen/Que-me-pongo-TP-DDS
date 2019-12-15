@@ -12,6 +12,7 @@ import Entities.Generador.Generador;
 import Entities.Sensibilidad.tipoSensibilidad;
 
 
+import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -220,12 +221,12 @@ public class Usuario{
         return eventosDeHoy.get(random);
     }
 
-    public void asistirAEvento(Guardarropa guardarropa,Evento evento) throws ListaRopaVacia, atuendoEnListaNegra {
+    public void asistirAEvento(Evento evento) {
 
-        evento.generarAtuendo(guardarropa,this);
         Evento eventoSiguiente = evento.crearSiguienteEvento();
         this.sacarEventoAsistidoYCargarSiguiente(evento,eventoSiguiente);
         System.out.println("Eventos actualizados : " + this.getEventos());
+
     }
 
 	@Override

@@ -67,9 +67,12 @@ public class PrendaController {
     }
 
     public ModelAndView crearPrimeraPartePrenda(Request request, Response response){
+
+        String guardarropaId = request.session().attribute("guardarropaId");
     	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         parametros.put("tipos", repositorioTipoPrenda.buscarTodos());
+        parametros.put("guardarropaId", guardarropaId);
         return new ModelAndView(parametros, "prenda1.hbs");
     }
 
@@ -106,8 +109,8 @@ public class PrendaController {
         prendaAcrear.setTela(tela);
         guardarropa.agregarPrenda(prendaAcrear);
         guardarropaModel.modificar(guardarropa);
-        response.redirect("home");
-        //response.redirect("/prendas/:id");
+        response.redirect("/prendas/" + request.session().attribute("guardarropaId"));
+
         return response;
     }
 

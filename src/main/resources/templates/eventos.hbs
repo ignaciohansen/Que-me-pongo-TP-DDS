@@ -57,7 +57,7 @@
                 <!--<a href="/usuario/{{id}}" name="button" style="margin:0px;" class="btn btn-border btn-border-blue" ><i class="far fa-eye"></i></a>-->
                 <a href="/eliminarEvento/{{id}}" name="button" <i class="fas fa-trash"></i></a>
                 {{#if esEnElDiaDeHoy}}
-                    <a href="/home" class="btn-border-blue fuente">Asistir</a>
+                    <a href="/atuendo/{{id}}" class="btn-border-blue fuente">Asistir</a>
                 {{else}}
                 {{/if}}
                 <!-- <button type="button" name="button" class="btn" onclick="confirmarEliminacion('{{id}}')"><i class="fas fa-trash"></i></button>-->
@@ -68,22 +68,6 @@
       </table>
     </div>
   </body>
-
-
-  <!-- ================= MODAL ELIMINACION ================== -->
-  <div class="modalEliminar modal" id="modalEliminar">
-    <div class="modalContent">
-        <input id="eventoId" type="hidden" value="">
-      <p>¿Desea eliminar el evento?</p>
-      <button type="button" name="button" class="btn-close-modal" onclick="cerrarModal()" ><i class="fas fa-times-circle"></i></button>
-      <br>
-      <div class="">
-        <button type="button" name="button" class="btn-rojo" onclick="eliminarEvento()">Eliminar</button>
-        <button type="button" name="button" class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
-      </div>
-    </div>
-  </div>
-  <!-- ================= FIN MODAL ELIMINACION ================== -->
 
 
 </html>

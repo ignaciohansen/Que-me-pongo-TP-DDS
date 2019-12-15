@@ -106,6 +106,18 @@ public class Router {
 
         Spark.post("/calificar/:id", atuendoController::guardarCalificacion);
 
+
+
+        Spark.get("/atuendo/:id", eventoController::mostrarGuardarropasParaAsistencia, Router.engine);
+
+        Spark.get("/atuendoGenerado/:id", eventoController::Asistencia, Router.engine);
+
+        Spark.get("/rechazar/:id", eventoController::rechazar, Router.engine);
+
+        Spark.post("/atuendoGenerado/:id", eventoController::guardarAsistencia);
+
+        Spark.post("/rechazar/:id", eventoController::guardarAsistencia);
+
         Spark.after((req, res) -> { EntityManagerHelper.getEntityManager().close(); });
     }
 }
