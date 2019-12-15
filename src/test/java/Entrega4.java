@@ -151,7 +151,7 @@ public class Entrega4 {
 
         System.out.println("Eventos actuales : " + juan.getEventos());
 
-    	juan.asistirAEvento(guardarropaCompartido,eventoDiaDeHoy);
+    	juan.asistirAEvento(eventoDiaDeHoy);
 
     }
 

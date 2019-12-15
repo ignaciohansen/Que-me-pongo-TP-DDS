@@ -7,7 +7,9 @@ import javax.persistence.*;
 public class Algodon extends Tela {
     public Algodon() {
         this.getPrendasIncompatibles().add("reloj");
-        this.getPrendasIncompatibles().add("pantalon");
+        this.getPrendasIncompatibles().add("zapatilla");
+        this.getPrendasIncompatibles().add("zapato");
+        this.getPrendasIncompatibles().add("sandalia");
         setDescripcion("Algodon");
     }
 

@@ -3,26 +3,27 @@ package Entities.Telas;
 import javax.persistence.*;
 
 @Entity
-@DiscriminatorValue(value="cuero")
-public class Cuero extends Tela {
+@DiscriminatorValue(value="jean")
+public class Jean extends Tela {
 
-    public Cuero() {
+    public Jean() {
         this.getPrendasIncompatibles().add("remera");
         this.getPrendasIncompatibles().add("sweater");
         this.getPrendasIncompatibles().add("campera");
-        this.getPrendasIncompatibles().add("pantalon");
-        this.getPrendasIncompatibles().add("bermuda");
-        this.getPrendasIncompatibles().add("pollera");
         this.getPrendasIncompatibles().add("calza");
         this.getPrendasIncompatibles().add("buzo");
+        this.getPrendasIncompatibles().add("zapatilla");
+        this.getPrendasIncompatibles().add("zapato");
+        this.getPrendasIncompatibles().add("sandalia");
         this.getPrendasIncompatibles().add("musculosa");
 
-        setDescripcion("Cuero");
+        setDescripcion("Jean");
     }
 
     @Override
     public String toString() {
-        return "Cuero";
+        return "Jean";
     }
 }
+
 

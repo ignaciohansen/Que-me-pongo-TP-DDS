@@ -7,18 +7,16 @@ import javax.persistence.*;
 public class Seda extends Tela {
 
     public Seda() {
-        this.getPrendasIncompatibles().add("campera");
-        this.getPrendasIncompatibles().add("reloj");
+        this.getPrendasIncompatibles().add("calza");
+        this.getPrendasIncompatibles().add("buzo");
         this.getPrendasIncompatibles().add("zapatilla");
+        this.getPrendasIncompatibles().add("musculosa");
+        this.getPrendasIncompatibles().add("zapato");
+        this.getPrendasIncompatibles().add("sandalia");
         setDescripcion("Seda");
 
     }
-   /*
-    @Override
-    public Boolean incompatible(TipoPrenda tipoDePrenda){
-        return ( tipoDePrenda.suTipo.equals("campera"));
-    }
-*/
+
    @Override
     public String toString() {
         return "Seda";
