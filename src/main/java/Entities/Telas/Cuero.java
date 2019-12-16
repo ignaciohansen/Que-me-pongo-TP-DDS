@@ -12,7 +12,6 @@ public class Cuero extends Tela {
         this.getPrendasIncompatibles().add("remera_escote_v_manga_corta");
         this.getPrendasIncompatibles().add("remera_escote_v_manga_larga");
         this.getPrendasIncompatibles().add("sweater");
-        this.getPrendasIncompatibles().add("campera");
         this.getPrendasIncompatibles().add("pantalon_corto");
         this.getPrendasIncompatibles().add("pantalon_largo");
         this.getPrendasIncompatibles().add("bermuda");
