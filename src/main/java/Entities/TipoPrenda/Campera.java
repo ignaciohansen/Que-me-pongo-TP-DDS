@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Campera extends TipoPrenda {
 
     public Campera() {
-        this.setNivelDeAbrigo(10);
+        this.setNivelDeAbrigo(13);
         this.setSuTipo("campera");
         this.setCapaDePrenda(3);
     }

@@ -10,7 +10,7 @@ import Repositories.*;
 import Entities.Ropas.Guardarropa;
 import Entities.Ropas.Prenda;
 import Entities.Telas.Algodon;
-import Entities.TipoPrenda.Remera;
+import Entities.TipoPrenda.RemeraCuelloRedondoMangaCorta;
 import Entities.TipoPrenda.Sweater;
 import Entities.Usuario.Usuario;
 import Models.PrendaModel;
@@ -31,7 +31,7 @@ public class AtuendoController {
     Atuendo atuendo = new Atuendo();
 
     RepositorioAtuendo repositorioAtuendo = FactoryRepositorioAtuendo.get();
-    Prenda remera = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, new Remera(), Prenda.CategoriaPrenda.ParteSuperior,new Algodon(),"remera");
+    Prenda remera = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, new RemeraCuelloRedondoMangaCorta(), Prenda.CategoriaPrenda.ParteSuperior,new Algodon(),"remera");
     Prenda sweater = new Prenda(Prenda.Color.Negro, Prenda.Color.Rojo, new Sweater(), Prenda.CategoriaPrenda.ParteSuperior,new Algodon(),"sweater");
     Generador generador = new Generador();
     List<Prenda> prendas = new ArrayList<Prenda>();

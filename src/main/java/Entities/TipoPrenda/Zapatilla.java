@@ -6,7 +6,7 @@ import javax.persistence.*;
 @DiscriminatorValue(value="zapatilla")
 public class Zapatilla extends TipoPrenda {
     public Zapatilla() {
-        this.setNivelDeAbrigo(3);
+        this.setNivelDeAbrigo(0);
         this.setSuTipo("zapatilla");
     }
 }

@@ -33,10 +33,10 @@ public class Entrega2 {
     private Sweater TipoSweater = new Sweater();
     private Camisa TipoCamisa = new Camisa();
     private Reloj TipoReloj = new Reloj();
-    private Remera tipoRemera = new Remera();
+    private RemeraCuelloRedondoMangaCorta tipoRemera = new RemeraCuelloRedondoMangaCorta();
     private Zapatilla TipoZapatilla = new Zapatilla();
     private Pantufla TipoPantufla = new Pantufla();
-    private Pantalon TipoPantalon = new Pantalon();
+    private PantalonLargo TipoPantalon = new PantalonLargo();
     private Campera TipoCampera = new Campera();
 
 

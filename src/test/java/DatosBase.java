@@ -38,10 +38,10 @@ public class DatosBase {
     private Camisa TipoCamisa = new Camisa();
     private Reloj TipoReloj = new Reloj();
     private Gorro TipoGorro = new Gorro();
-    private Remera tipoRemera = new Remera();
+    private RemeraCuelloRedondoMangaCorta tipoRemera = new RemeraCuelloRedondoMangaCorta();
     private Zapatilla TipoZapatilla = new Zapatilla();
     private Pantufla TipoPantufla = new Pantufla();
-    private Pantalon TipoPantalon = new Pantalon();
+    private PantalonLargo TipoPantalon = new PantalonLargo();
     private Campera TipoCampera = new Campera();
 
     private Cuero cuero = new Cuero();
