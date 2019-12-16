@@ -36,9 +36,10 @@
                         <br>
                         <br>
                         <br>
+                       
                     </div>
                 </div>
-                <select class="input-select" name="descripcion">
+                <label for="select1"></label><select class="input-select" name="descripcion" id="select1" onChange="getOption()" >
                     <option selected disabled>Seleccionar guardarropa</option>
                     {{#each guardarropas}}
                         <label> {{descripcion}}</label>
@@ -47,18 +48,42 @@
                 </select>
                 <br>
                 <br>
-                {{#each guardarropas}}
-                    <a type="button" class="btn-verde" style="float:right" href="/atuendoGenerado/{{id}}" class="btn-border-blue">Crear Atuendo</a>
-                {{/each}}
+
+                    <a type="button" class="btn-verde" style="float:right" href="/atuendoGenerado/" class="btn-border-blue" id="link">Crear Atuendo</a>
+
                 {{#if evento}}
                     <a href="/eventos" class="btn-border-blue" style="">Volver</a>
                 {{else}}
                     <a href="/guardarropas" class="btn-border-blue" style="">Volver</a>
                 {{/if}}
+
+
+
             </form>
         </div>
     </div>
 
 </div>
+
+
+<script type="text/javascript">
+    function getOption() {
+        selectElement =
+                document.querySelector('#select1');
+
+        output = selectElement.value;
+
+        // document.querySelector('.output').textContent
+        //         = output;
+
+        var result = output;
+
+        document.getElementById("link").href="/atuendoGenerado/" + result;
+
+    }
+
+</script>
+
+
 </body>
 </html>
