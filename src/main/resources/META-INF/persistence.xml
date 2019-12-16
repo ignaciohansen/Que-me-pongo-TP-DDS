@@ -14,9 +14,9 @@
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 
-                       <property name="hibernate.connection.url" value="jdbc:mysql://osdjp0dld7n3ssv7:li4dzvszbhxjh70m@y06qcehxdtkegbeb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/c9y37ov06zr6pfvo"/>
-                        <property name="hibernate.connection.username" value="osdjp0dld7n3ssv7"/>
-                        <property name="hibernate.connection.password" value="li4dzvszbhxjh70m"/>
+                       <property name="hibernate.connection.url" value="jdbc:mysql://pmhjgjndjvxrz38c:dhq6j5t92lufp0ft@y06qcehxdtkegbeb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/onvt5o6rzxr81ugy"/>
+                        <property name="hibernate.connection.username" value="pmhjgjndjvxrz38c"/>
+                        <property name="hibernate.connection.password" value="dhq6j5t92lufp0ft"/>
                         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
                     <property name="hibernate.id.new_generator_mappings" value="false" />
 
