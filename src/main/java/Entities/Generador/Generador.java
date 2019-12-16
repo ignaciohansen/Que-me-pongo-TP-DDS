@@ -25,7 +25,7 @@ public class Generador {
     int grados = api.getTemperatura();
 
     private int gradosQueHacenApi = grados;
-    private int numeroReferenciaParaCalculo = 30; // Podria ir en un archiv config
+    private int numeroReferenciaParaCalculo = 35; // Podria ir en un archiv config
     
     public List<Atuendo> atuendosCreados = new ArrayList<Atuendo>();
 
@@ -166,7 +166,10 @@ public class Generador {
 
         this.atuendosCreados.add(atuendoCreado);
         System.out.println(atuendoCreado);
-        mensaje.recibirMensajeAtuendo(atuendoCreado,usuario);
+        if(atuendoCreado.getAceptado())      {
+            mensaje.recibirMensajeAtuendo(atuendoCreado,usuario);
+        }
+
         //mailAPI.enviarEmail("Atuendo creado","El atuendo creado es:"+atuendoCreado,usuario);
 
         return atuendoCreado;
