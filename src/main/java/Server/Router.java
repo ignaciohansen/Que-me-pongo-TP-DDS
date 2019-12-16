@@ -114,10 +114,6 @@ public class Router {
 
         Spark.get("/rechazar/:id", eventoController::rechazar, Router.engine);
 
-        Spark.post("/atuendoGenerado/:id", eventoController::guardarAsistencia);
-
-        Spark.post("/rechazar/:id", eventoController::guardarAsistencia);
-
         Spark.after((req, res) -> { EntityManagerHelper.getEntityManager().close(); });
     }
 }

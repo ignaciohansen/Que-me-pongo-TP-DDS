@@ -1,10 +1,12 @@
 package Controllers;
 
+import Entities.Eventos.Evento;
 import Entities.Exceptions.ListaRopaVacia;
 import Entities.Exceptions.atuendoEnListaNegra;
 import Entities.Generador.Generador;
 import  Entities.Ropas.Atuendo;
 import Models.AtuendoModel;
+import Models.EventoModel;
 import Repositories.*;
 
 import Entities.Ropas.Guardarropa;
@@ -27,6 +29,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class AtuendoController {
+	
+	EventoModel eventoModel = new EventoModel();
 
     Atuendo atuendo = new Atuendo();
 
@@ -114,17 +118,42 @@ public class AtuendoController {
     
     public Response aceptarAtuendo(Request request, Response response) {
     	LoginController.ensureUserIsLoggedIn(request, response);
-    	Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
     	
+    	// si viene de asistir a evento
+    	if(request.session().attribute("evento") != null) {
+    		 Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
+    	        Evento EventoParaAsistir = request.session().attribute("evento");
+    	        EventoParaAsistir.Eliminar();
+    	        
+    	        usuario.getEventos().stream().filter(ev -> ev.getId() == EventoParaAsistir.getId()).collect(Collectors.toList()).get(0).Eliminar();
+    	        
+    	        usuario.asistirAEvento(EventoParaAsistir);
+
+    	        Atuendo atuendo = request.session().attribute("atuendo");
+    	        atuendo.setAceptado(true);
+    	        usuario.getAtuendos().add(atuendo);
+
+    	        usuarioModel.modificar(usuario);
+    	        request.session().removeAttribute("atuendo");
+    	        request.session().removeAttribute("evento");
+
+    	        response.redirect("/eventos");
+    	}
+    	else {
+    		
+    		Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
+    		
+    		
+    		Atuendo atuendo = request.session().attribute("atuendo");
+    		atuendo.setAceptado(true);
+    		usuario.getAtuendos().add(atuendo);
+    		
+    		usuarioModel.modificar(usuario);
+    		request.session().removeAttribute("atuendo");
+    		
+    		response.redirect("/atuendos");
+    	}
     	
-    	Atuendo atuendo = request.session().attribute("atuendo");
-    	atuendo.setAceptado(true);
-    	usuario.getAtuendos().add(atuendo);
-    	
-    	usuarioModel.modificar(usuario);
-    	request.session().removeAttribute("atuendo");
-    	
-    	response.redirect("/atuendos");
     	return null;
     }
 

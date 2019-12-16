@@ -135,26 +135,6 @@ Vistas: Asistir te lleva a mostrarGuardarropasParaAsistencia, el volver te lleva
         return new ModelAndView(parametros, "atuendoCreado.hbs");
     }
 
-    public Response guardarAsistencia(Request request, Response response) throws atuendoEnListaNegra, ListaRopaVacia {
-        LoginController.ensureUserIsLoggedIn(request, response);
-        Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
-        Evento EventoParaAsistir = request.session().attribute("evento");
-        EventoParaAsistir.Eliminar();
-        usuario.asistirAEvento(EventoParaAsistir);
-
-        Atuendo atuendo = request.session().attribute("atuendo");
-        atuendo.setAceptado(true);
-        usuario.getAtuendos().add(atuendo);
-
-        eventoModel.modificar(EventoParaAsistir);
-        usuarioModel.modificar(usuario);
-        request.session().removeAttribute("atuendo");
-        request.session().removeAttribute("evento");
-
-        response.redirect("/eventos");
-        return response;
-    }
-
     public ModelAndView rechazar(Request request, Response response) throws ListaRopaVacia, atuendoEnListaNegra {
         LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
