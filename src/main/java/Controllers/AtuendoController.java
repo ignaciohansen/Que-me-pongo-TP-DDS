@@ -52,7 +52,7 @@ public class AtuendoController {
     	LoginController.ensureUserIsLoggedIn(request, response);
         Map<String, Object> parametros = new HashMap<>();
         Usuario usuario = usuarioModel.buscarPorUsuario(request.session().attribute("currentUser"));
-        List<Atuendo> atuendos = usuario.getAtuendos().stream().filter(atuendo -> atuendo.getEliminado() == 0).collect(Collectors.toList());
+        List<Atuendo> atuendos = usuario.getAtuendos().stream().filter(atuendo -> atuendo.getEliminado() == 0 && atuendo.getAceptado()).collect(Collectors.toList());
         parametros.put("atuendos", atuendos);
         return new ModelAndView(parametros, "atuendos.hbs");
     }
