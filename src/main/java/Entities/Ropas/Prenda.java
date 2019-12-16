@@ -134,9 +134,9 @@ public class Prenda {
 		this.id = id;
 	}
 
-	public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste};
+	public enum Color {Rojo, Verde, Azul, Negro, Blanco, Gris, Amarillo, Marron, Rosa, Violeta, Celeste, Bordo};
 
-    public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio}; //Ver si agregar manos, cabeza como categoria
+    public enum CategoriaPrenda {ParteSuperior, ParteInferior, Calzado, Accesorio};
 
     public int getEliminado() { return eliminado; }
 
