@@ -11,6 +11,7 @@ import Entities.Usuario.UsuarioGratuito;
 import Entities.Usuario.UsuarioPremium;
 import Models.SensibilidadModel;
 import Models.TipoPrendaModel;
+import Models.UsuarioModel;
 import Models.tipoUsuarioModel;
 import Repositories.Dao.UsuarioDAO;
 import org.junit.Before;
@@ -118,8 +119,6 @@ public class DatosBaseEntrega {
         zapatosAlejandro = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoZapato, Prenda.CategoriaPrenda.Calzado,cuero,"zapatos");
         zapatosJulieta = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoZapato, Prenda.CategoriaPrenda.Calzado,cuero,"zapatos");
         sandalias = new Prenda(Prenda.Color.Negro, Prenda.Color.Blanco, TipoSandalia, Prenda.CategoriaPrenda.Calzado,cuero,"sandalias");
-
-
         relojA = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero,"reloj");
         gorroA = new Prenda(Prenda.Color.Blanco, Prenda.Color.Marron, TipoGorro, Prenda.CategoriaPrenda.Accesorio,algodon,"gorro");
         pulseraA = new Prenda(Prenda.Color.Rojo, Prenda.Color.Blanco, TipoReloj, Prenda.CategoriaPrenda.Accesorio,cuero,"pulsera");
@@ -164,26 +163,35 @@ public class DatosBaseEntrega {
     }
     
     @Test
- public void persistir() throws Exception {
+ public void persistirAlejandro() throws Exception {
 
 
-    UsuarioDAO dao = new UsuarioDAO();
+    UsuarioModel dao = new UsuarioModel();
     alejandro.setNombre("Alejandro Roco");
     alejandro.setUser("aroco");
     alejandro.setPassword("123456");
     alejandro.setEmail("ignaciohansen@hotmail.com");
     alejandro.setTelefono(1161906402);
 
-    julieta.setNombre("Julieta Azul");
-    julieta.setUser("jazul");
-    julieta.setPassword("123456");
-    julieta.setEmail("ignaciohansen@hotmail.com");
-    julieta.setTelefono(1161906402);
    	dao.agregar(alejandro);
-   	dao.agregar(julieta);
+
 
  	System.out.println("usuarios persistidos");
   }
+
+    @Test
+    public void persistirJulieta() throws Exception {
+
+        UsuarioModel dao = new UsuarioModel();
+        julieta.setNombre("Julieta Azul");
+        julieta.setUser("jazul");
+        julieta.setPassword("123456");
+        julieta.setEmail("ignaciohansen@hotmail.com");
+        julieta.setTelefono(1161906402);
+        dao.agregar(julieta);
+
+        System.out.println("usuarios persistidos");
+    }
 
 
     @Test
