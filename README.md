@@ -6,11 +6,7 @@
 
 - Ignacio Hansen
 
-- Juan Ignacio Martinez
-
 - Gabriel Mamani
-
-- Federico Gonzalez
 
 - Federico Velasco
 
