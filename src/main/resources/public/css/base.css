@@ -113,17 +113,7 @@ header{
   color: black;
   background: none;
 }
-.btn-border-blue{
-  padding: 7px;
-  margin: 10px;
-  width: 35px;
-  height: 35px;
-  font-size: 16px;
-  border-radius: 5px;
-  color:rgb(10, 123, 199);
-  border: 1px solid rgb(10, 123, 199);
-  text-decoration: none;
-}
+
 #inputUsuario{
   position:fixed;
   right:25px;
@@ -176,6 +166,18 @@ header{
   cursor:pointer;
 
 }
+.btn-border-blue{
+  padding: 10px;
+  margin: 10px;
+  width: 35px;
+  height: 35px;
+  font-size: 16px;
+  border-radius: 5px;
+  color:rgb(10, 123, 199);
+  border: 1px solid rgb(10, 123, 199);
+  text-decoration: none;
+}
+
 .btn-rojo{
   border:0px;
   padding: 10px;

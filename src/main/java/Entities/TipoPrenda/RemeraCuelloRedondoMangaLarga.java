@@ -7,6 +7,6 @@ import javax.persistence.*;
 public class RemeraCuelloRedondoMangaLarga extends TipoPrenda {
     public RemeraCuelloRedondoMangaLarga() {
         this.setNivelDeAbrigo(8);
-        this.setSuTipo("remera_cuelloredondo_mangalarga");
+        this.setSuTipo("remera_cuello_redondo_manga_larga");
     }
 }

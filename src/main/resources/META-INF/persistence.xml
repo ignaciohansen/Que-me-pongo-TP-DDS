@@ -10,7 +10,7 @@
 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>
-            <!-->-->
+            <!-->
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 
@@ -19,14 +19,14 @@
                         <property name="hibernate.connection.password" value="dhq6j5t92lufp0ft"/>
                         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
                     <property name="hibernate.id.new_generator_mappings" value="false" />
-
-            <!-->
+-->
+            <!-->-->
                         <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
                               <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/quemepongo?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
                              <property name="hibernate.connection.username" value="root" />
                               <property name="hibernate.connection.password" value="1234" />
                            <property name="hibernate.id.new_generator_mappings" value="false" />
--->
+
 
 
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />

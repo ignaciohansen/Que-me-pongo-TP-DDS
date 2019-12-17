@@ -109,7 +109,7 @@ public class PrendaController {
         prendaAcrear.setTela(tela);
         guardarropa.agregarPrenda(prendaAcrear);
         guardarropaModel.modificar(guardarropa);
-        response.redirect("/prendas/" + request.session().attribute("guardarropaId"));
+        response.redirect("/home");
 
         return response;
     }
@@ -122,12 +122,10 @@ public class PrendaController {
 
     public Response Eliminar(Request request, Response response) {
         LoginController.ensureUserIsLoggedIn(request, response);
-        Map<String, Object> parametros = new HashMap<>();
         Prenda prenda = repositorioPrenda.buscar(new Integer(request.params("id")));
         prenda.Eliminar();
         prendaModel.modificar(prenda);
         response.redirect("/home");
-        //response.redirect("/prendas/:id");
         return  response;
     }
 }

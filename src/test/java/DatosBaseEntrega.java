@@ -72,7 +72,6 @@ public class DatosBaseEntrega {
     private Gorro TipoGorro = new Gorro();
 
 
-
     private Cuero cuero = new Cuero();
     private Algodon algodon = new Algodon();
     private Lycra lycra = new Lycra();
@@ -129,7 +128,6 @@ public class DatosBaseEntrega {
 
         alejandro.agregarUnGuardarropas(guardarropaAlejandro);
         julieta.agregarUnGuardarropas(guardarropaJulieta);
-
 
         guardarropaAlejandro.setDescripcion("GuardarropaAlejandro");
         guardarropaAlejandro.agregarPrenda(remera_cuelloredondo_mangacorta);
